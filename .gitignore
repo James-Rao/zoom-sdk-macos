@@ -59,4 +59,5 @@ fastlane/screenshots
 
 iOSInjectionProject/
 
-ZoomSDKSample/Bin/Release
+Bin/
+Release/
