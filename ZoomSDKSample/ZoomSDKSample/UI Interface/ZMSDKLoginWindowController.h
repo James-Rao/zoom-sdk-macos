@@ -113,4 +113,14 @@
 - (void)createMainWindow;
 - (void)logOut;
 - (void)updateUIWithLoginStatus:(BOOL)hasLogin;
+
+// new properties and functions
+- (IBAction)onButtonClicked_ToLoginView:(NSButton *)sender;
+- (void)switchToLaunchTab;
+- (IBAction)onButtonClicked_ToLaunchView:(NSButton *)sender;
+- (IBAction)onButtonClicked_Login:(id)sender;
+@property (assign) IBOutlet NSTextField *_textFieldEmail;
+@property (assign) IBOutlet NSSecureTextField *_textFieldPassword;
+
+
 @end

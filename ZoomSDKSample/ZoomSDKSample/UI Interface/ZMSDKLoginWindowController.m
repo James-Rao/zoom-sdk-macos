@@ -30,9 +30,9 @@
 *
 */
 
-#define kZoomSDKDomain      @""
-#define kZoomSDKAppKey      @""
-#define kZoomSDKAppSecret   @""
+#define kZoomSDKDomain      @"https://zoom.us"
+#define kZoomSDKAppKey      @"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3"
+#define kZoomSDKAppSecret   @"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"
 #define kZoomSDKAPIKey      @""
 #define kZoomSDKAPISecret   @""
 
@@ -67,11 +67,16 @@
 }
 - (void)initHelper
 {
-    self.authHelper = [[ZMSDKAuthHelper alloc] initWithWindowController:self];
-    self.restAPIHelper = [[ZMSDKRestAPILogin alloc] initWithWindowController:self];
-    self.emailLoginHelper = [[ZMSDKEmailLogin alloc] initWithWindowController:self];
-    self.ssoLoginHelper = [[ZMSDKSSOLogin alloc] initWithWindowController:self];
-    self.joinOnlyHelper = [[ZMSDKJoinOnly alloc] initWithWindowController:self];
+    if (self.authHelper == nil) {
+        self.authHelper = [[ZMSDKAuthHelper alloc] initWithWindowController:self];
+    }
+    if (self.emailLoginHelper == nil) {
+        self.emailLoginHelper = [[ZMSDKEmailLogin alloc] initWithWindowController:self];
+    }
+    
+    //self.ssoLoginHelper = [[ZMSDKSSOLogin alloc] initWithWindowController:self];
+    //self.joinOnlyHelper = [[ZMSDKJoinOnly alloc] initWithWindowController:self];
+    //self.restAPIHelper = [[ZMSDKRestAPILogin alloc] initWithWindowController:self];
 }
 
 - (void)cleanUp
@@ -286,4 +291,35 @@
         [self switchToLoginTab];
     }
 }
+
+// new functions
+- (IBAction)onButtonClicked_ToLoginView:(NSButton *)sender {
+    [ZMSDKInitHelper initSDK:false];
+    [ZMSDKInitHelper setDomain:@"https://zoom.us"];
+    [self initHelper];
+    [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+}
+
+- (void)switchToLaunchTab
+{
+    [_baseTabView selectTabViewItemWithIdentifier:@"launch"];
+    [_loadingProgressIndicator stopAnimation:self];
+}
+
+- (IBAction)onButtonClicked_ToLaunchView:(NSButton *)sender {
+    [self switchToLaunchTab];
+}
+
+- (IBAction)onButtonClicked_Login:(id)sender {
+    if(__textFieldEmail.stringValue.length > 0)
+    {
+        BOOL rememberMe = NO;
+        if(_emailRememerMeButton.state == NSOnState)
+            rememberMe = YES;
+        [_emailLoginHelper loginWithEmail:__textFieldEmail.stringValue Password:__textFieldPassword.stringValue RememberMe:rememberMe];
+        [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_Email;
+    }
+}
+
+
 @end

@@ -48,17 +48,17 @@
 {
     if(ZoomSDKError_Success == returnValue)
     {
-        if([[NSUserDefaults standardUserDefaults] boolForKey:kZMSDKLoginEmailRemember])
-        {
-            [_loginController switchToConnectingTab];
-            [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_Email;
-        }
-        else if([[NSUserDefaults standardUserDefaults] boolForKey:kZMSDKLoginSSORemember])
-        {
-            [_loginController switchToConnectingTab];
-             [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_SSO;
-        }
-        else
+//        if([[NSUserDefaults standardUserDefaults] boolForKey:kZMSDKLoginEmailRemember])
+//        {
+//            [_loginController switchToConnectingTab];
+//            [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_Email;
+//        }
+//        else if([[NSUserDefaults standardUserDefaults] boolForKey:kZMSDKLoginSSORemember])
+//        {
+//            [_loginController switchToConnectingTab];
+//             [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_SSO;
+//        }
+//        else
             [_loginController switchToLoginTab];
     }else{
         //error code handle
