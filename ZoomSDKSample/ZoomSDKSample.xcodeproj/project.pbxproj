@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		294B4C492233E21700E6CD88 /* Logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 294B4C482233E21700E6CD88 /* Logo_white.png */; };
 		5D19DC6721DE25D300925E18 /* SDK_Transcode.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 5D19DC6621DE25D300925E18 /* SDK_Transcode.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5D322D0021C8DCE10093CD4A /* plistArrowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */; };
 		5D322D0121C8DCE10093CD4A /* plistArrowTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */; };
@@ -171,6 +172,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		294B4C482233E21700E6CD88 /* Logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_white.png; sourceTree = "<group>"; };
 		5D19DC6621DE25D300925E18 /* SDK_Transcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = SDK_Transcode.app; path = ZoomSDK/SDK_Transcode.app; sourceTree = "<group>"; };
 		5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowBottom.png; sourceTree = "<group>"; };
 		5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowTop.png; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 		5DDCB9D821A2937700F798C9 /* Image Resource */ = {
 			isa = PBXGroup;
 			children = (
+				294B4C482233E21700E6CD88 /* Logo_white.png */,
 				9755A2871D6D8C8300B69E72 /* ZoomLogo.png */,
 				5D92582D21D3811D00CF2782 /* toolbar_mute_tele_normal.png */,
 				5D92582C21D3811D00CF2782 /* toolbar_mute_tele_press.png */,
@@ -844,6 +847,7 @@
 				5DFC0F3221C9F2500027F596 /* toolbar_mute_voip_press.png in Resources */,
 				5DFC0F2C21C9EE210027F596 /* toolbar_mute_voip_normal.png in Resources */,
 				5D92F91021CB8D3E0088B241 /* share_whiteboard.png in Resources */,
+				294B4C492233E21700E6CD88 /* Logo_white.png in Resources */,
 				5DDCB9F321A2937700F798C9 /* btn_presentshare_normal@2x.png in Resources */,
 				5D92582E21D3811D00CF2782 /* toolbar_noaudio_highlight.png in Resources */,
 				5DFC0F3C21C9F2E80027F596 /* toolbar_share_press.png in Resources */,

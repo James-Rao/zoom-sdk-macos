@@ -21,6 +21,10 @@
 @interface ZMSDKLoginWindowController : NSWindowController
 {
     IBOutlet NSTabView* _baseTabView;
+    // launch
+    IBOutlet NSButton *_joinMeetingButton;
+    IBOutlet NSButton *_firstTimeConfigButton;
+    
     //set domain
     IBOutlet NSImageView* _domainLogoImageView;
     IBOutlet NSTextField* _setDomainTextField;

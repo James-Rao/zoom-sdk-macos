@@ -25,6 +25,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     signal(SIGPIPE, processSignal);
+    [self.loginWindowCtrl.window setBackgroundColor:NSColor.whiteColor];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
