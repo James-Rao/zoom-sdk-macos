@@ -11,17 +11,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/xmpp_framework.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			s839o+cPJKWhIeMRxf/3KO6f5Dk=
-			</data>
-			<key>hash2</key>
-			<data>
-			tQH7mvBY2BSvcAC6zkaii9dURMiW/TSQKqW+EgjdEcs=
-			</data>
-		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>

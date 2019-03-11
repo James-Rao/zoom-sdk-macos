@@ -19,17 +19,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/curl_framwork.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			f8PvjJIc4facddGiOadSMcSKLs8=
-			</data>
-			<key>hash2</key>
-			<data>
-			VDaMJZDi2O9tRAkBg/9OXnDT1AiajWwtFV9IQngJRlg=
-			</data>
-		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>

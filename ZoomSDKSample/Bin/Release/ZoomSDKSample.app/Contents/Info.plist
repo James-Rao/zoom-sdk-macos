@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>ZPLogo</string>
 	<key>CFBundleIdentifier</key>
-	<string>zoom.us.ZoomSDKSample</string>
+	<string>zoom.us.ZoomSDKSample.my</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,6 +42,8 @@
 	<string>0941</string>
 	<key>DTXcodeBuild</key>
 	<string>9F2000</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.business</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.6</string>
 	<key>NSAppTransportSecurity</key>

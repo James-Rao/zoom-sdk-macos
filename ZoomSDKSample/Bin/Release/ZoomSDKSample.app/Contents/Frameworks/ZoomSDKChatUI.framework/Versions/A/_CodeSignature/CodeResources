@@ -280,17 +280,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			o0jJR14ZM88AXHFstPwQ0zPi7eo=
-			</data>
-			<key>hash2</key>
-			<data>
-			qtc0L1rYmaBp0EV3XQStJ1Vai78KNYh5rQUNpn9jh5s=
-			</data>
-		</dict>
 		<key>Resources/AboutWindow.nib</key>
 		<dict>
 			<key>hash</key>

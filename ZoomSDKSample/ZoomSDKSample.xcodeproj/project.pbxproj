@@ -774,6 +774,8 @@
 				TargetAttributes = {
 					971725F11D3F618A00D5C72D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = VSQKZP936K;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1012,6 +1014,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/../../../../../../../../Bin/Mac/";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Debug;
 		};
@@ -1049,6 +1052,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/../../../../../../../../Bin/Mac/";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
 		};
@@ -1058,9 +1062,11 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Bin/Release";
+				DEVELOPMENT_TEAM = VSQKZP936K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/ZoomSDK",
 					"$(PROJECT_DIR)/ZoomSDK",
@@ -1071,8 +1077,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ZoomSDK";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "$(SRCROOT)/Bin/Release";
 			};
@@ -1084,9 +1091,11 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Bin/Release";
+				DEVELOPMENT_TEAM = VSQKZP936K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/ZoomSDK",
 					"$(PROJECT_DIR)/ZoomSDK",
@@ -1097,8 +1106,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ZoomSDK";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "$(SRCROOT)/Bin/Release";
 			};
