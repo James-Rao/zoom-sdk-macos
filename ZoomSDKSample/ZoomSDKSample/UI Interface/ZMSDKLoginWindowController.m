@@ -298,6 +298,7 @@
     [ZMSDKInitHelper setDomain:@"https://zoom.us"];
     [self initHelper];
     [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+    [self switchToConnectingTab];
 }
 
 - (void)switchToLaunchTab
