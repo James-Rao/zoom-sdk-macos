@@ -17,4 +17,6 @@
 
 - (void)addAuthDelegateListener:(id<ZoomSDKAuthDelegate>)authDelegate;
 - (void)removeAuthDelegateListener:(id<ZoomSDKAuthDelegate>)authDelegate;
+
+- (void)socketConnectHost;
 @end

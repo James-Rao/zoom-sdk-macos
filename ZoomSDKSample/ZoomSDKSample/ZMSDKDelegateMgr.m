@@ -8,6 +8,8 @@
 
 #import "ZMSDKDelegateMgr.h"
 
+@import SocketIO;
+
 @interface ZMSDKDelegateMgr()
 {
     ZoomSDKAuthService* _authService;
@@ -107,6 +109,18 @@ static ZMSDKDelegateMgr* delegateMgr = nil;
             [target onZoomSDKAuthReturn:returnValue];
         }
     }
+}
+
+///// new func
+- (void) socketConnectHost
+{
+    NSURL* url = [[NSURL alloc] initWithString:@"http://218.17.76.147:9091"];
+    SocketManager* manager = [[SocketManager alloc] initWithSocketURL:url config:@{@"log": @YES, @"compress": @YES}];
+    SocketIOClient* socket = manager.defaultSocket;
+    
+    [socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
+        NSLog(@"socket connected");
+    }];
 }
 
 @end

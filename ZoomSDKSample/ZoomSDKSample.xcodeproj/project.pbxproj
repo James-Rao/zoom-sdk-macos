@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		294B4C492233E21700E6CD88 /* Logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 294B4C482233E21700E6CD88 /* Logo_white.png */; };
+		2988B0B0223FD317009E70D0 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AD223FD316009E70D0 /* SocketIO.framework */; };
+		2988B0B1223FD317009E70D0 /* SocketIO.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AD223FD316009E70D0 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2988B0B2223FD317009E70D0 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AE223FD316009E70D0 /* CommonCrypto.framework */; };
+		2988B0B3223FD317009E70D0 /* CommonCrypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AE223FD316009E70D0 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2988B0B4223FD317009E70D0 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AF223FD316009E70D0 /* Starscream.framework */; };
+		2988B0B5223FD317009E70D0 /* Starscream.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AF223FD316009E70D0 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5D19DC6721DE25D300925E18 /* SDK_Transcode.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 5D19DC6621DE25D300925E18 /* SDK_Transcode.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5D322D0021C8DCE10093CD4A /* plistArrowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */; };
 		5D322D0121C8DCE10093CD4A /* plistArrowTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */; };
@@ -101,7 +107,6 @@
 		9729ED131DD5AF7200DB188D /* libcrypto.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9729ECF81DD5AF7200DB188D /* libcrypto.1.0.0.dylib */; };
 		9729ED141DD5AF7200DB188D /* libssl.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9729ECF91DD5AF7200DB188D /* libssl.1.0.0.dylib */; };
 		9729ED241DD5AF7200DB188D /* ZoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9729ED091DD5AF7200DB188D /* ZoomSDK.framework */; };
-		9729EDF61DD5B9A900DB188D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9717274E1D3F702800D5C72D /* Cocoa.framework */; };
 		9729EDF71DD5B9C600DB188D /* annoter.bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = 9729ECF31DD5AF7100DB188D /* annoter.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9729EDF81DD5B9C600DB188D /* asproxy.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9729ECF41DD5AF7100DB188D /* asproxy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9729EDF91DD5B9C600DB188D /* cmmlib.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 9729ECF51DD5AF7100DB188D /* cmmlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -139,9 +144,12 @@
 				5DB3BD7921EC621D00FCD657 /* airhost.app in Copy Files */,
 				5D50C2DD21DF055700041DE4 /* curl64.framework in Copy Files */,
 				5D19DC6721DE25D300925E18 /* SDK_Transcode.app in Copy Files */,
+				2988B0B1223FD317009E70D0 /* SocketIO.framework in Copy Files */,
 				971B86A22194321900DE248F /* ZoomSDKVideoUI.framework in Copy Files */,
+				2988B0B5223FD317009E70D0 /* Starscream.framework in Copy Files */,
 				9756C51C1FEBAF0A00609247 /* ZoomSDKChatUI.framework in Copy Files */,
 				9729EDF71DD5B9C600DB188D /* annoter.bundle in Copy Files */,
+				2988B0B3223FD317009E70D0 /* CommonCrypto.framework in Copy Files */,
 				9729EDF81DD5B9C600DB188D /* asproxy.framework in Copy Files */,
 				9729EDF91DD5B9C600DB188D /* cmmlib.framework in Copy Files */,
 				9729EDFB1DD5B9C600DB188D /* faac.bundle in Copy Files */,
@@ -173,6 +181,9 @@
 
 /* Begin PBXFileReference section */
 		294B4C482233E21700E6CD88 /* Logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_white.png; sourceTree = "<group>"; };
+		2988B0AD223FD316009E70D0 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = ZoomSDK/SocketIO.framework; sourceTree = "<group>"; };
+		2988B0AE223FD316009E70D0 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = ZoomSDK/CommonCrypto.framework; sourceTree = "<group>"; };
+		2988B0AF223FD316009E70D0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = ZoomSDK/Starscream.framework; sourceTree = "<group>"; };
 		5D19DC6621DE25D300925E18 /* SDK_Transcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = SDK_Transcode.app; path = ZoomSDK/SDK_Transcode.app; sourceTree = "<group>"; };
 		5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowBottom.png; sourceTree = "<group>"; };
 		5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowTop.png; sourceTree = "<group>"; };
@@ -294,7 +305,6 @@
 		971725FB1D3F618A00D5C72D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971725FE1D3F618A00D5C72D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		971726001D3F618A00D5C72D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9717274E1D3F702800D5C72D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		971B868A2194307B00DE248F /* ShareContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareContentView.h; sourceTree = "<group>"; };
 		971B868B2194307B00DE248F /* ShareContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareContentView.m; sourceTree = "<group>"; };
 		971B86962194308A00DE248F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "SDK Resources/de.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -350,10 +360,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9729EDF61DD5B9A900DB188D /* Cocoa.framework in Frameworks */,
 				9729ED141DD5AF7200DB188D /* libssl.1.0.0.dylib in Frameworks */,
+				2988B0B4223FD317009E70D0 /* Starscream.framework in Frameworks */,
 				9729ED131DD5AF7200DB188D /* libcrypto.1.0.0.dylib in Frameworks */,
 				9729ED241DD5AF7200DB188D /* ZoomSDK.framework in Frameworks */,
+				2988B0B0223FD317009E70D0 /* SocketIO.framework in Frameworks */,
+				2988B0B2223FD317009E70D0 /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +674,7 @@
 				971C0DDA1D40964C0083AD9B /* Framworks */,
 				971725F41D3F618A00D5C72D /* ZoomSDKSample */,
 				971725F31D3F618A00D5C72D /* Products */,
+				A89F737ACFF33F9A45828A74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -708,6 +721,9 @@
 		971C0DDA1D40964C0083AD9B /* Framworks */ = {
 			isa = PBXGroup;
 			children = (
+				2988B0AE223FD316009E70D0 /* CommonCrypto.framework */,
+				2988B0AD223FD316009E70D0 /* SocketIO.framework */,
+				2988B0AF223FD316009E70D0 /* Starscream.framework */,
 				5D50C2DC21DF055700041DE4 /* curl64.framework */,
 				971B86A12194321900DE248F /* ZoomSDKVideoUI.framework */,
 				5D19DC6621DE25D300925E18 /* SDK_Transcode.app */,
@@ -737,9 +753,15 @@
 				9729ED0A1DD5AF7200DB188D /* zSDKRes.bundle */,
 				9729ED0B1DD5AF7200DB188D /* zVideoApp.bundle */,
 				9729ED0D1DD5AF7200DB188D /* zWebService.bundle */,
-				9717274E1D3F702800D5C72D /* Cocoa.framework */,
 			);
 			name = Framworks;
+			sourceTree = "<group>";
+		};
+		A89F737ACFF33F9A45828A74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,7 +791,7 @@
 		971725EA1D3F618A00D5C72D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = TOTTI;
 				TargetAttributes = {
 					971725F11D3F618A00D5C72D = {
@@ -977,17 +999,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -1022,17 +1055,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -1059,58 +1103,70 @@
 		971726041D3F618A00D5C72D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Bin/Release";
 				DEVELOPMENT_TEAM = VSQKZP936K;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/ZoomSDK",
+					"/Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK",
 					"$(PROJECT_DIR)/ZoomSDK",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/ZoomSDK/ZoomSDK.framework/Versions/A/Headers";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = ZoomSDKSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ZoomSDK";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "$(SRCROOT)/Bin/Release";
+				USER_HEADER_SEARCH_PATHS = Yes;
 			};
 			name = Debug;
 		};
 		971726051D3F618A00D5C72D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/Bin/Release";
 				DEVELOPMENT_TEAM = VSQKZP936K;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/ZoomSDK",
+					"/Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK",
 					"$(PROJECT_DIR)/ZoomSDK",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/ZoomSDK/ZoomSDK.framework/Versions/A/Headers";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = ZoomSDKSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/ZoomSDK";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "$(SRCROOT)/Bin/Release";
+				USER_HEADER_SEARCH_PATHS = Yes;
 			};
 			name = Release;
 		};

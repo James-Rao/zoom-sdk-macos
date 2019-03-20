@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/main.m
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/main.m

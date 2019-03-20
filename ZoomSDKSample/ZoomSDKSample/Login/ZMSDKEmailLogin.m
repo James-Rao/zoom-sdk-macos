@@ -71,6 +71,8 @@
             break;
         case ZoomSDKLoginStatus_Success:
         {
+            [[ZMSDKCommonHelper sharedInstance].delegateMgr socketConnectHost];
+            
             [_loginWindowController createMainWindow];
             [ZMSDKCommonHelper sharedInstance].hasLogin = YES;
             [_loginWindowController updateUIWithLoginStatus:YES];
