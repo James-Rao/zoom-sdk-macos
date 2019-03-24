@@ -1,0 +1,34 @@
+//
+//  VLinkA-Prefix.pch
+//  VLinkAMeeting
+//
+//  Created by limingzhan on 2019/1/9.
+//  Copyright © 2019年 cn. All rights reserved.
+//
+
+#ifndef VLinkA_Prefix_pch
+#define VLinkA_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Availability.h>
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "VLinkACommon.h"
+//    #import "VLinkAMeeting-Swift.h"
+
+//for iOS version check
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define IsIphoneX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125,2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//for device check
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#endif
+
+#endif /* VLinkA_Prefix_pch */

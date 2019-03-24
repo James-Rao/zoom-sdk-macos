@@ -119,8 +119,10 @@ static ZMSDKDelegateMgr* delegateMgr = nil;
     SocketIOClient* socket = manager.defaultSocket;
     
     [socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
-        NSLog(@"socket connected");
+        NSLog(@"socket connected11111111111111111111");
     }];
+    
+    [socket connect];
 }
 
 @end

@@ -4,7 +4,10 @@
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKApiMeetingInterface.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKEmailMeetingInterface.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/SDKAppDelegate.o
+/Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/VLInfo.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZoomSDKScheduleWindowCtr.o
+/Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/VLNetworkRequest.o
+/Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/JSONResponseSerializerWithData.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKMainWindowController.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKSettingWindowController.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKCommonHelper.o
@@ -19,6 +22,7 @@
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKThumbnailView.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKDelegateMgr.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKThumbnailVideoItemView.o
+/Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/UserInfo.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKSSOLogin.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKEmailLogin.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKConfUIMgr.o
@@ -28,6 +32,7 @@
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ShareContentView.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKSSOMeetingInterface.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKMeetingMainWindowController.o
+/Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/VLSocketIO.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKPTImageButton.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKMeetingStatusMgr.o
 /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/Bin/Release/ZoomSDKSample.build/Debug/ZoomSDKSample.build/Objects-normal/x86_64/ZMSDKAuthHelper.o
