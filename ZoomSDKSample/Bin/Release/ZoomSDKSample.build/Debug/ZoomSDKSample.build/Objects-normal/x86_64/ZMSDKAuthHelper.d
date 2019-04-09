@@ -30,5 +30,9 @@ dependencies: \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Common/ZMSDKPTImageButton.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/ZMSDKSettingWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/ZoomSDKScheduleWindowCtr.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLSocketIO.h \
+  /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/SocketIO.framework/Modules/module.modulemap \
+  /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/SocketIO.framework/Headers/SocketIO-Swift.h \
+  /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/SocketIO.framework/Headers/Socket.IO-Client-Swift-umbrella.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/ZMSDKDelegateMgr.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Common/ZMSDKCommonHelper.h

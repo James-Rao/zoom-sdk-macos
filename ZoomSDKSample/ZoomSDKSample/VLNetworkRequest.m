@@ -19,7 +19,7 @@
     static AFHTTPSessionManager *manager=nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://218.17.76.147:9090"]];
+        manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://120.79.202.176:9090"]];
         
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.requestSerializer.timeoutInterval = 20.0f;

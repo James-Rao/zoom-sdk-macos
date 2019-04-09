@@ -18,8 +18,8 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+        <window title="惠博云会议" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="650" height="370"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
@@ -27,61 +27,156 @@
                 <rect key="frame" x="0.0" y="0.0" width="650" height="370"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button misplaced="YES" id="D0o-XE-gxn" customClass="ZMSDKPTImageButton">
-                        <rect key="frame" x="58" y="208" width="124" height="125"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Video Meeting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="LOU-yE-Vce">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="onStartVideoMeetingButtonClicked:" target="-2" id="3Sl-Ze-h8P"/>
-                        </connections>
-                    </button>
-                    <button misplaced="YES" id="lz8-KM-Xve" customClass="ZMSDKPTImageButton">
-                        <rect key="frame" x="263" y="208" width="124" height="125"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Audio Meeting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="BnO-2q-e0v">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="onStartAudioMeetingButtonClicked:" target="-2" id="2bX-CM-ruK"/>
-                        </connections>
-                    </button>
-                    <button misplaced="YES" id="U6o-Br-yhY" customClass="ZMSDKPTImageButton">
-                        <rect key="frame" x="467" y="208" width="124" height="125"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Join" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="7pW-e4-lBq">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="onJoinMeetingButtonClicked:" target="-2" id="S74-Rt-3Z3"/>
-                        </connections>
-                    </button>
-                    <button misplaced="YES" id="8ll-hp-diL" customClass="ZMSDKPTImageButton">
-                        <rect key="frame" x="366" y="41" width="124" height="125"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Setting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="M3c-GL-jlZ">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="onSettingButtonClicked:" target="-2" id="KL5-sS-dzP"/>
-                        </connections>
-                    </button>
-                    <button misplaced="YES" id="WdT-Ry-fXT" customClass="ZMSDKPTImageButton">
-                        <rect key="frame" x="165" y="41" width="124" height="125"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Schedule" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="6aa-1r-FJ9">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="onScheduleButtonClicked:" target="-2" id="No5-UM-1s4"/>
-                        </connections>
-                    </button>
+                    <tabView misplaced="YES" type="bottomTabsBezelBorder" initialItem="EQz-JD-H1g" id="auZ-ow-jvC">
+                        <rect key="frame" x="-8" y="-6" width="666" height="380"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="会议" identifier="" id="EQz-JD-H1g">
+                                <view key="view" id="n2j-0T-meO">
+                                    <rect key="frame" x="10" y="7" width="646" height="342"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button misplaced="YES" id="D0o-XE-gxn" customClass="ZMSDKPTImageButton">
+                                            <rect key="frame" x="261" y="2" width="124" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Video Meeting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="LOU-yE-Vce">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onStartVideoMeetingButtonClicked:" target="-2" id="3Sl-Ze-h8P"/>
+                                            </connections>
+                                        </button>
+                                        <button misplaced="YES" id="lz8-KM-Xve" customClass="ZMSDKPTImageButton">
+                                            <rect key="frame" x="261" y="130" width="124" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Audio Meeting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="BnO-2q-e0v">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onStartAudioMeetingButtonClicked:" target="-2" id="2bX-CM-ruK"/>
+                                            </connections>
+                                        </button>
+                                        <button misplaced="YES" id="U6o-Br-yhY" customClass="ZMSDKPTImageButton">
+                                            <rect key="frame" x="133" y="130" width="124" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Join" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="7pW-e4-lBq">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onJoinMeetingButtonClicked:" target="-2" id="S74-Rt-3Z3"/>
+                                            </connections>
+                                        </button>
+                                        <button misplaced="YES" id="WdT-Ry-fXT" customClass="ZMSDKPTImageButton">
+                                            <rect key="frame" x="133" y="2" width="124" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Schedule" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="6aa-1r-FJ9">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onScheduleButtonClicked:" target="-2" id="No5-UM-1s4"/>
+                                            </connections>
+                                        </button>
+                                        <button misplaced="YES" id="8ll-hp-diL" customClass="ZMSDKPTImageButton">
+                                            <rect key="frame" x="389" y="130" width="124" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" title="Setting" bezelStyle="regularSquare" imagePosition="above" alignment="center" borderStyle="border" inset="2" id="M3c-GL-jlZ">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onSettingButtonClicked:" target="-2" id="KL5-sS-dzP"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="联系人" identifier="" id="IM0-SB-CJg">
+                                <view key="view" id="tfO-z0-pzY">
+                                    <rect key="frame" x="10" y="7" width="646" height="342"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Vcw-nV-9Xl">
+                                            <rect key="frame" x="17" y="5" width="612" height="279"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <clipView key="contentView" id="LP3-uA-UrJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="612" height="279"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="VRH-eX-blv" viewBased="YES" id="9Pw-pI-cAv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="612" height="256"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="" width="176" minWidth="40" maxWidth="1000" id="RLp-nl-kSc">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Sma-pa-5MZ">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView id="P7a-lm-uZL">
+                                                                        <rect key="frame" x="1" y="1" width="176" height="17"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="v2y-9i-89x">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="176" height="17"/>
+                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="d8J-Bi-7UI">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <connections>
+                                                                            <outlet property="textField" destination="v2y-9i-89x" id="j0Q-Sd-gLX"/>
+                                                                        </connections>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                    </tableView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0og-Vx-hZv">
+                                                <rect key="frame" x="-100" y="-100" width="223" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="7WS-bt-xSV">
+                                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <tableHeaderView key="headerView" id="VRH-eX-blv">
+                                                <rect key="frame" x="0.0" y="0.0" width="612" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableHeaderView>
+                                        </scrollView>
+                                        <button verticalHuggingPriority="750" misplaced="YES" id="ab5-xx-haP">
+                                            <rect key="frame" x="528" y="297" width="107" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="添加联系人" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oXN-hX-XUa">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
                 </subviews>
             </view>
             <connections>

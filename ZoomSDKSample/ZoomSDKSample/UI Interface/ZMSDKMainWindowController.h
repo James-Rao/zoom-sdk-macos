@@ -11,6 +11,7 @@
 #import "ZoomSDK.h"
 #import "ZMSDKSettingWindowController.h"
 #import "ZoomSDKScheduleWindowCtr.h"
+#import "VLSocketIO.h"
 
 enum {
     ZMSDKPTImageButton_orange = 0,
@@ -58,8 +59,11 @@ enum {
 @class ZMSDKMeetingStatusMgr;
 @class ZMSDKLoginWindowController;
 
-@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate>
+@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate>
 {
+    
+    
+    
     IBOutlet ZMSDKPTImageButton*         _startVideoMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _startAudioMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _joinMeetingButton;

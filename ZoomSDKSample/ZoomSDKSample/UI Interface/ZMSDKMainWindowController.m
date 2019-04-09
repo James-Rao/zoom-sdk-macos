@@ -15,6 +15,10 @@
 #import "ZMSDKSSOMeetingInterface.h"
 #import "ZMSDKApiMeetingInterface.h"
 #import "ZMSDKMeetingStatusMgr.h"
+#import "VLSocketIO.h"
+#import "UserInfo.h"
+#import "VLinfo.h"
+#import "VLNetworkRequest.h"
 
 @implementation ZMSDKAPIUserInfo: NSObject
 @synthesize userID = _userID;
@@ -143,7 +147,10 @@
     [self.window setLevel:NSPopUpMenuWindowLevel];
     [self updateUI];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    
+    [[VLSocketIO shareManager] setDelegate:self];
+    [[VLSocketIO shareManager] connectTimeout:10 WithHandler:^{
+        NSLog(@"Cannot connect to server000000000000000000000");
+    }];
 }
 - (void)updateUI
 {
@@ -166,6 +173,12 @@
         [_settingButton setEnabled:YES];
         [_scheduleMeetingButton setEnabled:NO];
     }
+    
+//    ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
+//    [VLUser shareVLUser].userName = [accountInfo getDisplayName];
+//    [VLSocketIO registerTerminallOnlineWithComplete:^{
+//        NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
+//    }];
 }
 - (void)awakeFromNib
 {
@@ -402,4 +415,94 @@
 {
     _apiUserInfo = [[ZMSDKAPIUserInfo alloc] initWithUserID:userID zak:zak userToken:userToken];
 }
+
+#pragma mark - VLSocketIODelegate
+- (void)OnConnect:(BOOL)success
+{
+    NSLog(@"Connect to server successfully!!!!!!!!!!!!!!!!!!");
+//    ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
+//    [VLUser shareVLUser].userName = [accountInfo getDisplayName];
+//    [VLSocketIO registerTerminallOnlineWithComplete:^{
+//        NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
+//    }];
+    
+//    double delayInSeconds = 1.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [VLUser shareVLUser].userName = [accountInfo getDisplayName];
+//        [VLSocketIO registerTerminallOnlineWithComplete:^{
+//            NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
+//        }];
+//    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
+        [VLUser shareVLUser].userName = [accountInfo getDisplayName];
+        [VLSocketIO registerTerminallOnlineWithComplete:^{
+            NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
+        }];
+    });
+}
+
+- (void)UserLogin:(UserInfo *)UserInfo{
+    NSLog(@"user login4444444444444444444444");
+//    if ([VLUser shareVLUser].userId == 0) {
+//        //请求用户离线邀请信息
+//        DLog(@"load all offline invitations");
+//        NSString *url = [NSString stringWithFormat:INVITATIONSLIST, @(UserInfo.userId)];
+//        [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
+//            if(state)
+//            {
+//                DLog(@"get all groups:[%lu]", (unsigned long)[jsonData count]);
+//                for (NSDictionary *invitationItem in jsonData)
+//                {
+//                    InvitationInfo *item = [[InvitationInfo alloc] initWithInformation:invitationItem];
+//                    [self.itemArray addObject:item];
+//                }
+//                if (self.itemArray.count > 0) {
+//                    [self.meetingTableView reloadData];
+//                }
+//            }
+//            else
+//            {
+//                DLog(@"%@", @"出错了");
+//            }
+//        } failure:^(NSError *error) {
+//            DLog(@"%@", error.description);
+//        }];
+//    }
+//
+//    // 保存用户信息
+//    [[VLUser shareVLUser] updateUserInformation:UserInfo];
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:NSStringSocketIOLoginResultNotification object:nil userInfo:@{@"returnValue":UserInfo}];
+}
+
+- (void)handleNotify:(NSNotification *)notify
+{
+//    if([notify.name isEqualToString:NotificationInvitedName])            // 邀请通知
+//    {
+//        InvitationInfo *invitationInfo = [notify.userInfo objectForKey:@"invitationInfo"];
+//        [self.itemArray addObject:invitationInfo];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.meetingTableView reloadData];
+//        });
+//    }
+//    else if([notify.name isEqualToString:NotificationStatusOtherLogin])  // 异地登录通知
+//    {
+//        [[[MobileRTC sharedRTC] getAuthService] logoutRTC];
+//
+//        UIAlertController* alertVC = [UIAlertController alertControllerWithTitle:@"异地登录" message:@"你的账号在其他设备上登录成功,请确认是否本人登录" preferredStyle:UIAlertControllerStyleAlert];
+//
+//        [alertVC addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//            LoginViewController* loginVC = [[LoginViewController alloc]init];
+//            UINavigationController* navVC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+//            [self presentViewController:navVC animated:YES completion:nil];
+//        }]];
+//
+//        [self presentViewController:alertVC animated:YES completion:nil];
+//    }
+}
+#pragma mark - Premeeting Delegate
+
 @end

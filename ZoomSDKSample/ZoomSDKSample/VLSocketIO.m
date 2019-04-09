@@ -26,7 +26,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        manager = [[VLSocketIO alloc] initWithAddress:SOCKETIO];
+        manager = [[VLSocketIO alloc] initWithAddress:@"http://120.79.202.176:9091"];
         
     });
     return manager;
@@ -119,7 +119,8 @@
     if(_socket==nil || _socket.status!=SocketIOStatusConnected) return;
     
     NSArray *array = @[[terminalInfo serialization]];
-    [self.socket emit:@"terminal_info_update" with:array completion:complete];
+    //[self.socket emit:@"terminal_info_update" with:array completion:complete];
+    [self.socket emit:@"terminal_info_update" with:array];
 }
 
 - (void)inviteContactsMeeting:(MeetingInfo*)meetingInfo Inviter:(NSString*)inviterEmail Invitee:(NSArray<NSString*>*)inviteeEmails WithComplete:(SocketIOComplete)complete
@@ -165,11 +166,12 @@
     NSDictionary *info = @{@"terminalId": @"",
                            @"controlId": @"",
                            @"displayName": [VLUser shareVLUser].userName,
-                           @"terminal": @(TERMINALTYPE_MOBILE),
+                           @"terminal": @(TERMINALTYPE_PC),
                            @"status": @(TERMINALSTATUS_ONLINE),
                            @"email": [VLUser shareVLUser].userEmail,
                            @"pmi": @([VLUser shareVLUser].userMeetingID),
                            @"currentMeetingId": @(0),
+                           @"isInMeeting": @(FALSE),
                            };
     TerminalInfo *terminalInfo = [[TerminalInfo alloc] initWithInformation:info];
     

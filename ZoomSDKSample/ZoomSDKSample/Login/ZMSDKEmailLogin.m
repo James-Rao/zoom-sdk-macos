@@ -10,6 +10,7 @@
 #import "ZMSDKMainWindowController.h"
 #import "ZMSDKDelegateMgr.h"
 #import "ZMSDKCommonHelper.h"
+#import "UserInfo.h"
 
 @implementation ZMSDKEmailLogin
 - (id)initWithWindowController:(ZMSDKLoginWindowController*)loginWindowController
@@ -42,6 +43,7 @@
     if (authService)
     {
         ZoomSDKError ret = [authService login:email Password:password RememberMe:rememberMe];
+        [VLUser shareVLUser].userEmail = email;
         [_loginWindowController switchToConnectingTab];
         return ret;
     }
@@ -71,8 +73,6 @@
             break;
         case ZoomSDKLoginStatus_Success:
         {
-            [[ZMSDKCommonHelper sharedInstance].delegateMgr socketConnectHost];
-            
             [_loginWindowController createMainWindow];
             [ZMSDKCommonHelper sharedInstance].hasLogin = YES;
             [_loginWindowController updateUIWithLoginStatus:YES];
