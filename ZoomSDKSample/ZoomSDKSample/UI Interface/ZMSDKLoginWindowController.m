@@ -125,7 +125,7 @@
 - (void)showSelf
 {
     [self relayoutWindowPosition];
-    [self.window makeKeyAndOrderFront:nil];
+    //[self.window makeKeyAndOrderFront:nil];
 }
 - (void)relayoutWindowPosition
 {
@@ -254,7 +254,7 @@
     self.mainWindowController = [[ZMSDKMainWindowController alloc] init] ;
     self.mainWindowController.loginWindowController = self;
     [self close];
-    [self.mainWindowController.window makeKeyAndOrderFront:nil];
+    //[self.mainWindowController.window makeKeyAndOrderFront:nil];
     [self.mainWindowController showWindow:nil];
 }
 - (void)updateUIWithLoginStatus:(BOOL)hasLogin

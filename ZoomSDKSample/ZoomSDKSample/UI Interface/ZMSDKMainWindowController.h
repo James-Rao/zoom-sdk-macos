@@ -12,6 +12,7 @@
 #import "ZMSDKSettingWindowController.h"
 #import "ZoomSDKScheduleWindowCtr.h"
 #import "VLSocketIO.h"
+#import "AddContactWindowController.h"
 
 enum {
     ZMSDKPTImageButton_orange = 0,
@@ -59,11 +60,8 @@ enum {
 @class ZMSDKMeetingStatusMgr;
 @class ZMSDKLoginWindowController;
 
-@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate>
+@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
-    
-    
-    
     IBOutlet ZMSDKPTImageButton*         _startVideoMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _startAudioMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _joinMeetingButton;
@@ -78,6 +76,7 @@ enum {
     ZMSDKAPIUserInfo*                    _apiUserInfo;
     ZMSDKMeetingStatusMgr*               _meetingStatusMgr;
     ZMSDKLoginWindowController*          _loginWindowController;
+    AddContactWindowController*         _addContactWindowController;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -98,4 +97,10 @@ enum {
 - (void)updateUI;
 - (void)updateMainWindowUIWithMeetingStatus:(ZoomSDKMeetingStatus)status;
 - (void)initApiUserInfoWithID:(NSString*)userID zak:(NSString*)zak userToken:(NSString*)userToken;
+
+
+
+@property (assign) IBOutlet NSTableView *contactTableView;
+- (IBAction)onAddContactButtonClicked:(id)sender;
+
 @end

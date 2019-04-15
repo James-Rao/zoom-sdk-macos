@@ -14,6 +14,8 @@
 		2988B0B3223FD317009E70D0 /* CommonCrypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AE223FD316009E70D0 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2988B0B4223FD317009E70D0 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AF223FD316009E70D0 /* Starscream.framework */; };
 		2988B0B5223FD317009E70D0 /* Starscream.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AF223FD316009E70D0 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2998CD1F225F360800D50B5C /* AddContactWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2998CD1D225F360800D50B5C /* AddContactWindowController.m */; };
+		2998CD20225F360800D50B5C /* AddContactWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2998CD1E225F360800D50B5C /* AddContactWindowController.xib */; };
 		299D3E542247AE4600B8F53A /* VLInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D3E522247AE4500B8F53A /* VLInfo.m */; };
 		299D3E552247AE4600B8F53A /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D3E532247AE4600B8F53A /* UserInfo.m */; };
 		299D3E5D2247AEA000B8F53A /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D3E582247AEA000B8F53A /* JSONResponseSerializerWithData.m */; };
@@ -192,6 +194,9 @@
 		2988B0AD223FD316009E70D0 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = ZoomSDK/SocketIO.framework; sourceTree = "<group>"; };
 		2988B0AE223FD316009E70D0 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = ZoomSDK/CommonCrypto.framework; sourceTree = "<group>"; };
 		2988B0AF223FD316009E70D0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = ZoomSDK/Starscream.framework; sourceTree = "<group>"; };
+		2998CD1C225F360800D50B5C /* AddContactWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddContactWindowController.h; path = "UI Interface/AddContactWindowController.h"; sourceTree = "<group>"; };
+		2998CD1D225F360800D50B5C /* AddContactWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddContactWindowController.m; path = "UI Interface/AddContactWindowController.m"; sourceTree = "<group>"; };
+		2998CD1E225F360800D50B5C /* AddContactWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddContactWindowController.xib; path = "UI Interface/AddContactWindowController.xib"; sourceTree = "<group>"; };
 		299D3E122247A56A00B8F53A /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ZoomSDK/AFNetworking.framework; sourceTree = "<group>"; };
 		299D3E502247AE4500B8F53A /* VLInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLInfo.h; sourceTree = "<group>"; };
 		299D3E512247AE4500B8F53A /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -485,6 +490,9 @@
 				5D51EA6621C3992100CF7137 /* ZMSDKMeetingMainWindowController.h */,
 				5D51EA6721C3992100CF7137 /* ZMSDKMeetingMainWindowController.m */,
 				5D51EA6821C3992100CF7137 /* ZMSDKMeetingMainWindowController.xib */,
+				2998CD1C225F360800D50B5C /* AddContactWindowController.h */,
+				2998CD1D225F360800D50B5C /* AddContactWindowController.m */,
+				2998CD1E225F360800D50B5C /* AddContactWindowController.xib */,
 			);
 			name = "UI Interface";
 			sourceTree = "<group>";
@@ -905,6 +913,7 @@
 				5D92583121D3811D00CF2782 /* toolbar_noaudio_normal.png in Resources */,
 				5DFC0F3121C9F2500027F596 /* toolbar_stop_video_press.png in Resources */,
 				5DFC0F3921C9F2E80027F596 /* toolbar_share_normal.png in Resources */,
+				2998CD20225F360800D50B5C /* AddContactWindowController.xib in Resources */,
 				5D57F36421B0E47200A72B1E /* ZMSDKSettingWindowController.xib in Resources */,
 				972215FC1DD06C5100C74CE6 /* MainMenu.xib in Resources */,
 				5D92F91321CB8D3E0088B241 /* share_frame.png in Resources */,
@@ -967,6 +976,7 @@
 				5DA0802321C745E700C800B2 /* ZMSDKHCPanelistsView.m in Sources */,
 				5D51EA8A21C3B1D300CF7137 /* ZMSDKHCTableItemView.m in Sources */,
 				5DFC0F4C21CA5D930027F596 /* ZMSDKShareSelectWindow.m in Sources */,
+				2998CD1F225F360800D50B5C /* AddContactWindowController.m in Sources */,
 				5DD4DC1F21A40ECB0085589A /* ZMSDKJoinOnly.m in Sources */,
 				5D51EA4A21C373FD00CF7137 /* NSColor+Category.m in Sources */,
 				5D57F36021B0E47200A72B1E /* ZMSDKLoginWindowController.m in Sources */,

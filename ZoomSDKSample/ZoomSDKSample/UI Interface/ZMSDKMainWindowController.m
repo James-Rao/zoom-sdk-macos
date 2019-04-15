@@ -78,6 +78,13 @@
         _settingWindowController = [[ZMSDKSettingWindowController alloc] init];
         _scheduleWindowController = [[ZoomSDKScheduleWindowCtr alloc] initWithUniqueID:0];
         _meetingStatusMgr = [[ZMSDKMeetingStatusMgr alloc] initWithWindowController:self];
+        
+        _addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                            selector:@selector(addContactWindowWillClose:)
+                                            name:NSWindowWillCloseNotification
+                                            object:nil];
+        
         return self;
     }
     return nil;
@@ -144,7 +151,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    [self.window setLevel:NSPopUpMenuWindowLevel];
+    //[self.window setLevel:NSPopUpMenuWindowLevel];
     [self updateUI];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [[VLSocketIO shareManager] setDelegate:self];
@@ -505,4 +512,25 @@
 }
 #pragma mark - Premeeting Delegate
 
+
+// new functions
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return 10;
+}
+
+- (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    return nil;
+}
+
+- (void)addContactWindowWillClose:(NSNotification *)notification {
+    
+    NSLog(@"addcontact window close 000000000000000000");
+    [NSApp stopModalWithCode:1];
+}
+
+- (IBAction)onAddContactButtonClicked:(id)sender {
+    [[NSApplication sharedApplication] runModalForWindow:_addContactWindowController.window];
+}
 @end

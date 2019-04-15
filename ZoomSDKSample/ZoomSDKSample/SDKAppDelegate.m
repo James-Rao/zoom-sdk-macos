@@ -18,7 +18,7 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
     self.loginWindowCtrl = [[ZMSDKLoginWindowController alloc] init];
-    [self.loginWindowCtrl.window makeKeyAndOrderFront:nil];
+    //[self.loginWindowCtrl.window makeKeyAndOrderFront:nil];
     [self.loginWindowCtrl.window center];
     [_logOutMenuItem setHidden:YES];
 }

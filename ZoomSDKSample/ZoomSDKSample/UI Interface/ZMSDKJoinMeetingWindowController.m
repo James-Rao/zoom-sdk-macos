@@ -64,7 +64,7 @@
 - (void)showSelf
 {
     [self relayoutWindowPosition];
-    [self.window makeKeyAndOrderFront:nil];
+    //[self.window makeKeyAndOrderFront:nil];
 }
 - (void)relayoutWindowPosition
 {
