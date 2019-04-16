@@ -42,7 +42,7 @@
     if(self=[super init])
     {
         NSURL* url = [[NSURL alloc] initWithString:address];
-        _manager = [[SocketManager alloc] initWithSocketURL:url config:@{@"log": @YES, @"compress": @YES}];
+        _manager = [[SocketManager alloc] initWithSocketURL:url config:@{@"log": @NO, @"compress": @YES}];
         _socket = _manager.defaultSocket;
         
         VLWeakSelf(weakSelf);

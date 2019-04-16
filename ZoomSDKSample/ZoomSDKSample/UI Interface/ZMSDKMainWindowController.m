@@ -65,6 +65,8 @@
 @synthesize apiUserInfo = _apiUserInfo;
 @synthesize meetingStatusMgr = _meetingStatusMgr;
 @synthesize loginWindowController = _loginWindowController;
+@synthesize isContactAdded = _isContactAdded;
+@synthesize contactEmail = _contactEmail;
 
 - (id)init
 {
@@ -78,13 +80,7 @@
         _settingWindowController = [[ZMSDKSettingWindowController alloc] init];
         _scheduleWindowController = [[ZoomSDKScheduleWindowCtr alloc] initWithUniqueID:0];
         _meetingStatusMgr = [[ZMSDKMeetingStatusMgr alloc] initWithWindowController:self];
-        
-        _addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                            selector:@selector(addContactWindowWillClose:)
-                                            name:NSWindowWillCloseNotification
-                                            object:nil];
-        
+
         return self;
     }
     return nil;
@@ -453,6 +449,7 @@
 
 - (void)UserLogin:(UserInfo *)UserInfo{
     NSLog(@"user login4444444444444444444444");
+    [VLUser shareVLUser].userId = UserInfo.userId;
 //    if ([VLUser shareVLUser].userId == 0) {
 //        //请求用户离线邀请信息
 //        DLog(@"load all offline invitations");
@@ -524,13 +521,52 @@
     return nil;
 }
 
-- (void)addContactWindowWillClose:(NSNotification *)notification {
-    
-    NSLog(@"addcontact window close 000000000000000000");
-    [NSApp stopModalWithCode:1];
-}
-
 - (IBAction)onAddContactButtonClicked:(id)sender {
-    [[NSApplication sharedApplication] runModalForWindow:_addContactWindowController.window];
+    AddContactWindowController* addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
+    addContactWindowController.parent = self;
+    [[NSApplication sharedApplication] runModalForWindow:addContactWindowController.window];
+    if (_isContactAdded == YES) {
+        NSLog(@"Add contact 999999999");
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
+            NSDictionary *parames = @{@"email": IsStrEmpty(_contactEmail)?@" ":_contactEmail};
+            [VLNetworkRequest postWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
+                if(state)
+                {
+                    NSLog(@"联系人添加成功");
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
+                        [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
+                            if(state)
+                            {
+                                DLog(@"get all contacts:[%lu]", (unsigned long)[jsonData count]);
+                                for (NSDictionary *userinfo in jsonData)
+                                {
+                                    UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
+                                    NSLog(info.userName);
+                                }
+                                
+                            }
+                            else
+                            {
+                                DLog(@"%@", @"出错了");
+                            }
+                        } failure:^(NSError *error) {
+                            DLog(@"%@", error.description);
+                        }];
+                    });
+                }
+                else
+                {
+                    NSLog(@"联系人添加失败");
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@", error.description);
+            }];
+        });
+    } else {
+        NSLog(@"Cancel contact  99999999999");
+    }
 }
 @end

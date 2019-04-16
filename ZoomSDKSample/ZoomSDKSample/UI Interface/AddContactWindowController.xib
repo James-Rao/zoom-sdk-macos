@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AddContactWindowController">
             <connections>
+                <outlet property="contactEmail" destination="atc-lv-8sy" id="yJD-ql-xSq"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -38,6 +39,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="AddButtonClicked:" target="-2" id="yqH-OF-Lrc"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-7t-7fz">
                         <rect key="frame" x="225" y="58" width="67" height="32"/>
@@ -46,6 +50,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="CancelButtonClicked:" target="-2" id="uv5-OQ-c5v"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>

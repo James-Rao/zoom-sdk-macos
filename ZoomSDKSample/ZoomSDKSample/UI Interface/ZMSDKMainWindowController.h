@@ -76,7 +76,9 @@ enum {
     ZMSDKAPIUserInfo*                    _apiUserInfo;
     ZMSDKMeetingStatusMgr*               _meetingStatusMgr;
     ZMSDKLoginWindowController*          _loginWindowController;
-    AddContactWindowController*         _addContactWindowController;
+
+    BOOL _isContactAdded;
+    NSString* _contactEmail;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -87,6 +89,9 @@ enum {
 @property (nonatomic, retain, readwrite) ZMSDKAPIUserInfo*                  apiUserInfo;
 @property (nonatomic, retain, readwrite) ZMSDKMeetingStatusMgr*             meetingStatusMgr;
 @property (nonatomic, assign, readwrite) ZMSDKLoginWindowController*        loginWindowController;
+
+@property (nonatomic, assign, readwrite) BOOL isContactAdded;
+@property (nonatomic, assign, readwrite) NSString* contactEmail;
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
