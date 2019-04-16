@@ -128,7 +128,8 @@
     if(_socket==nil || _socket.status!=SocketIOStatusConnected || IsStrEmpty(inviterEmail) || [inviteeEmails count]==0) return;
     
     NSArray *array = @[[meetingInfo serialization], inviterEmail, inviteeEmails];
-    [self.socket emit:@"invite_contacts_meeting" with:array completion:complete];
+    //[self.socket emit:@"invite_contacts_meeting" with:array completion:complete];
+    [self.socket emit:@"invite_contacts_meeting" with:array];
 }
 
 + (void)addNotificationType:(VLNotificationType)type Observer:(nonnull id)observer Selector:(nonnull SEL)selector

@@ -68,6 +68,7 @@
 @synthesize isContactAdded = _isContactAdded;
 @synthesize contactEmail = _contactEmail;
 @synthesize contactsCount = _contactsCount;
+@synthesize contacts = _contacts;
 
 - (id)init
 {
@@ -82,7 +83,8 @@
         _scheduleWindowController = [[ZoomSDKScheduleWindowCtr alloc] initWithUniqueID:0];
         _meetingStatusMgr = [[ZMSDKMeetingStatusMgr alloc] initWithWindowController:self];
         
-        _contactsCount = -1;
+        _contactsCount = 0;
+        _contacts = [[NSMutableArray alloc] init];
 
         return self;
     }
@@ -227,7 +229,6 @@
     [self changeHangoutButtonToStart];
     //[self updateHangoutButtonByStatus:[[[ZPLoader sharedInstance] confStatus] conferenceStatus] ];
     //[self updateScheduleButton];
-    
 }
 - (void)setColor4ZMSDKPTImageButton:(ZMSDKPTImageButton*)button colorType:(int)color
 {
@@ -384,6 +385,20 @@
                 [_scheduleMeetingButton setEnabled:NO];
             else
                 [_scheduleMeetingButton setEnabled:YES];
+            
+            // invite contact to join meeting
+            MeetingInfo *meeting = [[MeetingInfo alloc] init];
+            meeting.topic = [NSString stringWithFormat:@"%@ 个人会议室", [VLUser shareVLUser].userName];
+            meeting.meetingId = [VLUser shareVLUser].userMeetingID;
+            meeting.meetingType = MEETING_STATUS_INMEETING;
+            meeting.isLocked = FALSE;
+            [[VLSocketIO shareManager] inviteContactsMeeting:meeting
+                                                     Inviter:[VLUser shareVLUser].userEmail
+                                                     Invitee:self.inviteeEmails
+                                                WithComplete:^{
+                                                    DLog(@"发送会议邀请成功.");
+                                                }];
+
         }
             break;
         case ZoomSDKMeetingStatus_Webinar_Promote:
@@ -415,6 +430,17 @@
         default:
             break;
     }
+}
+
+- (void)onListMeeting:(ZoomSDKPremeetingError)error MeetingList:(NSArray*)meetingList
+{
+    NSLog(@"000000000 on List Meeting");
+
+    ZoomSDKMeetingItem* meetingItem = (ZoomSDKMeetingItem *)[meetingList objectAtIndex:0];
+    [VLUser shareVLUser].userMeetingID = [meetingItem getMeetingUniqueID];
+
+    
+    self.inviteeEmails = nil;
 }
 
 - (void)initApiUserInfoWithID:(NSString*)userID zak:(NSString*)zak userToken:(NSString*)userToken
@@ -452,7 +478,13 @@
 
 - (void)UserLogin:(UserInfo *)UserInfo{
     NSLog(@"user login4444444444444444444444");
+    if ([UserInfo.userEmail isEqualToString:[VLUser shareVLUser].userEmail]) { // myself
+        ZoomSDKPremeetingService* premeetingService = [[ZoomSDK sharedSDK] getPremeetingService];
+        premeetingService.delegate = self;
+        [premeetingService listMeeting];
+    }
     [VLUser shareVLUser].userId = UserInfo.userId;
+    [self getContacts];
 //    if ([VLUser shareVLUser].userId == 0) {
 //        //请求用户离线邀请信息
 //        DLog(@"load all offline invitations");
@@ -516,16 +548,46 @@
 // new functions
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    if (self.contactsCount == -1) {
-        [self getContacts];
-    }
-
     return self.contactsCount;
 }
 
-- (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+- (nullable id)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
 {
+    NSString *iden = [ tableColumn identifier ];
+    if ([iden isEqualToString:@"name"]) {
+        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"name" owner:self];
+        UserInfo *data = [self.contacts objectAtIndex:row];
+        cellView.textField.stringValue = data.userName;
+//        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+        return cellView;
+    } else if ([iden isEqualToString:@"invite"])  {
+        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"invite" owner:self];
+        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+        return cellView;
+    } else if ([iden isEqualToString:@"delete"])  {
+        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"delete" owner:self];
+        cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
+        return cellView;
+    }
+    
     return nil;
+}
+
+-(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
+    long column = [tableView clickedColumn];
+    NSLog(@"---2222222selection row %ld", row);
+    NSLog(@"---2222222selection column %ld", column);
+    
+    if (column == 1) { // invite
+        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
+        {
+            UserInfo *data = [self.contacts objectAtIndex:row];
+            self.inviteeEmails = @[data.userEmail];
+            [_emailMeetingInterface startVideoMeetingForEmailUser];
+        }
+    }
+    
+    return YES;
 }
 
 - (IBAction)onAddContactButtonClicked:(id)sender {
@@ -572,6 +634,11 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.contactsCount = [jsonData count];
+                    for (NSDictionary *userinfo in jsonData)
+                    {
+                        UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
+                        [self.contacts addObject:info];
+                    }
                     [self.contactTableView reloadData];
                 });
 

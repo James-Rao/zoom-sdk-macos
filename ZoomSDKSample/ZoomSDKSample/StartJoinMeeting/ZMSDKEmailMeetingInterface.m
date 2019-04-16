@@ -7,6 +7,7 @@
 //
 
 #import "ZMSDKEmailMeetingInterface.h"
+#import "UserInfo.h"
 
 @implementation ZMSDKEmailMeetingInterface
 - (id)init
@@ -33,7 +34,7 @@
     ZoomSDKMeetingService* meetingService = [[ZoomSDK sharedSDK] getMeetingService];
     if (meetingService)
     {
-        ZoomSDKError ret = [meetingService startMeeting:ZoomSDKUserType_ZoomUser userID:nil userToken:nil displayName:nil meetingNumber:0 isDirectShare:NO sharedApp:0 isVideoOff:NO isAuidoOff:NO vanityID:nil];
+        ZoomSDKError ret = [meetingService startMeeting:ZoomSDKUserType_ZoomUser userID:nil userToken:nil displayName:nil meetingNumber:[NSString stringWithFormat:@"%llu", [VLUser shareVLUser].userMeetingID] isDirectShare:NO sharedApp:0 isVideoOff:NO isAuidoOff:NO vanityID:nil];
         return ret;
     }
     return ZoomSDKError_Failed;

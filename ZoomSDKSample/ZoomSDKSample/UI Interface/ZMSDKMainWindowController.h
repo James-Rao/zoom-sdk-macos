@@ -60,7 +60,7 @@ enum {
 @class ZMSDKMeetingStatusMgr;
 @class ZMSDKLoginWindowController;
 
-@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate, ZoomSDKPremeetingServiceDelegate>
 {
     IBOutlet ZMSDKPTImageButton*         _startVideoMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _startAudioMeetingButton;
@@ -80,6 +80,7 @@ enum {
     BOOL _isContactAdded;
     NSString* _contactEmail;
     unsigned long _contactsCount;
+    NSMutableArray * _contacts;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -94,6 +95,7 @@ enum {
 @property (nonatomic, assign, readwrite) BOOL isContactAdded;
 @property (nonatomic, assign, readwrite) NSString* contactEmail;
 @property (nonatomic, assign, readwrite) unsigned long contactsCount;
+@property (nonatomic, assign, readwrite) NSMutableArray* contacts;
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
@@ -110,4 +112,5 @@ enum {
 @property (assign) IBOutlet NSTableView *contactTableView;
 - (IBAction)onAddContactButtonClicked:(id)sender;
 
+@property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
 @end
