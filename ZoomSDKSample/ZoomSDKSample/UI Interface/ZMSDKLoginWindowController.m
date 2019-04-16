@@ -51,6 +51,12 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    
+    NSString * remember = [[NSUserDefaults standardUserDefaults] stringForKey:@"remember"];
+    if ([remember isEqualToString:@"1"]) {
+        [__textFieldEmail setStringValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"email"]];
+        [__textFieldPassword setStringValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"]];
+    }
 }
 -(void)awakeFromNib
 {
@@ -152,10 +158,10 @@
 {
     if(_emailTextField.stringValue.length > 0)
     {
-        BOOL rememberMe = NO;
-        if(_emailRememerMeButton.state == NSOnState)
-            rememberMe = YES;
-        [_emailLoginHelper loginWithEmail:_emailTextField.stringValue Password:_emailPSWTextField.stringValue RememberMe:rememberMe];
+//        BOOL rememberMe = NO;
+//        if(_emailRememerMeButton.state == NSOnState)
+//            rememberMe = YES;
+        [_emailLoginHelper loginWithEmail:_emailTextField.stringValue Password:_emailPSWTextField.stringValue RememberMe:NO];//force to NO,do not use SDK auto login
         [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_Email;
     }
 }
@@ -314,13 +320,23 @@
 - (IBAction)onButtonClicked_Login:(id)sender {
     if(__textFieldEmail.stringValue.length > 0)
     {
-        BOOL rememberMe = NO;
-        if(_emailRememerMeButton.state == NSOnState)
-            rememberMe = YES;
-        [_emailLoginHelper loginWithEmail:__textFieldEmail.stringValue Password:__textFieldPassword.stringValue RememberMe:rememberMe];
+        if(_emailRememerMeButton.state == NSOnState) {
+            [[NSUserDefaults standardUserDefaults] setValue:__textFieldEmail.stringValue forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] setValue:__textFieldPassword.stringValue forKey:@"password"];
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"remember"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"remember"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        
+        [_emailLoginHelper loginWithEmail:__textFieldEmail.stringValue Password:__textFieldPassword.stringValue RememberMe:NO];// force NO
         [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_Email;
     }
 }
 
 
+- (IBAction)onButtonClicked_RememberMe:(id)sender {
+
+}
 @end

@@ -12,6 +12,7 @@
                 <outlet property="_authLogoImageView" destination="Ijn-dx-a8q" id="VJh-PO-qpa"/>
                 <outlet property="_baseTabView" destination="90h-lg-Nv9" id="0bC-bl-Wgc"/>
                 <outlet property="_connectFailedTextField" destination="Qvh-oz-Yhy" id="Qtf-45-Duc"/>
+                <outlet property="_emailRememerMeButton" destination="T39-KB-HPU" id="ScG-q2-ujb"/>
                 <outlet property="_errorBackButton" destination="5qr-Cg-Igf" id="h8x-ui-mSv"/>
                 <outlet property="_errorLogoImageView" destination="VU2-KW-ItJ" id="NTo-DZ-1yd"/>
                 <outlet property="_errorMessageTextField" destination="tx0-pp-kSQ" id="u6Z-b7-E7n"/>
@@ -120,6 +121,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onButtonClicked_RememberMe:" target="-2" id="lSY-a7-NPm"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" misplaced="YES" id="Ehq-kj-MgA">
                                             <rect key="frame" x="223" y="67" width="154" height="41"/>

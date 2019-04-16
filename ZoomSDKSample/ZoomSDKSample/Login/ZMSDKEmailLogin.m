@@ -38,7 +38,7 @@
 {
     if(email.length == 0 || password.length == 0)
         return ZoomSDKError_InvalidPrameter;
-    
+        
     ZoomSDKAuthService* authService = [[ZoomSDK sharedSDK] getAuthService];
     if (authService)
     {

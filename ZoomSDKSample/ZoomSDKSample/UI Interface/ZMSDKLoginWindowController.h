@@ -121,6 +121,7 @@
 - (IBAction)onButtonClicked_Login:(id)sender;
 @property (assign) IBOutlet NSTextField *_textFieldEmail;
 @property (assign) IBOutlet NSSecureTextField *_textFieldPassword;
+- (IBAction)onButtonClicked_RememberMe:(id)sender;
 
 
 @end

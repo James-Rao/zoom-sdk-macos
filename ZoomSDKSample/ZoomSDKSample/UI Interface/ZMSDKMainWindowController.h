@@ -79,6 +79,7 @@ enum {
 
     BOOL _isContactAdded;
     NSString* _contactEmail;
+    unsigned long _contactsCount;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -92,6 +93,7 @@ enum {
 
 @property (nonatomic, assign, readwrite) BOOL isContactAdded;
 @property (nonatomic, assign, readwrite) NSString* contactEmail;
+@property (nonatomic, assign, readwrite) unsigned long contactsCount;
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
@@ -103,7 +105,7 @@ enum {
 - (void)updateMainWindowUIWithMeetingStatus:(ZoomSDKMeetingStatus)status;
 - (void)initApiUserInfoWithID:(NSString*)userID zak:(NSString*)zak userToken:(NSString*)userToken;
 
-
+- (void)getContacts;
 
 @property (assign) IBOutlet NSTableView *contactTableView;
 - (IBAction)onAddContactButtonClicked:(id)sender;

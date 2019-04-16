@@ -67,6 +67,7 @@
 @synthesize loginWindowController = _loginWindowController;
 @synthesize isContactAdded = _isContactAdded;
 @synthesize contactEmail = _contactEmail;
+@synthesize contactsCount = _contactsCount;
 
 - (id)init
 {
@@ -80,6 +81,8 @@
         _settingWindowController = [[ZMSDKSettingWindowController alloc] init];
         _scheduleWindowController = [[ZoomSDKScheduleWindowCtr alloc] initWithUniqueID:0];
         _meetingStatusMgr = [[ZMSDKMeetingStatusMgr alloc] initWithWindowController:self];
+        
+        _contactsCount = -1;
 
         return self;
     }
@@ -513,7 +516,11 @@
 // new functions
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return 10;
+    if (self.contactsCount == -1) {
+        [self getContacts];
+    }
+
+    return self.contactsCount;
 }
 
 - (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
@@ -535,27 +542,7 @@
                 if(state)
                 {
                     NSLog(@"联系人添加成功");
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                        NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
-                        [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
-                            if(state)
-                            {
-                                DLog(@"get all contacts:[%lu]", (unsigned long)[jsonData count]);
-                                for (NSDictionary *userinfo in jsonData)
-                                {
-                                    UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
-                                    NSLog(info.userName);
-                                }
-                                
-                            }
-                            else
-                            {
-                                DLog(@"%@", @"出错了");
-                            }
-                        } failure:^(NSError *error) {
-                            DLog(@"%@", error.description);
-                        }];
-                    });
+                    [self getContacts];
                 }
                 else
                 {
@@ -568,5 +555,34 @@
     } else {
         NSLog(@"Cancel contact  99999999999");
     }
+}
+
+- (void) getContacts {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
+        [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
+            if(state)
+            {
+                DLog(@"get all contacts:[%lu]", (unsigned long)[jsonData count]);
+                for (NSDictionary *userinfo in jsonData)
+                {
+                    UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
+                    NSLog(info.userName);
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.contactsCount = [jsonData count];
+                    [self.contactTableView reloadData];
+                });
+
+            }
+            else
+            {
+                DLog(@"%@", @"出错了");
+            }
+        } failure:^(NSError *error) {
+            DLog(@"%@", error.description);
+        }];
+    });
 }
 @end
