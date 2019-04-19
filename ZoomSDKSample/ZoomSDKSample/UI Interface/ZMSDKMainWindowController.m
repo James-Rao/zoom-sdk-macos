@@ -67,8 +67,11 @@
 @synthesize loginWindowController = _loginWindowController;
 @synthesize isContactAdded = _isContactAdded;
 @synthesize contactEmail = _contactEmail;
+
 @synthesize contactsCount = _contactsCount;
 @synthesize contacts = _contacts;
+@synthesize groupsCount = _groupsCount;
+@synthesize groups = _groups;
 
 - (id)init
 {
@@ -85,6 +88,9 @@
         
         _contactsCount = 0;
         _contacts = [[NSMutableArray alloc] init];
+        
+        _groupsCount = 0;
+        _groups = [[NSMutableArray alloc] init];
 
         return self;
     }
@@ -452,21 +458,7 @@
 - (void)OnConnect:(BOOL)success
 {
     NSLog(@"Connect to server successfully!!!!!!!!!!!!!!!!!!");
-//    ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
-//    [VLUser shareVLUser].userName = [accountInfo getDisplayName];
-//    [VLSocketIO registerTerminallOnlineWithComplete:^{
-//        NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
-//    }];
-    
-//    double delayInSeconds = 1.0;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        [VLUser shareVLUser].userName = [accountInfo getDisplayName];
-//        [VLSocketIO registerTerminallOnlineWithComplete:^{
-//            NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
-//        }];
-//    });
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
         [VLUser shareVLUser].userName = [accountInfo getDisplayName];
@@ -476,7 +468,7 @@
     });
 }
 
-- (void)UserLogin:(UserInfo *)UserInfo{
+- (void)UserLogin:(UserInfo *)UserInfo{ // always myself
     NSLog(@"user login4444444444444444444444");
     if ([UserInfo.userEmail isEqualToString:[VLUser shareVLUser].userEmail]) { // myself
         ZoomSDKPremeetingService* premeetingService = [[ZoomSDK sharedSDK] getPremeetingService];
@@ -484,7 +476,8 @@
         [premeetingService listMeeting];
     }
     [VLUser shareVLUser].userId = UserInfo.userId;
-    [self getContacts];
+    [self getGroups];
+    
 //    if ([VLUser shareVLUser].userId == 0) {
 //        //请求用户离线邀请信息
 //        DLog(@"load all offline invitations");
@@ -517,6 +510,11 @@
 //    [[NSNotificationCenter defaultCenter] postNotificationName:NSStringSocketIOLoginResultNotification object:nil userInfo:@{@"returnValue":UserInfo}];
 }
 
+- (void)UserStatusChanged:(UserInfo *)userInfo{
+    NSLog(@"user status changed 5555555555");
+    [self updateUser:userInfo];
+}
+
 - (void)handleNotify:(NSNotification *)notify
 {
 //    if([notify.name isEqualToString:NotificationInvitedName])            // 邀请通知
@@ -545,50 +543,130 @@
 #pragma mark - Premeeting Delegate
 
 
-// new functions
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+// new functions outline view
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
 {
-    return self.contactsCount;
+    if (item == nil) {
+        return self.groupsCount;
+    }
+    
+    BOOL is = [item isKindOfClass:[Group class]];
+    if (is) {
+        return ((Group *)item).contacts.count;
+    } else
+    {
+        return 0;
+    }
 }
 
-- (nullable id)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
 {
-    NSString *iden = [ tableColumn identifier ];
-    if ([iden isEqualToString:@"name"]) {
-        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"name" owner:self];
-        UserInfo *data = [self.contacts objectAtIndex:row];
-        cellView.textField.stringValue = data.userName;
-//        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-        return cellView;
-    } else if ([iden isEqualToString:@"invite"])  {
-        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"invite" owner:self];
-        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-        return cellView;
-    } else if ([iden isEqualToString:@"delete"])  {
-        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"delete" owner:self];
-        cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
-        return cellView;
+    if (item == nil) {
+        return [self.groups objectAtIndex:index];
+    }
+
+    BOOL is = [item isKindOfClass:[Group class]];
+    if (is) {
+        return [((Group* )item).contacts objectAtIndex:index];
     }
     
     return nil;
 }
 
--(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-    long column = [tableView clickedColumn];
-    NSLog(@"---2222222selection row %ld", row);
-    NSLog(@"---2222222selection column %ld", column);
-    
-    if (column == 1) { // invite
-        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
-        {
-            UserInfo *data = [self.contacts objectAtIndex:row];
-            self.inviteeEmails = @[data.userEmail];
-            [_emailMeetingInterface startVideoMeetingForEmailUser];
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+{
+    BOOL is = [item isKindOfClass:[Group class]];
+    if (is) {
+        return ((Group* )item).contacts.count > 0;
+    }
+    return NO;
+}
+
+- (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item NS_AVAILABLE_MAC(10_7)
+{
+    NSString *iden = [ tableColumn identifier ];
+    if ([iden isEqualToString:@"namecolumn"]) {
+        BOOL isGroup = [item isKindOfClass:[Group class]];
+        if (isGroup) {
+            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupcell" owner:self];
+            Group *data = (Group *)item;
+            cellView.textField.stringValue = data.groupName;
+            return cellView;
+        } else { // user
+            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"usercell" owner:self];
+            UserInfo *data = (UserInfo *)item;
+            cellView.textField.stringValue = data.userName;
+            return cellView;
         }
     }
     
-    return YES;
+    if ([iden isEqualToString:@"onlinecolumn"]) {
+        BOOL isGroup = [item isKindOfClass:[Group class]];
+        if (isGroup) {
+            return nil;
+        } else { // user
+            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"useronlinecell" owner:self];
+            UserInfo *data = (UserInfo *)item;
+            if (data.status == USERSTATUS_OFFLINE) {
+                cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
+            } else if (data.status == USERSTATUS_INMEETING) {
+                cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
+            } else {
+                cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+            }
+
+            return cellView;
+        }
+    }
+    
+    return nil;
 }
+
+
+// table view
+//- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+//{
+//    return self.contactsCount;
+//}
+//
+//- (nullable id)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+//{
+//    NSString *iden = [ tableColumn identifier ];
+//    if ([iden isEqualToString:@"name"]) {
+//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"name" owner:self];
+//        UserInfo *data = [self.contacts objectAtIndex:row];
+//        cellView.textField.stringValue = data.userName;
+////        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+//        return cellView;
+//    } else if ([iden isEqualToString:@"invite"])  {
+//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"invite" owner:self];
+//        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+//        return cellView;
+//    } else if ([iden isEqualToString:@"delete"])  {
+//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"delete" owner:self];
+//        cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
+//        return cellView;
+//    }
+//
+//    return nil;
+//}
+//
+//-(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
+//    long column = [tableView clickedColumn];
+//    NSLog(@"---2222222selection row %ld", row);
+//    NSLog(@"---2222222selection column %ld", column);
+//
+//    if (column == 1) { // invite
+//        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
+//        {
+//            UserInfo *data = [self.contacts objectAtIndex:row];
+//            self.inviteeEmails = @[data.userEmail];
+//            [_emailMeetingInterface startVideoMeetingForEmailUser];
+//        }
+//    }
+//
+//    return YES;
+//}
 
 - (IBAction)onAddContactButtonClicked:(id)sender {
     AddContactWindowController* addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
@@ -619,33 +697,93 @@
     }
 }
 
-- (void) getContacts {
+- (void) updateUser:(UserInfo *)user {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableIndexSet* updatedRows = [[NSMutableIndexSet alloc] init];
+        NSMutableIndexSet* updatedColumns = [[NSMutableIndexSet alloc] init];
+        [updatedColumns addIndex:1];
+        [updatedColumns addIndex:2];
+        int currentRow = -1;
+        for (int i = 0; i < self.groupsCount; i++) {
+            ++currentRow;
+            Group* item = [self.contactsOutlineView child:i ofItem:nil];
+
+            for (UserInfo * userInfo in item.contacts) {
+                ++currentRow;
+                if ([userInfo.userEmail isEqualToString:user.userEmail]) {
+                    [updatedRows addIndex: currentRow];
+                    
+                    NSTableCellView * cellView = [self.contactsOutlineView viewAtColumn:1 row:currentRow makeIfNecessary:NO];
+                    if (user.status == USERSTATUS_OFFLINE) {
+                        cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
+                    } else if (user.status == USERSTATUS_INMEETING) {
+                        cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
+                    } else {
+                        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+                    }
+                }
+            }
+        }
+        
+        [self.contactsOutlineView reloadDataForRowIndexes:updatedRows columnIndexes:updatedColumns];
+    });
+}
+
+- (void) getGroups
+{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
+        NSString *url = [NSString stringWithFormat:GROUPLIST, @([VLUser shareVLUser].userId)];
         [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
             if(state)
             {
-                DLog(@"get all contacts:[%lu]", (unsigned long)[jsonData count]);
-                for (NSDictionary *userinfo in jsonData)
-                {
-                    UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
-                    NSLog(info.userName);
-                }
+                DLog(@"get all groups:[%lu]", (unsigned long)[jsonData count]);
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.contactsCount = [jsonData count];
-                    for (NSDictionary *userinfo in jsonData)
-                    {
-                        UserInfo *info = [[UserInfo alloc] initWithInformation:userinfo];
-                        [self.contacts addObject:info];
-                    }
-                    [self.contactTableView reloadData];
-                });
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    // to get all contacts
+                    NSMutableArray *cts = [[NSMutableArray alloc] init];
+                    NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
+                    [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonDataAllContacts, BOOL state) {
+                        if(state)
+                        {
+                            DLog(@"get all contacts:[%lu]", (unsigned long)[jsonDataAllContacts count]);
+                            for (NSDictionary *userinfo in jsonDataAllContacts)
+                            {
+                                UserInfo *user = [[UserInfo alloc] initWithInformation:userinfo];
+                                [cts addObject:user];
+                            }
 
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                self.groupsCount = [jsonData count];
+                                [self.groups removeAllObjects];
+                                for (NSDictionary *group in jsonData)
+                                {
+                                    Group *g = [[Group alloc] initWithInformation:group];
+                                    [self.groups addObject:g];
+                                }
+                                
+                                Group * all = [[Group alloc] init];
+                                all.groupName = @"所有人";
+                                all.contacts = cts;
+                                [self.groups insertObject:all atIndex:0];
+                                self.groupsCount = [self.groups count];
+                                
+                                [self.contactsOutlineView reloadData];
+                            });
+                        }
+                        else
+                        {
+                            DLog(@"%@", @"出错了");
+                        }
+                    } failure:^(NSError *error) {
+                        DLog(@"%@", error.description);
+                    }];
+
+                });
             }
             else
             {
                 DLog(@"%@", @"出错了");
+                //            MBPHUDAutoHide(self.view, NO, errMsg);
             }
         } failure:^(NSError *error) {
             DLog(@"%@", error.description);

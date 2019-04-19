@@ -77,9 +77,10 @@
             {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     UserInfo *userinfo = [[UserInfo alloc] initWithInformation:[array objectAtIndex:0]];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationStatusUpdateName
-                                                                        object:self
-                                                                      userInfo:@{@"userinfo":userinfo}];
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationStatusUpdateName
+//                                                                        object:self
+//                                                                      userInfo:@{@"userinfo":userinfo}];
+                    [weakSelf.delegate UserStatusChanged:userinfo];
                 });
             }
         }];

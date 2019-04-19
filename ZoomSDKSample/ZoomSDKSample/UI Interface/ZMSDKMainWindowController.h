@@ -60,7 +60,7 @@ enum {
 @class ZMSDKMeetingStatusMgr;
 @class ZMSDKLoginWindowController;
 
-@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate, ZoomSDKPremeetingServiceDelegate>
+@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate, ZoomSDKPremeetingServiceDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource>
 {
     IBOutlet ZMSDKPTImageButton*         _startVideoMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _startAudioMeetingButton;
@@ -81,6 +81,8 @@ enum {
     NSString* _contactEmail;
     unsigned long _contactsCount;
     NSMutableArray * _contacts;
+    unsigned long _groupsCount;
+    NSMutableArray * _groups;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -96,6 +98,8 @@ enum {
 @property (nonatomic, assign, readwrite) NSString* contactEmail;
 @property (nonatomic, assign, readwrite) unsigned long contactsCount;
 @property (nonatomic, assign, readwrite) NSMutableArray* contacts;
+@property (nonatomic, assign, readwrite) unsigned long groupsCount;
+@property (nonatomic, assign, readwrite) NSMutableArray* groups;
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
@@ -107,9 +111,12 @@ enum {
 - (void)updateMainWindowUIWithMeetingStatus:(ZoomSDKMeetingStatus)status;
 - (void)initApiUserInfoWithID:(NSString*)userID zak:(NSString*)zak userToken:(NSString*)userToken;
 
-- (void)getContacts;
+- (void)getGroups;
+- (void)updateUser:(UserInfo *)user;
 
-@property (assign) IBOutlet NSTableView *contactTableView;
+@property (assign) IBOutlet NSOutlineView *contactsOutlineView;
+
+
 - (IBAction)onAddContactButtonClicked:(id)sender;
 
 @property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
