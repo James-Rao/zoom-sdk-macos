@@ -608,13 +608,29 @@
             NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"useronlinecell" owner:self];
             UserInfo *data = (UserInfo *)item;
             if (data.status == USERSTATUS_OFFLINE) {
-                cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
-            } else if (data.status == USERSTATUS_INMEETING) {
-                cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
+                cellView.imageView.image = [NSImage imageNamed:@"offline"];
             } else {
-                cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+                cellView.imageView.image = [NSImage imageNamed:@"online"];
             }
 
+            return cellView;
+        }
+    }
+    
+    if ([iden isEqualToString:@"deletecolumn"]) {
+        BOOL isGroup = [item isKindOfClass:[Group class]];
+        if (isGroup) {
+            return nil;
+        } else { // user
+            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"userdeletecell" owner:self];
+            UserInfo *data = (UserInfo *)item;
+//            if (data.status == USERSTATUS_OFFLINE) {
+//                cellView.imageView.image = [NSImage imageNamed:@"deleteoffline"];
+//            }
+//            else {
+//                cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
+//            }
+            
             return cellView;
         }
     }
@@ -682,7 +698,7 @@
                 if(state)
                 {
                     NSLog(@"联系人添加成功");
-                    [self getContacts];
+                    [self getGroups];
                 }
                 else
                 {
@@ -699,33 +715,38 @@
 
 - (void) updateUser:(UserInfo *)user {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableIndexSet* updatedRows = [[NSMutableIndexSet alloc] init];
-        NSMutableIndexSet* updatedColumns = [[NSMutableIndexSet alloc] init];
-        [updatedColumns addIndex:1];
-        [updatedColumns addIndex:2];
-        int currentRow = -1;
-        for (int i = 0; i < self.groupsCount; i++) {
-            ++currentRow;
-            Group* item = [self.contactsOutlineView child:i ofItem:nil];
-
-            for (UserInfo * userInfo in item.contacts) {
-                ++currentRow;
-                if ([userInfo.userEmail isEqualToString:user.userEmail]) {
-                    [updatedRows addIndex: currentRow];
-                    
-                    NSTableCellView * cellView = [self.contactsOutlineView viewAtColumn:1 row:currentRow makeIfNecessary:NO];
-                    if (user.status == USERSTATUS_OFFLINE) {
-                        cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
-                    } else if (user.status == USERSTATUS_INMEETING) {
-                        cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
-                    } else {
-                        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-                    }
-                }
-            }
-        }
-        
-        [self.contactsOutlineView reloadDataForRowIndexes:updatedRows columnIndexes:updatedColumns];
+        [self getGroups];
+//        [self.contactsOutlineView beginUpdates];
+//
+//        NSMutableIndexSet* updatedRows = [[NSMutableIndexSet alloc] init];
+//        NSMutableIndexSet* updatedColumns = [[NSMutableIndexSet alloc] init];
+//        [updatedColumns addIndex:1];
+//        [updatedColumns addIndex:2];
+//        int currentRow = -1;
+//        for (int i = 0; i < self.groupsCount; i++) {
+//            ++currentRow;
+//            Group* item = [self.contactsOutlineView child:i ofItem:nil];
+//
+//            for (UserInfo * userInfo in item.contacts) {
+//                ++currentRow;
+//                if ([userInfo.userEmail isEqualToString:user.userEmail]) {
+//                    [updatedRows addIndex: currentRow];
+//
+//                    NSTableCellView * cellView = [self.contactsOutlineView viewAtColumn:1 row:currentRow makeIfNecessary:NO];
+//                    if (user.status == USERSTATUS_OFFLINE) {
+//                        cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
+//                    } else if (user.status == USERSTATUS_INMEETING) {
+//                        cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
+//                    } else {
+//                        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
+//                    }
+//                }
+//            }
+//        }
+//
+//        [self.contactsOutlineView endUpdates];
+//
+//        [self.contactsOutlineView reloadDataForRowIndexes:updatedRows columnIndexes:updatedColumns];
     });
 }
 
