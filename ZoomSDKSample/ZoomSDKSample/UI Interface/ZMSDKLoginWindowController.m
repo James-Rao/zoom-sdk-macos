@@ -262,6 +262,8 @@
     [self close];
     //[self.mainWindowController.window makeKeyAndOrderFront:nil];
     [self.mainWindowController showWindow:nil];
+    
+    [ZMSDKCommonHelper sharedInstance].myController = self.mainWindowController;
 }
 - (void)updateUIWithLoginStatus:(BOOL)hasLogin
 {

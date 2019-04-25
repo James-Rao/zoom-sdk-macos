@@ -73,6 +73,9 @@
 @synthesize groupsCount = _groupsCount;
 @synthesize groups = _groups;
 
+@synthesize isGroupAdded = _isGroupAdded;
+@synthesize newGroup = _newGroup;
+
 - (id)init
 {
     self = [super initWithWindowNibName:@"ZMSDKMainWindowController" owner:self];
@@ -187,12 +190,6 @@
         [_settingButton setEnabled:YES];
         [_scheduleMeetingButton setEnabled:NO];
     }
-    
-//    ZoomSDKAccountInfo* accountInfo = [[[ZoomSDK sharedSDK] getAuthService] getAccountInfo];
-//    [VLUser shareVLUser].userName = [accountInfo getDisplayName];
-//    [VLSocketIO registerTerminallOnlineWithComplete:^{
-//        NSLog(@"TERMINALSTATUS_ONLINE33333333333333");
-//    }];
 }
 - (void)awakeFromNib
 {
@@ -235,6 +232,9 @@
     [self changeHangoutButtonToStart];
     //[self updateHangoutButtonByStatus:[[[ZPLoader sharedInstance] confStatus] conferenceStatus] ];
     //[self updateScheduleButton];
+    
+    [self.window makeFirstResponder:_contactsOutlineView];
+    [self.window setInitialFirstResponder:_contactsOutlineView];
 }
 - (void)setColor4ZMSDKPTImageButton:(ZMSDKPTImageButton*)button colorType:(int)color
 {
@@ -667,22 +667,22 @@
 //    return nil;
 //}
 //
-//-(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-//    long column = [tableView clickedColumn];
-//    NSLog(@"---2222222selection row %ld", row);
-//    NSLog(@"---2222222selection column %ld", column);
-//
-//    if (column == 1) { // invite
-//        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
-//        {
-//            UserInfo *data = [self.contacts objectAtIndex:row];
-//            self.inviteeEmails = @[data.userEmail];
-//            [_emailMeetingInterface startVideoMeetingForEmailUser];
-//        }
-//    }
-//
-//    return YES;
-//}
+-(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
+    long column = [tableView clickedColumn];
+    NSLog(@"---2222222selection row %ld", row);
+    NSLog(@"---2222222selection column %ld", column);
+
+    if (column == 1) { // invite
+        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
+        {
+            UserInfo *data = [self.contacts objectAtIndex:row];
+            self.inviteeEmails = @[data.userEmail];
+            [_emailMeetingInterface startVideoMeetingForEmailUser];
+        }
+    }
+
+    return YES;
+}
 
 - (IBAction)onAddContactButtonClicked:(id)sender {
     AddContactWindowController* addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
@@ -710,6 +710,36 @@
         });
     } else {
         NSLog(@"Cancel contact  99999999999");
+    }
+}
+
+- (IBAction)onAddGroupButtonClicked:(id)sender {
+    AddGroupWindowController* addGroupWindowController = [[AddGroupWindowController alloc] initWithWindowNibName:@"AddGroupWindowController"];
+    addGroupWindowController.parent = self;
+    [[NSApplication sharedApplication] runModalForWindow:addGroupWindowController.window];
+    if (_isGroupAdded == YES) {
+        NSLog(@"Add group 888888888");
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSString *url = [NSString stringWithFormat:GROUPLIST, @([VLUser shareVLUser].userId)];
+            NSDictionary *parames = @{@"name": IsStrEmpty(_newGroup)?@" ":_newGroup};
+            [VLNetworkRequest postWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
+                if(state)
+                {
+                    NSLog(@"联系人添加成功");
+                    [self getGroups];
+                }
+                else
+                {
+                    NSLog(@"联系人添加失败");
+                }
+            } failure:^(NSError *error) {
+                DLog(@"%@", error.description);
+            }];
+        });
+    } else {
+        NSLog(@"Cancel group 00000000");
     }
 }
 
@@ -811,4 +841,15 @@
         }];
     });
 }
+
+- (void)mouseEntered:(NSEvent*)event
+{
+    NSLog(@"mouse enter %d", event);
+}
+
+- (void)mouseExited:(NSEvent*)event
+{
+    NSLog(@"mouse exit %d", event);
+}
+
 @end

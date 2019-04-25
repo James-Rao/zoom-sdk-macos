@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ZMSDKDelegateMgr;
+@class ZMSDKMainWindowController;
 
 typedef enum{
     ZMSDKLoginType_None,
@@ -24,11 +25,14 @@ typedef enum{
     ZMSDKLoginType         _loginType;
     BOOL                   _hasLogin;
     BOOL                   _isUseCutomizeUI;
+    
+    ZMSDKMainWindowController* _myController;
 }
 @property(nonatomic, retain, readwrite)ZMSDKDelegateMgr*   delegateMgr;
 @property(nonatomic, assign, readwrite)ZMSDKLoginType      loginType;
 @property(nonatomic, assign, readwrite)BOOL                hasLogin;
 @property (nonatomic, assign, readwrite)BOOL               isUseCutomizeUI;
+@property(nonatomic, retain, readwrite)ZMSDKMainWindowController*   myController;
 
 + (ZMSDKCommonHelper*)sharedInstance;
 @end

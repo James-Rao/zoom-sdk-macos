@@ -13,6 +13,8 @@
 #import "ZoomSDKScheduleWindowCtr.h"
 #import "VLSocketIO.h"
 #import "AddContactWindowController.h"
+#import "AddGroupWindowController.h"
+#import "MyTableCellView.h"
 
 enum {
     ZMSDKPTImageButton_orange = 0,
@@ -83,6 +85,8 @@ enum {
     NSMutableArray * _contacts;
     unsigned long _groupsCount;
     NSMutableArray * _groups;
+    BOOL _isGroupAdded;
+    NSString* _newGroup;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -101,6 +105,9 @@ enum {
 @property (nonatomic, assign, readwrite) unsigned long groupsCount;
 @property (nonatomic, assign, readwrite) NSMutableArray* groups;
 
+@property (nonatomic, assign, readwrite) BOOL isGroupAdded;
+@property (nonatomic, assign, readwrite) NSString* newGroup;
+
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
 - (IBAction)onJoinMeetingButtonClicked:(id)sender;
@@ -114,10 +121,16 @@ enum {
 - (void)getGroups;
 - (void)updateUser:(UserInfo *)user;
 
+- (void)mouseEntered:(NSEvent*)event;
+- (void)mouseExited:(NSEvent*)event;
+
 @property (assign) IBOutlet NSOutlineView *contactsOutlineView;
 
 
 - (IBAction)onAddContactButtonClicked:(id)sender;
+
+- (IBAction)onAddGroupButtonClicked:(id)sender;
+
 
 @property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
 @end

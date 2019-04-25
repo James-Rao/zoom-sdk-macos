@@ -34,6 +34,8 @@ dependencies: \
   /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/SocketIO.framework/Headers/SocketIO-Swift.h \
   /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/SocketIO.framework/Headers/Socket.IO-Client-Swift-umbrella.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/AddContactWindowController.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/AddGroupWindowController.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/MyTableCellView.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Common/ZMSDKCommonHelper.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/StartJoinMeeting/ZMSDKEmailMeetingInterface.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/StartJoinMeeting/ZMSDKSSOMeetingInterface.h \

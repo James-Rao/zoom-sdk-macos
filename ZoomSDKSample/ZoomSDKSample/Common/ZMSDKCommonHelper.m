@@ -15,6 +15,7 @@
 @synthesize  hasLogin = _hasLogin;
 @synthesize  loginType = _loginType;
 @synthesize  isUseCutomizeUI = _isUseCutomizeUI;
+@synthesize  myController= _myController;
 
 + (ZMSDKCommonHelper*)sharedInstance
 {
