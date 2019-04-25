@@ -677,12 +677,14 @@
             for (int c = 0; c < [group.contacts count]; c++) {
                 UserInfo* oldUserInfo = (UserInfo*)[group.contacts objectAtIndex:c];
                 if ([oldUserInfo.userEmail isEqualToString:user.userEmail]) {
+                    oldUserInfo.status = user.status;
+                    
                     long row = [_contactsOutlineView rowForItem:oldUserInfo];
                     if(row == -1) {
                         continue;
                     }
                     MyTableCellView* cell = [_contactsOutlineView viewAtColumn:0 row:row makeIfNecessary:NO];
-                    oldUserInfo.status = user.status;
+ 
                     [cell updateUI:oldUserInfo];
                 }
             }
