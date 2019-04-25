@@ -131,6 +131,7 @@ enum {
 
 - (IBAction)onAddGroupButtonClicked:(id)sender;
 
+- (void)rightMouseDown:(UserInfo *)event;
 
 @property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
 @end

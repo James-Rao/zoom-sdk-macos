@@ -235,6 +235,8 @@
     
     [self.window makeFirstResponder:_contactsOutlineView];
     [self.window setInitialFirstResponder:_contactsOutlineView];
+    
+    [_contactsOutlineView registerNib:[[NSNib alloc] initWithNibNamed:@"MyTableCellView" bundle:nil] forIdentifier:@"customCell"];
 }
 - (void)setColor4ZMSDKPTImageButton:(ZMSDKPTImageButton*)button colorType:(int)color
 {
@@ -585,7 +587,7 @@
 - (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item NS_AVAILABLE_MAC(10_7)
 {
     NSString *iden = [ tableColumn identifier ];
-    if ([iden isEqualToString:@"namecolumn"]) {
+//    if ([iden isEqualToString:@"namecolumn"]) {
         BOOL isGroup = [item isKindOfClass:[Group class]];
         if (isGroup) {
             NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupcell" owner:self];
@@ -593,95 +595,18 @@
             cellView.textField.stringValue = data.groupName;
             return cellView;
         } else { // user
-            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"usercell" owner:self];
+            MyTableCellView *cellView = [outlineView makeViewWithIdentifier:@"customCell" owner:self];
             UserInfo *data = (UserInfo *)item;
+            [cellView updateUI:data];
             cellView.textField.stringValue = data.userName;
-            return cellView;
-        }
-    }
-    
-    if ([iden isEqualToString:@"onlinecolumn"]) {
-        BOOL isGroup = [item isKindOfClass:[Group class]];
-        if (isGroup) {
-            return nil;
-        } else { // user
-            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"useronlinecell" owner:self];
-            UserInfo *data = (UserInfo *)item;
-            if (data.status == USERSTATUS_OFFLINE) {
-                cellView.imageView.image = [NSImage imageNamed:@"offline"];
-            } else {
-                cellView.imageView.image = [NSImage imageNamed:@"online"];
-            }
-
-            return cellView;
-        }
-    }
-    
-    if ([iden isEqualToString:@"deletecolumn"]) {
-        BOOL isGroup = [item isKindOfClass:[Group class]];
-        if (isGroup) {
-            return nil;
-        } else { // user
-            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"userdeletecell" owner:self];
-            UserInfo *data = (UserInfo *)item;
-//            if (data.status == USERSTATUS_OFFLINE) {
-//                cellView.imageView.image = [NSImage imageNamed:@"deleteoffline"];
-//            }
-//            else {
-//                cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
-//            }
+            
+            [cellView.btnTestImage setImage:[NSImage imageNamed:@"offline"]];
+            
             
             return cellView;
         }
-    }
-    
+
     return nil;
-}
-
-
-// table view
-//- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
-//{
-//    return self.contactsCount;
-//}
-//
-//- (nullable id)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
-//{
-//    NSString *iden = [ tableColumn identifier ];
-//    if ([iden isEqualToString:@"name"]) {
-//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"name" owner:self];
-//        UserInfo *data = [self.contacts objectAtIndex:row];
-//        cellView.textField.stringValue = data.userName;
-////        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-//        return cellView;
-//    } else if ([iden isEqualToString:@"invite"])  {
-//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"invite" owner:self];
-//        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-//        return cellView;
-//    } else if ([iden isEqualToString:@"delete"])  {
-//        NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"delete" owner:self];
-//        cellView.imageView.image = [NSImage imageNamed:@"deleteonline"];
-//        return cellView;
-//    }
-//
-//    return nil;
-//}
-//
--(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-    long column = [tableView clickedColumn];
-    NSLog(@"---2222222selection row %ld", row);
-    NSLog(@"---2222222selection column %ld", column);
-
-    if (column == 1) { // invite
-        if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_Email && [ZMSDKCommonHelper sharedInstance].hasLogin)
-        {
-            UserInfo *data = [self.contacts objectAtIndex:row];
-            self.inviteeEmails = @[data.userEmail];
-            [_emailMeetingInterface startVideoMeetingForEmailUser];
-        }
-    }
-
-    return YES;
 }
 
 - (IBAction)onAddContactButtonClicked:(id)sender {
@@ -745,38 +670,20 @@
 
 - (void) updateUser:(UserInfo *)user {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self getGroups];
-//        [self.contactsOutlineView beginUpdates];
-//
-//        NSMutableIndexSet* updatedRows = [[NSMutableIndexSet alloc] init];
-//        NSMutableIndexSet* updatedColumns = [[NSMutableIndexSet alloc] init];
-//        [updatedColumns addIndex:1];
-//        [updatedColumns addIndex:2];
-//        int currentRow = -1;
-//        for (int i = 0; i < self.groupsCount; i++) {
-//            ++currentRow;
-//            Group* item = [self.contactsOutlineView child:i ofItem:nil];
-//
-//            for (UserInfo * userInfo in item.contacts) {
-//                ++currentRow;
-//                if ([userInfo.userEmail isEqualToString:user.userEmail]) {
-//                    [updatedRows addIndex: currentRow];
-//
-//                    NSTableCellView * cellView = [self.contactsOutlineView viewAtColumn:1 row:currentRow makeIfNecessary:NO];
-//                    if (user.status == USERSTATUS_OFFLINE) {
-//                        cellView.imageView.image = [NSImage imageNamed:@"inviteoffline"];
-//                    } else if (user.status == USERSTATUS_INMEETING) {
-//                        cellView.imageView.image = [NSImage imageNamed:@"inmeeting"];
-//                    } else {
-//                        cellView.imageView.image = [NSImage imageNamed:@"inviteonline"];
-//                    }
-//                }
-//            }
-//        }
-//
-//        [self.contactsOutlineView endUpdates];
-//
-//        [self.contactsOutlineView reloadDataForRowIndexes:updatedRows columnIndexes:updatedColumns];
+        //[self getGroups];
+        UserInfo* oldUserInfo = nil;
+        for (int i = 0; i < self.contactsCount; ++i) {
+            UserInfo * old = (UserInfo*)[self.contacts objectAtIndex:i];
+            if ([old.userEmail isEqualToString:user.userEmail]) {
+                oldUserInfo = old;
+                break;
+            }
+        }
+        
+        long row = [_contactsOutlineView rowForItem:oldUserInfo];
+        MyTableCellView* cell = [_contactsOutlineView viewAtColumn:0 row:row makeIfNecessary:NO];
+        oldUserInfo.status = user.status;
+        [cell updateUI:oldUserInfo];
     });
 }
 
@@ -815,6 +722,10 @@
                                 Group * all = [[Group alloc] init];
                                 all.groupName = @"所有人";
                                 all.contacts = cts;
+                                
+                                self.contacts = cts;
+                                self.contactsCount = [self.contacts count];
+                                
                                 [self.groups insertObject:all atIndex:0];
                                 self.groupsCount = [self.groups count];
                                 

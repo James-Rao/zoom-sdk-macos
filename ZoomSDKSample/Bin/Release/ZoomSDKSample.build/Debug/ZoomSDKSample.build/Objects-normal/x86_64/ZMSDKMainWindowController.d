@@ -35,6 +35,8 @@ dependencies: \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/AddContactWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/AddGroupWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/MyTableCellView.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UserInfo.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLinkACommon.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/ZMSDKLoginWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Common/NSColor+Category.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Common/ZMSDKCommonHelper.h \
@@ -44,8 +46,6 @@ dependencies: \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/StartJoinMeeting/ZMSDKApiMeetingInterface.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/ZMSDKMeetingStatusMgr.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/ZoomSDKWindowController.h \
-  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UserInfo.h \
-  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLinkACommon.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLInfo.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLNetworkRequest.h \
   /Users/rao/Documents/GitHub/zoom-sdk-macos/ZoomSDKSample/ZoomSDK/AFNetworking.framework/Modules/module.modulemap \

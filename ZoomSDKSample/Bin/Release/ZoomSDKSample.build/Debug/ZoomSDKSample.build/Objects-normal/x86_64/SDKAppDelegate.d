@@ -37,4 +37,6 @@ dependencies: \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UI\ Interface/AddContactWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/AddGroupWindowController.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/MyTableCellView.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/UserInfo.h \
+  /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/VLinkACommon.h \
   /Users/rao/Documents/Github/zoom-sdk-macos/ZoomSDKSample/ZoomSDKSample/Init/ZMSDKInitHelper.h
