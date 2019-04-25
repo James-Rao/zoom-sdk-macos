@@ -15,6 +15,7 @@
 #import "AddContactWindowController.h"
 #import "AddGroupWindowController.h"
 #import "MyTableCellView.h"
+#import "DeleteContactWindowController.h"
 
 enum {
     ZMSDKPTImageButton_orange = 0,
@@ -121,8 +122,7 @@ enum {
 - (void)getGroups;
 - (void)updateUser:(UserInfo *)user;
 
-- (void)mouseEntered:(NSEvent*)event;
-- (void)mouseExited:(NSEvent*)event;
+- (void) deleteCell : (UserInfo*) userInfo; 
 
 @property (assign) IBOutlet NSOutlineView *contactsOutlineView;
 

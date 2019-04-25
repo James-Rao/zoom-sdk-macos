@@ -34,74 +34,78 @@
     
 }
 
+- (IBAction)deleteButtonClicked:(id)sender {
+    NSLog(@"delete contact 8888888888888 %@", _userInfo.userEmail);
+    [[ZMSDKCommonHelper sharedInstance].myController deleteCell:_userInfo];
+}
+
 - (void) updateUI: (UserInfo*) userInfo
 {
-    if (_userInfo == nil)
-    {
-        _userInfo = userInfo;
-    }
-
+    _userInfo = userInfo;
     
     if (_userInfo.status == USERSTATUS_OFFLINE) {
         [self.inviteButton setHidden:YES];
         [self.textOffline setHidden:NO];
         [self.textOnline setHidden:YES];
-        self.btnTestImage.image = [NSImage imageNamed:@"offline"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"offline"]; // delete and onlinestatus
     } else if (_userInfo.status == USERSTATUS_INMEETING) {
-
+        [self.inviteButton setHidden:YES];
+        [self.textOffline setHidden:YES];
+        [self.textOnline setHidden:NO];
+        self.deleteButton.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
     } else { // online
         [self.inviteButton setHidden:YES];
         [self.textOffline setHidden:YES];
         [self.textOnline setHidden:NO];
-        self.btnTestImage.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
     }
 }
 
 - (void)mouseEntered:(NSEvent*)theEvent
 {
-    NSLog(@"Enter........");
-    
     if (_userInfo.status == USERSTATUS_OFFLINE) {
         self.inviteButton.image = [NSImage imageNamed:@"inviteoffline"];
         [self.inviteButton setHidden:NO];
         [self.textOffline setHidden:YES];
         [self.textOnline setHidden:YES];
-        self.btnTestImage.image = [NSImage imageNamed:@"deleteoffline"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"deleteoffline"]; // delete and onlinestatus
     } else if (_userInfo.status == USERSTATUS_INMEETING) {
-        
+        [self.inviteButton setHidden:NO];
+        [self.textOffline setHidden:YES];
+        [self.textOnline setHidden:YES];
+        self.deleteButton.image = [NSImage imageNamed:@"deleteonline"]; // delete and onlinestatus
     } else { // online
         self.inviteButton.image = [NSImage imageNamed:@"inviteonline"];
         [self.inviteButton setHidden:NO];
         [self.textOffline setHidden:YES];
         [self.textOnline setHidden:YES];
-        self.btnTestImage.image = [NSImage imageNamed:@"deleteonline"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"deleteonline"]; // delete and onlinestatus
     }
-
-    [[ZMSDKCommonHelper sharedInstance].myController mouseEntered:theEvent];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
-    NSLog(@"Exit........");
-
     if (_userInfo.status == USERSTATUS_OFFLINE) {
         [self.inviteButton setHidden:YES];
         [self.textOffline setHidden:NO];
         [self.textOnline setHidden:YES];
-        self.btnTestImage.image = [NSImage imageNamed:@"offline"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"offline"]; // delete and onlinestatus
     } else if (_userInfo.status == USERSTATUS_INMEETING) {
-        
+        [self.inviteButton setHidden:YES];
+        [self.textOffline setHidden:YES];
+        [self.textOnline setHidden:NO];
+        self.deleteButton.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
     } else { // online
         [self.inviteButton setHidden:YES];
         [self.textOffline setHidden:YES];
         [self.textOnline setHidden:NO];
-        self.btnTestImage.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
+        self.deleteButton.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
     }
-    
-    [[ZMSDKCommonHelper sharedInstance].myController mouseExited:theEvent];
 }
 
-- (IBAction)onTestImageButtonClicked:(id)sender {
-    NSLog(@"8888888888888");
-}
+//- (IBAction)onTestImageButtonClicked:(id)sender {
+//    NSLog(@"8888888888888");
+//    //[[ZMSDKCommonHelper sharedInstance].myController cellDeleted:_userInfo];
+//
+//}
 @end

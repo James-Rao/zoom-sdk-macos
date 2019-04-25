@@ -12,6 +12,8 @@
 		2936EC99226F427D00AABEC7 /* AddGroupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2936EC97226F427D00AABEC7 /* AddGroupWindowController.xib */; };
 		2936EC9C2270A07400AABEC7 /* MyTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2936EC9B2270A07400AABEC7 /* MyTableCellView.m */; };
 		294B4C492233E21700E6CD88 /* Logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 294B4C482233E21700E6CD88 /* Logo_white.png */; };
+		296A421D227201C300AF016A /* DeleteContactWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 296A421B227201C300AF016A /* DeleteContactWindowController.m */; };
+		296A421E227201C300AF016A /* DeleteContactWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 296A421C227201C300AF016A /* DeleteContactWindowController.xib */; };
 		2988B0B0223FD317009E70D0 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AD223FD316009E70D0 /* SocketIO.framework */; };
 		2988B0B1223FD317009E70D0 /* SocketIO.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 2988B0AD223FD316009E70D0 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2988B0B2223FD317009E70D0 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2988B0AE223FD316009E70D0 /* CommonCrypto.framework */; };
@@ -201,6 +203,9 @@
 		2936EC9A2270A07400AABEC7 /* MyTableCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableCellView.h; sourceTree = "<group>"; };
 		2936EC9B2270A07400AABEC7 /* MyTableCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableCellView.m; sourceTree = "<group>"; };
 		294B4C482233E21700E6CD88 /* Logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_white.png; sourceTree = "<group>"; };
+		296A421A227201C300AF016A /* DeleteContactWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteContactWindowController.h; sourceTree = "<group>"; };
+		296A421B227201C300AF016A /* DeleteContactWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteContactWindowController.m; sourceTree = "<group>"; };
+		296A421C227201C300AF016A /* DeleteContactWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteContactWindowController.xib; sourceTree = "<group>"; };
 		2988B0AD223FD316009E70D0 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = ZoomSDK/SocketIO.framework; sourceTree = "<group>"; };
 		2988B0AE223FD316009E70D0 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = ZoomSDK/CommonCrypto.framework; sourceTree = "<group>"; };
 		2988B0AF223FD316009E70D0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = ZoomSDK/Starscream.framework; sourceTree = "<group>"; };
@@ -509,6 +514,9 @@
 				2936EC9A2270A07400AABEC7 /* MyTableCellView.h */,
 				2936EC9B2270A07400AABEC7 /* MyTableCellView.m */,
 				292A67F122714E40002F9829 /* MyTableCellView.xib */,
+				296A421A227201C300AF016A /* DeleteContactWindowController.h */,
+				296A421B227201C300AF016A /* DeleteContactWindowController.m */,
+				296A421C227201C300AF016A /* DeleteContactWindowController.xib */,
 			);
 			name = "UI Interface";
 			sourceTree = "<group>";
@@ -935,6 +943,7 @@
 				972215FC1DD06C5100C74CE6 /* MainMenu.xib in Resources */,
 				5D92F91321CB8D3E0088B241 /* share_frame.png in Resources */,
 				5DFC0F4D21CA5D930027F596 /* ZMSDKShareSelectWindow.xib in Resources */,
+				296A421E227201C300AF016A /* DeleteContactWindowController.xib in Resources */,
 				5D92583221D3811D00CF2782 /* toolbar_mute_tele_press.png in Resources */,
 				5DFC0F2921C9EE210027F596 /* toolbar_unmute_voip_normal.png in Resources */,
 				5D92F91521CB92E10088B241 /* share_window_one.png in Resources */,
@@ -984,6 +993,7 @@
 				5D606DB621B1182D004DEB15 /* ZMSDKEmailMeetingInterface.m in Sources */,
 				972464ED21A556D000ADBFB7 /* SDKAppDelegate.m in Sources */,
 				299D3E542247AE4600B8F53A /* VLInfo.m in Sources */,
+				296A421D227201C300AF016A /* DeleteContactWindowController.m in Sources */,
 				5D57F36821B0E47200A72B1E /* ZoomSDKScheduleWindowCtr.m in Sources */,
 				299D3E5E2247AEA000B8F53A /* VLNetworkRequest.m in Sources */,
 				299D3E5D2247AEA000B8F53A /* JSONResponseSerializerWithData.m in Sources */,

@@ -586,25 +586,20 @@
 
 - (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item NS_AVAILABLE_MAC(10_7)
 {
-    NSString *iden = [ tableColumn identifier ];
-//    if ([iden isEqualToString:@"namecolumn"]) {
-        BOOL isGroup = [item isKindOfClass:[Group class]];
-        if (isGroup) {
-            NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupcell" owner:self];
-            Group *data = (Group *)item;
-            cellView.textField.stringValue = data.groupName;
-            return cellView;
-        } else { // user
-            MyTableCellView *cellView = [outlineView makeViewWithIdentifier:@"customCell" owner:self];
-            UserInfo *data = (UserInfo *)item;
-            [cellView updateUI:data];
-            cellView.textField.stringValue = data.userName;
-            
-            [cellView.btnTestImage setImage:[NSImage imageNamed:@"offline"]];
-            
-            
-            return cellView;
-        }
+    BOOL isGroup = [item isKindOfClass:[Group class]];
+    if (isGroup) {
+        NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupcell" owner:self];
+        Group *data = (Group *)item;
+        cellView.textField.stringValue = data.groupName;
+        return cellView;
+    } else { // user
+        MyTableCellView *cellView = [outlineView makeViewWithIdentifier:@"customCell" owner:self];
+        UserInfo *data = (UserInfo *)item;
+        [cellView updateUI:data];
+        cellView.textField.stringValue = data.userName;
+        
+        return cellView;
+    }
 
     return nil;
 }
@@ -614,11 +609,14 @@
     addContactWindowController.parent = self;
     [[NSApplication sharedApplication] runModalForWindow:addContactWindowController.window];
     if (_isContactAdded == YES) {
-        NSLog(@"Add contact 999999999");
+        
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSString *url = [NSString stringWithFormat:USERLIST, @([VLUser shareVLUser].userId)];
             NSDictionary *parames = @{@"email": IsStrEmpty(_contactEmail)?@" ":_contactEmail};
+            
+            NSLog(@"Add contact %@", _contactEmail);
+            
             [VLNetworkRequest postWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
                 if(state)
                 {
@@ -671,19 +669,25 @@
 - (void) updateUser:(UserInfo *)user {
     dispatch_async(dispatch_get_main_queue(), ^{
         //[self getGroups];
-        UserInfo* oldUserInfo = nil;
-        for (int i = 0; i < self.contactsCount; ++i) {
-            UserInfo * old = (UserInfo*)[self.contacts objectAtIndex:i];
-            if ([old.userEmail isEqualToString:user.userEmail]) {
-                oldUserInfo = old;
-                break;
+        
+        NSLog(@"update user status with email %@", user.userEmail);
+        
+        for(int g = 0; g < self.groupsCount;++g) {
+            Group* group = [self.groups objectAtIndex:g];
+            for (int c = 0; c < [group.contacts count]; c++) {
+                UserInfo* oldUserInfo = (UserInfo*)[group.contacts objectAtIndex:c];
+                if ([oldUserInfo.userEmail isEqualToString:user.userEmail]) {
+                    long row = [_contactsOutlineView rowForItem:oldUserInfo];
+                    if(row == -1) {
+                        continue;
+                    }
+                    MyTableCellView* cell = [_contactsOutlineView viewAtColumn:0 row:row makeIfNecessary:NO];
+                    oldUserInfo.status = user.status;
+                    [cell updateUI:oldUserInfo];
+                }
             }
         }
         
-        long row = [_contactsOutlineView rowForItem:oldUserInfo];
-        MyTableCellView* cell = [_contactsOutlineView viewAtColumn:0 row:row makeIfNecessary:NO];
-        oldUserInfo.status = user.status;
-        [cell updateUI:oldUserInfo];
     });
 }
 
@@ -713,6 +717,7 @@
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 self.groupsCount = [jsonData count];
                                 [self.groups removeAllObjects];
+                                
                                 for (NSDictionary *group in jsonData)
                                 {
                                     Group *g = [[Group alloc] initWithInformation:group];
@@ -753,14 +758,26 @@
     });
 }
 
-- (void)mouseEntered:(NSEvent*)event
+- (void) deleteCell : (UserInfo*) userInfo
 {
-    NSLog(@"mouse enter %d", event);
+    DeleteContactWindowController* deleteContactWindowController = [[DeleteContactWindowController alloc] initWithWindowNibName:@"DeleteContactWindowController"];
+    [[NSApplication sharedApplication] runModalForWindow:deleteContactWindowController.window];
+    
+    if(deleteContactWindowController.isDelete != YES) {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *url = [NSString stringWithFormat:DELUSER, @([VLUser shareVLUser].userId), @(userInfo.userId)];
+        [VLNetworkRequest deleteWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
+            if(state)
+            {
+                DLog(@"");
+                [self getGroups];
+            }
+        } failure:^(NSError *error) {
+            DLog(@"%@", error.description);
+        }];
+    });
 }
-
-- (void)mouseExited:(NSEvent*)event
-{
-    NSLog(@"mouse exit %d", event);
-}
-
 @end

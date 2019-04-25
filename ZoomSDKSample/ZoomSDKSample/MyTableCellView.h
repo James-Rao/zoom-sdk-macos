@@ -16,17 +16,14 @@
     UserInfo* _userInfo;
 }
 
-
-@property (assign) IBOutlet NSButton *btnTestImage;
 @property (assign) IBOutlet NSTextField *textOnline;
 @property (assign) IBOutlet NSButton *inviteButton;
 
 @property (assign) IBOutlet NSTextField *textOffline;
-
-
-- (IBAction)onTestImageButtonClicked:(id)sender;
+- (IBAction)deleteButtonClicked:(id)sender;
 
 - (void) updateUI: (UserInfo*) userInfo;
+@property (assign) IBOutlet NSButton *deleteButton;
 
 @end
 
