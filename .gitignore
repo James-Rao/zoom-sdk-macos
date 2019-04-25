@@ -60,4 +60,5 @@ fastlane/screenshots
 iOSInjectionProject/
 
 Bin/
+Bin/*
 Release/
