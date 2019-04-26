@@ -63,3 +63,4 @@ Bin/
 Bin/*
 Release/
 ZoomSDKSample/Bin/
+ZoomSDKSample/Bin/**
