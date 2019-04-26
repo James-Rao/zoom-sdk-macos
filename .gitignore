@@ -64,3 +64,4 @@ Bin/*
 Release/
 ZoomSDKSample/Bin/
 ZoomSDKSample/Bin/**
+.DS_Store
