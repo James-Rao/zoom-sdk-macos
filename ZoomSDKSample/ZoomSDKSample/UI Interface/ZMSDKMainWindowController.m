@@ -685,7 +685,7 @@
                     }
                     MyTableCellView* cell = [_contactsOutlineView viewAtColumn:0 row:row makeIfNecessary:NO];
  
-                    [cell updateUI:oldUserInfo]; // ok.
+                    [cell updateUI:oldUserInfo]; // ok..
                 }
             }
         }
