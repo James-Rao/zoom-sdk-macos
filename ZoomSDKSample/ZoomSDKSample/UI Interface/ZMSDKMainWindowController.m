@@ -237,6 +237,7 @@
     [self.window setInitialFirstResponder:_contactsOutlineView];
     
     [_contactsOutlineView registerNib:[[NSNib alloc] initWithNibNamed:@"MyTableCellView" bundle:nil] forIdentifier:@"customCell"];
+    [_contactsOutlineView registerNib:[[NSNib alloc] initWithNibNamed:@"MyGroupTableCellView" bundle:nil] forIdentifier:@"groupCustomCell"];
 }
 - (void)setColor4ZMSDKPTImageButton:(ZMSDKPTImageButton*)button colorType:(int)color
 {
@@ -588,8 +589,9 @@
 {
     BOOL isGroup = [item isKindOfClass:[Group class]];
     if (isGroup) {
-        NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupcell" owner:self];
+        MyGroupTableCellView *cellView = [outlineView makeViewWithIdentifier:@"groupCustomCell" owner:self];
         Group *data = (Group *)item;
+        [cellView updateUI:data];
         cellView.textField.stringValue = data.groupName;
         return cellView;
     } else { // user
@@ -779,6 +781,29 @@
             }
         } failure:^(NSError *error) {
             DLog(@"%@", error.description);
+        }];
+    });
+}
+
+- (void) deleteGroup: (Group*) group
+{
+    DeleteContactWindowController* deleteContactWindowController = [[DeleteContactWindowController alloc] initWithWindowNibName:@"DeleteContactWindowController"];
+    [[NSApplication sharedApplication] runModalForWindow:deleteContactWindowController.window];
+    
+    if(deleteContactWindowController.isDelete != YES) {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *url = [NSString stringWithFormat:GROUPMODIFY, @(group.groupId)];
+        [VLNetworkRequest deleteWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
+            if(state)
+            {
+                DLog(@"分组删除成功");
+                [self getGroups];
+            }
+        } failure:^(NSError *error) {
+            
         }];
     });
 }

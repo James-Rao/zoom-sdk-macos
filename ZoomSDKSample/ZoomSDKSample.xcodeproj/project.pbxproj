@@ -30,6 +30,8 @@
 		299D3E602247AFA300B8F53A /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299D3E122247A56A00B8F53A /* AFNetworking.framework */; };
 		299D3E612247AFA300B8F53A /* AFNetworking.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 299D3E122247A56A00B8F53A /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		299D3E632247B29F00B8F53A /* ZoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9729ED091DD5AF7200DB188D /* ZoomSDK.framework */; };
+		29ADBE48227419930058A39C /* MyGroupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ADBE47227419930058A39C /* MyGroupTableCellView.m */; };
+		29ADBE4A227419B60058A39C /* MyGroupTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29ADBE49227419B60058A39C /* MyGroupTableCellView.xib */; };
 		5D19DC6721DE25D300925E18 /* SDK_Transcode.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 5D19DC6621DE25D300925E18 /* SDK_Transcode.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5D322D0021C8DCE10093CD4A /* plistArrowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */; };
 		5D322D0121C8DCE10093CD4A /* plistArrowTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */; };
@@ -223,6 +225,9 @@
 		299D3E5A2247AEA000B8F53A /* VLSocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLSocketIO.h; sourceTree = "<group>"; };
 		299D3E5B2247AEA000B8F53A /* VLNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLNetworkRequest.m; sourceTree = "<group>"; };
 		299D3E5C2247AEA000B8F53A /* VLSocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLSocketIO.m; sourceTree = "<group>"; };
+		29ADBE46227419930058A39C /* MyGroupTableCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyGroupTableCellView.h; sourceTree = "<group>"; };
+		29ADBE47227419930058A39C /* MyGroupTableCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGroupTableCellView.m; sourceTree = "<group>"; };
+		29ADBE49227419B60058A39C /* MyGroupTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyGroupTableCellView.xib; sourceTree = "<group>"; };
 		5D19DC6621DE25D300925E18 /* SDK_Transcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = SDK_Transcode.app; path = ZoomSDK/SDK_Transcode.app; sourceTree = "<group>"; };
 		5D322CFC21C8DCE10093CD4A /* plistArrowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowBottom.png; sourceTree = "<group>"; };
 		5D322CFD21C8DCE10093CD4A /* plistArrowTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plistArrowTop.png; sourceTree = "<group>"; };
@@ -517,6 +522,9 @@
 				296A421A227201C300AF016A /* DeleteContactWindowController.h */,
 				296A421B227201C300AF016A /* DeleteContactWindowController.m */,
 				296A421C227201C300AF016A /* DeleteContactWindowController.xib */,
+				29ADBE46227419930058A39C /* MyGroupTableCellView.h */,
+				29ADBE47227419930058A39C /* MyGroupTableCellView.m */,
+				29ADBE49227419B60058A39C /* MyGroupTableCellView.xib */,
 			);
 			name = "UI Interface";
 			sourceTree = "<group>";
@@ -919,6 +927,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DDCB9F221A2937700F798C9 /* btn_startvideo_normal@2x.png in Resources */,
+				29ADBE4A227419B60058A39C /* MyGroupTableCellView.xib in Resources */,
 				5D50C2BC21DF01BA00041DE4 /* timezones.txt in Resources */,
 				972215FA1DD06C5100C74CE6 /* ZoomLogo.png in Resources */,
 				5DFC0F3321C9F2500027F596 /* toolbar_unmute_voip_press.png in Resources */,
@@ -1010,6 +1019,7 @@
 				5D51EA4A21C373FD00CF7137 /* NSColor+Category.m in Sources */,
 				5D57F36021B0E47200A72B1E /* ZMSDKLoginWindowController.m in Sources */,
 				972464EA21A5548E00ADBFB7 /* ZMSDKRestAPILogin.m in Sources */,
+				29ADBE48227419930058A39C /* MyGroupTableCellView.m in Sources */,
 				5D92F93E21CB9FE70088B241 /* ZMSDKThumbnailView.m in Sources */,
 				5D7610B021A6897200A12343 /* ZMSDKDelegateMgr.m in Sources */,
 				5D51EA8B21C3B1D300CF7137 /* ZMSDKThumbnailVideoItemView.m in Sources */,

@@ -35,7 +35,6 @@
 }
 
 - (IBAction)deleteButtonClicked:(id)sender {
-    NSLog(@"delete contact 8888888888888 %@", _userInfo.userEmail);
     [[ZMSDKCommonHelper sharedInstance].myController deleteCell:_userInfo];
 }
 
@@ -102,10 +101,4 @@
         self.deleteButton.image = [NSImage imageNamed:@"online"]; // delete and onlinestatus
     }
 }
-
-//- (IBAction)onTestImageButtonClicked:(id)sender {
-//    NSLog(@"8888888888888");
-//    //[[ZMSDKCommonHelper sharedInstance].myController cellDeleted:_userInfo];
-//
-//}
 @end

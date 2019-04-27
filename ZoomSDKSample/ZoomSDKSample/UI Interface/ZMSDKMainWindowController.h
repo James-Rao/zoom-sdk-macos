@@ -15,6 +15,7 @@
 #import "AddContactWindowController.h"
 #import "AddGroupWindowController.h"
 #import "MyTableCellView.h"
+#import "MyGroupTableCellView.h"
 #import "DeleteContactWindowController.h"
 
 enum {
@@ -122,7 +123,8 @@ enum {
 - (void)getGroups;
 - (void)updateUser:(UserInfo *)user;
 
-- (void) deleteCell : (UserInfo*) userInfo; 
+- (void) deleteCell : (UserInfo*) userInfo;
+- (void) deleteGroupCell: (Group*) group;
 
 @property (assign) IBOutlet NSOutlineView *contactsOutlineView;
 

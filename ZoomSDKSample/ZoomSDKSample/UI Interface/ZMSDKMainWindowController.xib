@@ -150,7 +150,7 @@
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
-                                                                    <tableCellView identifier="groupcell" id="F79-P2-roa">
+                                                                    <tableCellView identifier="groupcell" id="F79-P2-roa" customClass="MyGroupTableCellView">
                                                                         <rect key="frame" x="1" y="1" width="607" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>

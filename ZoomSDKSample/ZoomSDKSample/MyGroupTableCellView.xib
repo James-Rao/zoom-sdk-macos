@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <tableCellView id="HF1-Mf-vjY" customClass="MyGroupTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="607" height="17"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField identifier="groupCustomCell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htC-rN-rLZ">
+                    <rect key="frame" x="1" y="0.0" width="420" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="fBK-mf-kqK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="040-eA-gdJ">
+                    <rect key="frame" x="511" y="0.0" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="inviteonline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Lo6-KI-5xj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onInviteClicked:" target="HF1-Mf-vjY" id="vxi-a3-UuD"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-xb-GvJ">
+                    <rect key="frame" x="536" y="0.0" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="groupmanage" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="18S-cM-hDF">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onGroupmanageClicked:" target="HF1-Mf-vjY" id="dbs-b4-xF3"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9n-YO-zeK">
+                    <rect key="frame" x="561" y="0.0" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="edit" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WFy-Gn-qMH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onEditClicked:" target="HF1-Mf-vjY" id="uMf-dl-sym"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEh-Sx-ckP">
+                    <rect key="frame" x="586" y="0.0" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="deleteonline" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WGl-ND-0Pg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onDeleteClicked:" target="HF1-Mf-vjY" id="pu6-eK-KMP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <connections>
+                <outlet property="deleteButton" destination="cEh-Sx-ckP" id="aOu-OG-rsO"/>
+                <outlet property="editButton" destination="c9n-YO-zeK" id="X1b-th-WE8"/>
+                <outlet property="groupmanageButton" destination="PJ2-xb-GvJ" id="fOg-ew-m11"/>
+                <outlet property="inviteButton" destination="040-eA-gdJ" id="nvd-Q1-o6q"/>
+                <outlet property="textField" destination="htC-rN-rLZ" id="keY-OG-8cN"/>
+            </connections>
+            <point key="canvasLocation" x="174.5" y="152.5"/>
+        </tableCellView>
+    </objects>
+    <resources>
+        <image name="deleteonline" width="20" height="20"/>
+        <image name="edit" width="20" height="20"/>
+        <image name="groupmanage" width="20" height="20"/>
+        <image name="inviteonline" width="20" height="20"/>
+    </resources>
+</document>
