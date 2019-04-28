@@ -22,6 +22,9 @@
 @property (assign) IBOutlet NSTextField *textOffline;
 - (IBAction)deleteButtonClicked:(id)sender;
 
+- (IBAction)inviteButtonClicked:(id)sender;
+
+
 - (void) updateUI: (UserInfo*) userInfo;
 @property (assign) IBOutlet NSButton *deleteButton;
 

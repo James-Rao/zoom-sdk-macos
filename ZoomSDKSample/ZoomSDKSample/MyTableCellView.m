@@ -38,6 +38,10 @@
     [[ZMSDKCommonHelper sharedInstance].myController deleteCell:_userInfo];
 }
 
+- (IBAction)inviteButtonClicked:(id)sender {
+    [[ZMSDKCommonHelper sharedInstance].myController inviteCell:_userInfo];
+}
+
 - (void) updateUI: (UserInfo*) userInfo
 {
     _userInfo = userInfo;

@@ -12,6 +12,8 @@
 
 @synthesize isIn = _isIn;
 @synthesize isIn_Old = _isIn_Old;
+@synthesize group = _group;
+@synthesize user = _user;
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];

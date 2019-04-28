@@ -448,9 +448,6 @@
 
     ZoomSDKMeetingItem* meetingItem = (ZoomSDKMeetingItem *)[meetingList objectAtIndex:0];
     [VLUser shareVLUser].userMeetingID = [meetingItem getMeetingUniqueID];
-
-    
-    self.inviteeEmails = nil;
 }
 
 - (void)initApiUserInfoWithID:(NSString*)userID zak:(NSString*)zak userToken:(NSString*)userToken
@@ -481,37 +478,6 @@
     }
     [VLUser shareVLUser].userId = UserInfo.userId;
     [self getGroups];
-    
-//    if ([VLUser shareVLUser].userId == 0) {
-//        //请求用户离线邀请信息
-//        DLog(@"load all offline invitations");
-//        NSString *url = [NSString stringWithFormat:INVITATIONSLIST, @(UserInfo.userId)];
-//        [VLNetworkRequest getWithURL:url parameters:nil success:^(id jsonData, BOOL state) {
-//            if(state)
-//            {
-//                DLog(@"get all groups:[%lu]", (unsigned long)[jsonData count]);
-//                for (NSDictionary *invitationItem in jsonData)
-//                {
-//                    InvitationInfo *item = [[InvitationInfo alloc] initWithInformation:invitationItem];
-//                    [self.itemArray addObject:item];
-//                }
-//                if (self.itemArray.count > 0) {
-//                    [self.meetingTableView reloadData];
-//                }
-//            }
-//            else
-//            {
-//                DLog(@"%@", @"出错了");
-//            }
-//        } failure:^(NSError *error) {
-//            DLog(@"%@", error.description);
-//        }];
-//    }
-//
-//    // 保存用户信息
-//    [[VLUser shareVLUser] updateUserInformation:UserInfo];
-//
-//    [[NSNotificationCenter defaultCenter] postNotificationName:NSStringSocketIOLoginResultNotification object:nil userInfo:@{@"returnValue":UserInfo}];
 }
 
 - (void)UserStatusChanged:(UserInfo *)userInfo{
@@ -817,6 +783,14 @@
     });
 }
 
+- (void) inviteCell:(UserInfo *)userInfo {
+    
+    _inviteeEmails = [[NSMutableArray alloc] init];
+    [_inviteeEmails addObject:userInfo.userEmail];
+    
+    [_emailMeetingInterface startVideoMeetingForEmailUser];
+}
+
 - (void) deleteCell : (UserInfo*) userInfo
 {
     DeleteContactWindowController* deleteContactWindowController = [[DeleteContactWindowController alloc] initWithWindowNibName:@"DeleteContactWindowController"];
@@ -865,20 +839,60 @@
 
 - (void) manageGroup:(Group *)group {
     _editingGroup = group;
+    [_groupContactsTableView reloadData];
     [_finalMainView selectTabViewItemWithIdentifier:@"groupTab"];
 }
-- (IBAction)onReturnToMainTab:(id)sender {
+- (IBAction)onReturnToMainTab:(id)sender { // directly return without change.
     [_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
     [_contactsOutlineView reloadData];
 }
 
 - (IBAction)onConfirmChange:(id)sender {
     
-    [_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
+    //[_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
     
+    long groupId = _editingGroup.groupId;
+    NSMutableArray* addUsers = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < _contactsCount; i++) {
+        MyGroupManageTableCellView* cell = [_groupContactsTableView viewAtColumn:0 row:i makeIfNecessary:NO];
+            if (cell.isIn) {
+                [addUsers addObject:cell.user];
+            }
+    }
+    
+    // existing users. add existing to addUsers as well
+    NSMutableArray* addUsersReferences = [[NSMutableArray alloc] init];
+    for (int refIndex = 0; refIndex < [addUsers count]; refIndex++) {
+        [addUsersReferences addObject:((UserInfo*)[addUsers objectAtIndex:refIndex]).reference];
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *url = [NSString stringWithFormat:GROUPMODIFY, @(groupId)];
+//        NSDictionary *parames = @{ @"contacts": @[addedUser.reference] };
+        NSDictionary *parames = @{ @"contacts": @[addUsersReferences] };
+        [VLNetworkRequest patchWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
+            if(state)
+            {
+                DLog(@"联系人添加成功");
+                
+                // reload
+                [self getGroups];
+                
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
+                 });
+            }
+            else
+            {
+                DLog(@"联系人添加失败")
+            }
+        } failure:^(NSError *error) {
+            DLog(@"%@", error.description);
+        }];
 
-    
-    [_contactsOutlineView reloadData];
+    });
 }
 
 @end

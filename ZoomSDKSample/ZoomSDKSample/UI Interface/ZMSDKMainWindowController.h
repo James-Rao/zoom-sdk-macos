@@ -130,6 +130,8 @@ enum {
 - (void) editGroup: (Group*) group;
 - (void) manageGroup: (Group*) group;
 
+-(void) inviteCell: (UserInfo*) userInfo;
+
 @property (assign) IBOutlet NSOutlineView *contactsOutlineView;
 
 
@@ -139,7 +141,7 @@ enum {
 
 - (void)rightMouseDown:(UserInfo *)event;
 
-@property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
+@property (retain, nonatomic, nullable) NSMutableArray<NSString*> * inviteeEmails;
 
 
 @property (assign) IBOutlet NSView *mainView;

@@ -28,6 +28,8 @@
 
 @property (nonatomic, assign, readwrite) BOOL isIn;
 @property (nonatomic, assign, readwrite) BOOL isIn_Old;
+@property (nonatomic, assign, readwrite) UserInfo* user;
+@property (nonatomic, assign, readwrite) Group* group;
 
 - (IBAction)isInChecked:(id)sender;
 
