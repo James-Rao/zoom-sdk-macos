@@ -48,6 +48,10 @@
 
 - (void)mouseEntered:(NSEvent*)theEvent
 {
+    if  ([_group.groupName isEqualToString:@"所有人"]) {
+        return;
+    }
+    
     [self.inviteButton setHidden:NO];
     [self.deleteButton setHidden:NO];
     [self.editButton setHidden:NO];
@@ -56,6 +60,10 @@
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
+    if  ([_group.groupName isEqualToString:@"所有人"]) {
+        return;
+    }
+    
     [self.inviteButton setHidden:YES];
     [self.deleteButton setHidden:YES];
     [self.editButton setHidden:YES];
@@ -67,11 +75,13 @@
 }
 
 - (IBAction)onEditClicked:(id)sender {
+    [[ZMSDKCommonHelper sharedInstance].myController editGroup:_group];
 }
 
 - (IBAction)onInviteClicked:(id)sender {
 }
 
 - (IBAction)onGroupmanageClicked:(id)sender {
+    [[ZMSDKCommonHelper sharedInstance].myController manageGroup:_group];
 }
 @end

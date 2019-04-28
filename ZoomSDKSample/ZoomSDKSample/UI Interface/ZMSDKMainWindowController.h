@@ -17,6 +17,7 @@
 #import "MyTableCellView.h"
 #import "MyGroupTableCellView.h"
 #import "DeleteContactWindowController.h"
+#import "MyGroupManageTableCellView.h"
 
 enum {
     ZMSDKPTImageButton_orange = 0,
@@ -64,7 +65,7 @@ enum {
 @class ZMSDKMeetingStatusMgr;
 @class ZMSDKLoginWindowController;
 
-@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate, ZoomSDKPremeetingServiceDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource>
+@interface ZMSDKMainWindowController : NSWindowController <ZoomSDKDirectShareHelperDelegate, VLSocketIODelegate, NSTableViewDataSource, NSTableViewDelegate, ZoomSDKPremeetingServiceDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource, NSTableViewDelegate, NSTableViewDataSource>
 {
     IBOutlet ZMSDKPTImageButton*         _startVideoMeetingButton;
     IBOutlet ZMSDKPTImageButton*         _startAudioMeetingButton;
@@ -89,6 +90,7 @@ enum {
     NSMutableArray * _groups;
     BOOL _isGroupAdded;
     NSString* _newGroup;
+    Group* _editingGroup;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -125,6 +127,8 @@ enum {
 
 - (void) deleteCell : (UserInfo*) userInfo;
 - (void) deleteGroupCell: (Group*) group;
+- (void) editGroup: (Group*) group;
+- (void) manageGroup: (Group*) group;
 
 @property (assign) IBOutlet NSOutlineView *contactsOutlineView;
 
@@ -136,4 +140,21 @@ enum {
 - (void)rightMouseDown:(UserInfo *)event;
 
 @property (retain, nonatomic, nullable) NSArray<NSString*> * inviteeEmails;
+
+
+@property (assign) IBOutlet NSView *mainView;
+@property (assign) IBOutlet NSTabView *meetingAndContactView;
+
+
+@property (assign) IBOutlet NSTextField *gmGroupName;
+
+- (IBAction)onReturnToMainTab:(id)sender;
+
+- (IBAction)onConfirmChange:(id)sender;
+
+@property (assign) IBOutlet NSTabView *finalMainView;
+
+@property (assign) IBOutlet NSTableView *groupContactsTableView;
+
+
 @end

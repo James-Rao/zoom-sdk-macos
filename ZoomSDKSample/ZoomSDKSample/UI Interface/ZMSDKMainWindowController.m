@@ -238,6 +238,7 @@
     
     [_contactsOutlineView registerNib:[[NSNib alloc] initWithNibNamed:@"MyTableCellView" bundle:nil] forIdentifier:@"customCell"];
     [_contactsOutlineView registerNib:[[NSNib alloc] initWithNibNamed:@"MyGroupTableCellView" bundle:nil] forIdentifier:@"groupCustomCell"];
+    [self.groupContactsTableView registerNib:[[NSNib alloc] initWithNibNamed:@"MyGroupManageTableCellView" bundle:nil] forIdentifier:@"groupContactsCell"];
 }
 - (void)setColor4ZMSDKPTImageButton:(ZMSDKPTImageButton*)button colorType:(int)color
 {
@@ -606,6 +607,29 @@
     return nil;
 }
 
+// for group manage table view
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return [_contacts count];
+}
+
+- (nullable NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row NS_AVAILABLE_MAC(10_7)
+{
+    MyGroupManageTableCellView *cellView = [tableView makeViewWithIdentifier:@"groupContactsCell" owner:self];
+    UserInfo *data = (UserInfo *)[_contacts objectAtIndex:row];
+    [cellView updateUI:_editingGroup theUser:data];
+    cellView.textField.stringValue = data.userName;
+    
+    return cellView;
+}
+//
+//- (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+//{
+//    return nil;
+//}
+
+
+
 - (IBAction)onAddContactButtonClicked:(id)sender {
     AddContactWindowController* addContactWindowController = [[AddContactWindowController alloc] initWithWindowNibName:@"AddContactWindowController"];
     addContactWindowController.parent = self;
@@ -638,6 +662,37 @@
     }
 }
 
+- (void) editGroup:(Group *)group {
+    AddGroupWindowController* addGroupWindowController = [[AddGroupWindowController alloc] initWithWindowNibName:@"AddGroupWindowController"];
+    addGroupWindowController.parent = self;
+    [[NSApplication sharedApplication] runModalForWindow:addGroupWindowController.window];
+    if (_isGroupAdded == YES) {
+        NSLog(@"Edit group 888888888");
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSString *url = [NSString stringWithFormat:GROUPMODIFY, @(group.groupId)];
+            NSDictionary *parames = @{@"name": _newGroup};
+            [VLNetworkRequest patchWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
+                if(state)
+                {
+                    NSLog(@"群组编辑成功");
+                    [self getGroups];
+                }
+                else
+                {
+                    NSLog(@"群组编辑失败");
+                }
+            } failure:^(NSError *error) {
+                DLog(@"%@", error.description);
+            }];
+        });
+    } else {
+        NSLog(@"Cancel group 00000000");
+    }
+    
+}
+
 - (IBAction)onAddGroupButtonClicked:(id)sender {
     AddGroupWindowController* addGroupWindowController = [[AddGroupWindowController alloc] initWithWindowNibName:@"AddGroupWindowController"];
     addGroupWindowController.parent = self;
@@ -652,7 +707,7 @@
             [VLNetworkRequest postWithURL:url parameters:parames success:^(id jsonData, BOOL state) {
                 if(state)
                 {
-                    NSLog(@"联系人添加成功");
+                    NSLog(@"群组添加成功");
                     [self getGroups];
                 }
                 else
@@ -807,4 +862,23 @@
         }];
     });
 }
+
+- (void) manageGroup:(Group *)group {
+    _editingGroup = group;
+    [_finalMainView selectTabViewItemWithIdentifier:@"groupTab"];
+}
+- (IBAction)onReturnToMainTab:(id)sender {
+    [_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
+    [_contactsOutlineView reloadData];
+}
+
+- (IBAction)onConfirmChange:(id)sender {
+    
+    [_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
+    
+
+    
+    [_contactsOutlineView reloadData];
+}
+
 @end

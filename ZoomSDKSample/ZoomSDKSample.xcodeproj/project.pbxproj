@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		292A67F222714E40002F9829 /* MyTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292A67F122714E40002F9829 /* MyTableCellView.xib */; };
+		2930F137227586D90050EB04 /* MyGroupManageTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2930F136227586D90050EB04 /* MyGroupManageTableCellView.m */; };
+		2930F139227586F40050EB04 /* MyGroupManageTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2930F138227586F40050EB04 /* MyGroupManageTableCellView.xib */; };
 		2936EC98226F427D00AABEC7 /* AddGroupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2936EC96226F427D00AABEC7 /* AddGroupWindowController.m */; };
 		2936EC99226F427D00AABEC7 /* AddGroupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2936EC97226F427D00AABEC7 /* AddGroupWindowController.xib */; };
 		2936EC9C2270A07400AABEC7 /* MyTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2936EC9B2270A07400AABEC7 /* MyTableCellView.m */; };
@@ -199,6 +201,9 @@
 
 /* Begin PBXFileReference section */
 		292A67F122714E40002F9829 /* MyTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableCellView.xib; sourceTree = "<group>"; };
+		2930F135227586D90050EB04 /* MyGroupManageTableCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyGroupManageTableCellView.h; sourceTree = "<group>"; };
+		2930F136227586D90050EB04 /* MyGroupManageTableCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGroupManageTableCellView.m; sourceTree = "<group>"; };
+		2930F138227586F40050EB04 /* MyGroupManageTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyGroupManageTableCellView.xib; sourceTree = "<group>"; };
 		2936EC95226F427D00AABEC7 /* AddGroupWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGroupWindowController.h; sourceTree = "<group>"; };
 		2936EC96226F427D00AABEC7 /* AddGroupWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddGroupWindowController.m; sourceTree = "<group>"; };
 		2936EC97226F427D00AABEC7 /* AddGroupWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupWindowController.xib; sourceTree = "<group>"; };
@@ -525,6 +530,9 @@
 				29ADBE46227419930058A39C /* MyGroupTableCellView.h */,
 				29ADBE47227419930058A39C /* MyGroupTableCellView.m */,
 				29ADBE49227419B60058A39C /* MyGroupTableCellView.xib */,
+				2930F135227586D90050EB04 /* MyGroupManageTableCellView.h */,
+				2930F136227586D90050EB04 /* MyGroupManageTableCellView.m */,
+				2930F138227586F40050EB04 /* MyGroupManageTableCellView.xib */,
 			);
 			name = "UI Interface";
 			sourceTree = "<group>";
@@ -980,6 +988,7 @@
 				971B86972194308B00DE248F /* Localizable.strings in Resources */,
 				5DDCB9E721A2937700F798C9 /* btn_schedule_normal.png in Resources */,
 				5DDCB9EA21A2937700F798C9 /* btn_joinmeeting_normal@2x.png in Resources */,
+				2930F139227586F40050EB04 /* MyGroupManageTableCellView.xib in Resources */,
 				5DFC0F2B21C9EE210027F596 /* toolbar_stop_video_normal.png in Resources */,
 				5D92F90B21CB8B970088B241 /* toolbar_share_stop.png in Resources */,
 				5DDCB9EB21A2937700F798C9 /* btn_joinmeeting_normal.png in Resources */,
@@ -1037,6 +1046,7 @@
 				5D57F35021B0E44A00A72B1E /* ZMSDKPTImageButton.m in Sources */,
 				5DB57B0C21A7EDCE0036ACD0 /* ZMSDKMeetingStatusMgr.m in Sources */,
 				972464E721A5547C00ADBFB7 /* ZMSDKAuthHelper.m in Sources */,
+				2930F137227586D90050EB04 /* MyGroupManageTableCellView.m in Sources */,
 				2936EC98226F427D00AABEC7 /* AddGroupWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
