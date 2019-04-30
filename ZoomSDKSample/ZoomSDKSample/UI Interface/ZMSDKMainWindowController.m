@@ -199,7 +199,7 @@
 }
 - (void)awakeFromNib
 {
-    [self.window setBackgroundColor:[NSColor colorWithDeviceRed:249.0f/255 green:249.0f/255 blue:249.0f/255 alpha:1.0f]];
+    //[self.window setBackgroundColor:[NSColor colorWithDeviceRed:249.0f/255 green:249.0f/255 blue:249.0f/255 alpha:1.0f]];
     
     [_startVideoMeetingButton setBordered:NO];
     [_startAudioMeetingButton setBordered:NO];
@@ -216,10 +216,10 @@
     [_startAudioMeetingButton setTitle:@"Audio Meeting"];
     [self setColor4ZMSDKPTImageButton:_startAudioMeetingButton colorType:ZMSDKPTImageButton_orange];
     
-    [_joinMeetingButton setNormalImage:[NSImage imageNamed:@"btn_joinmeeting_normal"]];
-    [_joinMeetingButton setHighlightImage:[NSImage imageNamed:@"btn_joinmeeting_normal"]];
-    [_joinMeetingButton setDisabledImage:[NSImage imageNamed:@"btn_joinmeeting_normal"]];
-    [_joinMeetingButton setTitle:@"Join"];
+    [_joinMeetingButton setNormalImage:[NSImage imageNamed:@"jiaru"]];
+    [_joinMeetingButton setHighlightImage:[NSImage imageNamed:@"jiaru"]];
+    [_joinMeetingButton setDisabledImage:[NSImage imageNamed:@"jiaru"]];
+    [_joinMeetingButton setTitle:@"加入会议"];
     [self setColor4ZMSDKPTImageButton:_joinMeetingButton colorType:ZMSDKPTImageButton_blue];
     
     [_scheduleMeetingButton setNormalImage:[NSImage imageNamed:@"btn_schedule_normal"]];
@@ -229,10 +229,11 @@
     [self setColor4ZMSDKPTImageButton:_scheduleMeetingButton colorType:ZMSDKPTImageButton_blue];
     
     
-    [_settingButton setNormalImage:[NSImage imageNamed:@"btn_setting_normal"]];
-    [_settingButton setHighlightImage:[NSImage imageNamed:@"btn_setting_normal"]];
-    [_settingButton setDisabledImage:[NSImage imageNamed:@"btn_setting_normal"]];
-    [_settingButton setTitle:@"Settings"];
+    [_settingButton setNormalImage:[NSImage imageNamed:@"shezhi"]];
+    [_settingButton setHighlightImage:[NSImage imageNamed:@"shezhi"]];
+    [_settingButton setDisabledImage:[NSImage imageNamed:@"shezhi"]];
+    [_settingButton setNormalImage:[NSImage imageNamed:@"shezhi"]];
+    [_settingButton setTitle:@"设置"];
      [self setColor4ZMSDKPTImageButton:_settingButton colorType:ZMSDKPTImageButton_blue];
     
     [self changeHangoutButtonToStart];
@@ -299,10 +300,10 @@
 
 - (void)changeHangoutButtonToStart
 {
-    [_startVideoMeetingButton setTitle:@"Video Meeting"];
-    [_startVideoMeetingButton setNormalImage:[NSImage imageNamed:@"btn_startvideo_normal"]];
-    [_startVideoMeetingButton setHighlightImage:[NSImage imageNamed:@"btn_startvideo_normal"]];
-    [_startVideoMeetingButton setDisabledImage:[NSImage imageNamed:@"btn_startvideo_normal"]];
+    [_startVideoMeetingButton setTitle:@"发起会议"];
+    [_startVideoMeetingButton setNormalImage:[NSImage imageNamed:@"faqi"]];
+    [_startVideoMeetingButton setHighlightImage:[NSImage imageNamed:@"faqi"]];
+    [_startVideoMeetingButton setDisabledImage:[NSImage imageNamed:@"faqi"]];
 }
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender
@@ -384,23 +385,23 @@
         case ZoomSDKMeetingStatus_Connecting:
         {
             [_startVideoMeetingButton setEnabled:NO];
-            [_startAudioMeetingButton setEnabled:NO];
+//            [_startAudioMeetingButton setEnabled:NO];
             [_joinMeetingButton setEnabled:NO];
-            if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API || ![ZMSDKCommonHelper sharedInstance].hasLogin)
-                [_scheduleMeetingButton setEnabled:NO];
-            else
-                [_scheduleMeetingButton setEnabled:YES];
+//            if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API || ![ZMSDKCommonHelper sharedInstance].hasLogin)
+//                [_scheduleMeetingButton setEnabled:NO];
+//            else
+//                [_scheduleMeetingButton setEnabled:YES];
         }
             break;
         case ZoomSDKMeetingStatus_InMeeting:
         {
             [_startVideoMeetingButton setEnabled:NO];
-            [_startAudioMeetingButton setEnabled:NO];
+//            [_startAudioMeetingButton setEnabled:NO];
             [_joinMeetingButton setEnabled:NO];
-            if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API || ![ZMSDKCommonHelper sharedInstance].hasLogin)
-                [_scheduleMeetingButton setEnabled:NO];
-            else
-                [_scheduleMeetingButton setEnabled:YES];
+//            if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API || ![ZMSDKCommonHelper sharedInstance].hasLogin)
+//                [_scheduleMeetingButton setEnabled:NO];
+//            else
+//                [_scheduleMeetingButton setEnabled:YES];
             
             // invite contact to join meeting
             if (_isAfterLogin) {
@@ -430,18 +431,18 @@
             if([ZMSDKCommonHelper sharedInstance].hasLogin)
             {
                 [_startVideoMeetingButton setEnabled:YES];
-                [_startAudioMeetingButton setEnabled:YES];
-                if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API)
-                    [_scheduleMeetingButton setEnabled:NO];
-                else
-                    [_scheduleMeetingButton setEnabled:YES];
+//                [_startAudioMeetingButton setEnabled:YES];
+//                if([ZMSDKCommonHelper sharedInstance].loginType == ZMSDKLoginType_API)
+//                    [_scheduleMeetingButton setEnabled:NO];
+//                else
+//                    [_scheduleMeetingButton setEnabled:YES];
                 [_joinMeetingButton setEnabled:YES];
             }
             else
             {
                 [_startVideoMeetingButton setEnabled:NO];
-                [_startAudioMeetingButton setEnabled:NO];
-                [_scheduleMeetingButton setEnabled:NO];
+//                [_startAudioMeetingButton setEnabled:NO];
+//                [_scheduleMeetingButton setEnabled:NO];
                 [_joinMeetingButton setEnabled:YES];
             }
             [self changeHangoutButtonToStart];

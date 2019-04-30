@@ -267,7 +267,7 @@
     _errorMessageTextField.stringValue = error;
 }
 
-- (void)createMainWindow
+- (void)createMainWindow:(BOOL)isAfterLogin
 {
     if (self.mainWindowController)
     {
@@ -276,8 +276,12 @@
         return;
     }
     self.mainWindowController = [[ZMSDKMainWindowController alloc] init] ;
+    self.mainWindowController.isAfterLogin = isAfterLogin;
     self.mainWindowController.loginWindowController = self;
-    [self close];
+    if (isAfterLogin) {
+        [self close];
+    }
+
     //[self.mainWindowController.window makeKeyAndOrderFront:nil];
     [self.mainWindowController showWindow:nil];
     
@@ -320,6 +324,8 @@
 
 // new functions
 - (IBAction)onButtonClicked_ToLoginView:(NSButton *)sender {
+        _whichTab = 1;
+    
     if (!_isSDKInit) {
         _isSDKInit = YES;
         
@@ -327,10 +333,13 @@
         [ZMSDKInitHelper setDomain:@"https://zoom.us"];
         [self initHelper];
         [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+            [self switchToConnectingTab];
     }
 
-    _whichTab = 1;
-    [self switchToConnectingTab];
+    else {
+        [self switchToLoginTab];
+    }
+
 }
 
 - (void)switchToLaunchTab
@@ -376,6 +385,8 @@
 }
 
 - (IBAction)onButtonClicked_ToAddMeeting:(id)sender {
+        _whichTab = 0;
+    
     if (!_isSDKInit) {
         _isSDKInit = YES;
         
@@ -383,10 +394,13 @@
         [ZMSDKInitHelper setDomain:@"https://zoom.us"];
         [self initHelper];
         [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+            [self switchToConnectingTab];
     }
     
-    _whichTab = 0;
-    [self switchToConnectingTab];
+    else {
+        [self switchToJoinTab];
+    }
+
 }
 
 - (void)switchToLoginOrJoinOnlyTab {

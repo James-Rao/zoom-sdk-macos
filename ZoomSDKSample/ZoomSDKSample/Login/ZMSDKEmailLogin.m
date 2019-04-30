@@ -73,7 +73,7 @@
             break;
         case ZoomSDKLoginStatus_Success:
         {
-            [_loginWindowController createMainWindow];
+            [_loginWindowController createMainWindow:YES];
             [ZMSDKCommonHelper sharedInstance].hasLogin = YES;
             [_loginWindowController updateUIWithLoginStatus:YES];
             [_loginWindowController.window close];

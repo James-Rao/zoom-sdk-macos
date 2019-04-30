@@ -114,7 +114,7 @@
 - (void)switchToDomainTab;
 - (void)showErrorMessage:(NSString*)error;
 
-- (void)createMainWindow;
+- (void)createMainWindow:(BOOL)isAferLogin;
 - (void)logOut;
 - (void)updateUIWithLoginStatus:(BOOL)hasLogin;
 

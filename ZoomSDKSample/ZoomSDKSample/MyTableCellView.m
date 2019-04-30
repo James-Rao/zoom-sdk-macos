@@ -73,6 +73,7 @@
         [self.textOnline setHidden:YES];
         self.deleteButton.image = [NSImage imageNamed:@"deleteoffline"]; // delete and onlinestatus
     } else if (_userInfo.status == USERSTATUS_INMEETING) {
+        self.inviteButton.image = [NSImage imageNamed:@"inviteonline"];
         [self.inviteButton setHidden:NO];
         [self.textOffline setHidden:YES];
         [self.textOnline setHidden:YES];
