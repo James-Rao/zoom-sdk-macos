@@ -24,6 +24,8 @@
                 <outlet property="_sdkSecretTextField" destination="gV3-XQ-ncs" id="UFY-xi-u9B"/>
                 <outlet property="_textFieldEmail" destination="Ccx-xg-Amn" id="ISb-2j-seZ"/>
                 <outlet property="_textFieldPassword" destination="j7N-bf-zZ6" id="Yrw-YQ-Oyf"/>
+                <outlet property="textMeetingNumber" destination="x7m-h7-v3l" id="V84-k5-gnr"/>
+                <outlet property="textUserName" destination="Ayw-ga-Y4x" id="8Yl-sg-BoN"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -59,6 +61,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="onButtonClicked_ToAddMeeting:" target="-2" id="4Ko-fi-atC"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" misplaced="YES" id="REj-SI-2UA">
                                             <rect key="frame" x="198" y="99" width="204" height="45"/>
@@ -68,7 +73,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="onButtonClicked_ToLoginView:" target="-2" id="2cI-9d-vvk"/>
+                                                <action selector="onButtonClicked_ToLoginView:" target="-2" id="mzh-uC-Dnp"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" misplaced="YES" id="bE5-Be-iBq">
@@ -86,6 +91,54 @@
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="join" identifier="join" id="GeP-gM-gGD" userLabel="join">
+                                <view key="view" id="Q9S-eh-pJo">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" misplaced="YES" id="CyH-CZ-svn">
+                                            <rect key="frame" x="267" y="118" width="67" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="加入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7jZ-ct-jiz">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="addMeetingClicked:" target="-2" id="4aw-ZZ-LYW"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" misplaced="YES" id="tzQ-ZM-aj9">
+                                            <rect key="frame" x="61" y="44" width="67" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="返回" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WoA-fO-1PC">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onButtonClicked_ToLaunchView:" target="-2" id="b2G-UE-Th3"/>
+                                            </connections>
+                                        </button>
+                                        <textField verticalHuggingPriority="750" misplaced="YES" id="x7m-h7-v3l">
+                                            <rect key="frame" x="223" y="224" width="154" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="E4Q-DI-ITT">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" misplaced="YES" id="Ayw-ga-Y4x">
+                                            <rect key="frame" x="223" y="174" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CIY-Ks-Ivv">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                     </subviews>
@@ -306,6 +359,11 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Item 7" identifier="" id="KZX-zZ-XZS">
+                                <view key="view" id="PSz-QK-kxt">
+                                    <autoresizingMask key="autoresizingMask"/>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>

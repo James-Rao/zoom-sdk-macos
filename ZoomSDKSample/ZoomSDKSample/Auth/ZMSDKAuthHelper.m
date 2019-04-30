@@ -59,7 +59,7 @@
 //             [ZMSDKCommonHelper sharedInstance].loginType = ZMSDKLoginType_SSO;
 //        }
 //        else
-            [_loginController switchToLoginTab];
+            [_loginController switchToLoginOrJoinOnlyTab];
     }else{
         //error code handle
         NSString* error = @"";

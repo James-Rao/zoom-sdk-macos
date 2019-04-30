@@ -82,6 +82,9 @@
     ZMSDKEmailLogin* _emailLoginHelper;
     ZMSDKSSOLogin* _ssoLoginHelper;
     ZMSDKJoinOnly* _joinOnlyHelper;
+    
+    BOOL _isSDKInit;
+    int _whichTab;
 }
 @property(nonatomic, retain, readwrite)ZMSDKMainWindowController *mainWindowController;
 @property(nonatomic, retain, readwrite)ZMSDKAuthHelper* authHelper;
@@ -105,6 +108,7 @@
 - (void)showSelf;
 - (void)switchToConnectingTab;
 - (void)switchToLoginTab;
+- (void)switchToJoinTab;
 - (void)switchToErrorTab;
 - (void)switchToAuthTab;
 - (void)switchToDomainTab;
@@ -123,5 +127,14 @@
 @property (assign) IBOutlet NSSecureTextField *_textFieldPassword;
 - (IBAction)onButtonClicked_RememberMe:(id)sender;
 
+@property (assign) IBOutlet NSTextField *textMeetingNumber;
+
+@property (assign) IBOutlet NSTextField *textUserName;
+
+
+- (IBAction)addMeetingClicked:(id)sender;
+- (IBAction)onButtonClicked_ToAddMeeting:(id)sender;
+
+- (void)switchToLoginOrJoinOnlyTab;
 
 @end

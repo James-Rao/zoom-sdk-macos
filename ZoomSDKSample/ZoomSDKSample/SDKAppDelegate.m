@@ -33,6 +33,10 @@
     [self cleanUp];
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
 #pragma mark - internal
 
 

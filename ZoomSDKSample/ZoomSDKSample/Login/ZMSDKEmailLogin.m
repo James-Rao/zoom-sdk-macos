@@ -78,6 +78,7 @@
             [_loginWindowController updateUIWithLoginStatus:YES];
             [_loginWindowController.window close];
             [_loginWindowController.mainWindowController updateUI];
+            _loginWindowController.mainWindowController.isAfterLogin = YES;
             NSMenuItem* appMenuItem =[[[NSApplication sharedApplication] mainMenu] itemWithTag:0];
             NSMenu* appSubMenu = appMenuItem.submenu;
             NSMenuItem* logOutMenuItem =[appSubMenu itemWithTag:12];

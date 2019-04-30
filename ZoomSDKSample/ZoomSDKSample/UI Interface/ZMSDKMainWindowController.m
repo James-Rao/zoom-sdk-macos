@@ -75,6 +75,7 @@
 
 @synthesize isGroupAdded = _isGroupAdded;
 @synthesize newGroup = _newGroup;
+@synthesize isAfterLogin = _isAfterLogin;
 
 - (id)init
 {
@@ -94,6 +95,8 @@
         
         _groupsCount = 0;
         _groups = [[NSMutableArray alloc] init];
+        
+        _isAfterLogin = YES;
 
         return self;
     }
@@ -164,10 +167,13 @@
     //[self.window setLevel:NSPopUpMenuWindowLevel];
     [self updateUI];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    [[VLSocketIO shareManager] setDelegate:self];
-    [[VLSocketIO shareManager] connectTimeout:10 WithHandler:^{
-        NSLog(@"Cannot connect to server000000000000000000000");
-    }];
+    if (_isAfterLogin) {
+        [[VLSocketIO shareManager] setDelegate:self];
+        [[VLSocketIO shareManager] connectTimeout:10 WithHandler:^{
+            NSLog(@"Cannot connect to server000000000000000000000");
+        }];
+    }
+
 }
 - (void)updateUI
 {
@@ -397,17 +403,20 @@
                 [_scheduleMeetingButton setEnabled:YES];
             
             // invite contact to join meeting
-            MeetingInfo *meeting = [[MeetingInfo alloc] init];
-            meeting.topic = [NSString stringWithFormat:@"%@ 个人会议室", [VLUser shareVLUser].userName];
-            meeting.meetingId = [VLUser shareVLUser].userMeetingID;
-            meeting.meetingType = MEETING_STATUS_INMEETING;
-            meeting.isLocked = FALSE;
-            [[VLSocketIO shareManager] inviteContactsMeeting:meeting
-                                                     Inviter:[VLUser shareVLUser].userEmail
-                                                     Invitee:self.inviteeEmails
-                                                WithComplete:^{
-                                                    DLog(@"发送会议邀请成功.");
-                                                }];
+            if (_isAfterLogin) {
+                MeetingInfo *meeting = [[[MeetingInfo alloc] init] autorelease];
+                meeting.topic = [NSString stringWithFormat:@"%@ 个人会议室", [VLUser shareVLUser].userName];
+                meeting.meetingId = [VLUser shareVLUser].userMeetingID;
+                meeting.meetingType = MEETING_STATUS_INMEETING;
+                meeting.isLocked = FALSE;
+                [[VLSocketIO shareManager] inviteContactsMeeting:meeting
+                                                         Inviter:[VLUser shareVLUser].userEmail
+                                                         Invitee:self.inviteeEmails
+                                                    WithComplete:^{
+                                                        DLog(@"发送会议邀请成功.");
+                                                    }];
+            }
+
 
         }
             break;
@@ -659,6 +668,18 @@
     
 }
 
+- (void) inviteGroup:(Group *)group {
+    _inviteeEmails = [[NSMutableArray alloc] init];
+    //[_inviteeEmails addObject:userInfo.userEmail];
+    
+    for (int i = 0; i < [group.contacts count]; ++i) {
+        [_inviteeEmails addObject:((UserInfo*)[group.contacts objectAtIndex:i]).userEmail];
+    }
+    
+    
+    [_emailMeetingInterface startVideoMeetingForEmailUser];
+}
+
 - (IBAction)onAddGroupButtonClicked:(id)sender {
     AddGroupWindowController* addGroupWindowController = [[AddGroupWindowController alloc] initWithWindowNibName:@"AddGroupWindowController"];
     addGroupWindowController.parent = self;
@@ -852,7 +873,7 @@
     //[_finalMainView selectTabViewItemWithIdentifier:@"mainTab"];
     
     long groupId = _editingGroup.groupId;
-    NSMutableArray* addUsers = [[NSMutableArray alloc] init];
+    NSMutableArray* addUsers = [[[NSMutableArray alloc] init] autorelease];
     
     for (int i = 0; i < _contactsCount; i++) {
         MyGroupManageTableCellView* cell = [_groupContactsTableView viewAtColumn:0 row:i makeIfNecessary:NO];

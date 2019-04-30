@@ -91,6 +91,8 @@ enum {
     BOOL _isGroupAdded;
     NSString* _newGroup;
     Group* _editingGroup;
+    
+    BOOL _isAfterLogin;
 }
 @property (nonatomic, retain, readwrite) ZMSDKEmailMeetingInterface*        emailMeetingInterface;
 @property (nonatomic, retain, readwrite) ZMSDKSSOMeetingInterface*          ssoMeetingInterface;
@@ -111,6 +113,7 @@ enum {
 
 @property (nonatomic, assign, readwrite) BOOL isGroupAdded;
 @property (nonatomic, assign, readwrite) NSString* newGroup;
+@property (nonatomic, assign, readwrite) BOOL isAfterLogin;
 
 - (IBAction)onStartVideoMeetingButtonClicked:(id)sender;
 - (IBAction)onStartAudioMeetingButtonClicked:(id)sender;
@@ -129,6 +132,7 @@ enum {
 - (void) deleteGroupCell: (Group*) group;
 - (void) editGroup: (Group*) group;
 - (void) manageGroup: (Group*) group;
+- (void) inviteGroup: (Group*) group;
 
 -(void) inviteCell: (UserInfo*) userInfo;
 

@@ -79,6 +79,7 @@
 }
 
 - (IBAction)onInviteClicked:(id)sender {
+    [[ZMSDKCommonHelper sharedInstance].myController inviteGroup:_group];
 }
 
 - (IBAction)onGroupmanageClicked:(id)sender {

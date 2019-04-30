@@ -80,9 +80,21 @@
         self.emailLoginHelper = [[ZMSDKEmailLogin alloc] initWithWindowController:self];
     }
     
-    //self.ssoLoginHelper = [[ZMSDKSSOLogin alloc] initWithWindowController:self];
-    //self.joinOnlyHelper = [[ZMSDKJoinOnly alloc] initWithWindowController:self];
-    //self.restAPIHelper = [[ZMSDKRestAPILogin alloc] initWithWindowController:self];
+    //
+    if (self.ssoLoginHelper == nil) {
+            self.ssoLoginHelper = [[ZMSDKSSOLogin alloc] initWithWindowController:self];
+    }
+
+    
+    if (self.joinOnlyHelper == nil ) {
+            self.joinOnlyHelper = [[ZMSDKJoinOnly alloc] initWithWindowController:self];
+    }
+
+    //
+    if (self.restAPIHelper == nil) {
+            self.restAPIHelper = [[ZMSDKRestAPILogin alloc] initWithWindowController:self];
+    }
+
 }
 
 - (void)cleanUp
@@ -229,6 +241,12 @@
     [_baseTabView selectTabViewItemWithIdentifier:@"login"];
     [_loadingProgressIndicator stopAnimation:self];
 }
+
+- (void)switchToJoinTab
+{
+    [_baseTabView selectTabViewItemWithIdentifier:@"join"];
+}
+
 - (void)switchToErrorTab
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"error"];
@@ -302,10 +320,16 @@
 
 // new functions
 - (IBAction)onButtonClicked_ToLoginView:(NSButton *)sender {
-    [ZMSDKInitHelper initSDK:false];
-    [ZMSDKInitHelper setDomain:@"https://zoom.us"];
-    [self initHelper];
-    [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+    if (!_isSDKInit) {
+        _isSDKInit = YES;
+        
+        [ZMSDKInitHelper initSDK:false];
+        [ZMSDKInitHelper setDomain:@"https://zoom.us"];
+        [self initHelper];
+        [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+    }
+
+    _whichTab = 1;
     [self switchToConnectingTab];
 }
 
@@ -340,5 +364,36 @@
 
 - (IBAction)onButtonClicked_RememberMe:(id)sender {
 
+}
+- (IBAction)addMeetingClicked:(id)sender {
+    if(_textMeetingNumber.stringValue.length > 0)
+    {
+        [_joinOnlyHelper joinMeetingOnly:_textMeetingNumber.stringValue displayName:_textUserName.stringValue meetingPSW:@""];
+
+    }
+    
+
+}
+
+- (IBAction)onButtonClicked_ToAddMeeting:(id)sender {
+    if (!_isSDKInit) {
+        _isSDKInit = YES;
+        
+        [ZMSDKInitHelper initSDK:false];
+        [ZMSDKInitHelper setDomain:@"https://zoom.us"];
+        [self initHelper];
+        [_authHelper auth:@"MeIoXAseGnOQQwDdIBA3f9XF9cjkKiiEWii3" Secret:@"RanXwJ735N8V9F83zIoqmAWvkWuo4PELMstR"];
+    }
+    
+    _whichTab = 0;
+    [self switchToConnectingTab];
+}
+
+- (void)switchToLoginOrJoinOnlyTab {
+    if (_whichTab ==0) {
+        [self switchToJoinTab];
+    } else {
+        [self switchToLoginTab];
+    }
 }
 @end
