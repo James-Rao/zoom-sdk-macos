@@ -1522,7 +1522,7 @@
 "Are you sure you want to delete \"%@\"" = "Are you sure you want to delete \"%@\"";
 "%@ of %@ (%@/sec)" = "%@ of %@ (%@/sec)";
 "Retry?" = "Retry?";
-"Loading..." = "Loading...";
+"Loading..." = "加载中...";
 "Loading error," = "Loading error,";
 "No content." = "No content.";
 "Jump To" = "Jump To";

@@ -136,5 +136,6 @@
 - (IBAction)onButtonClicked_ToAddMeeting:(id)sender;
 
 - (void)switchToLoginOrJoinOnlyTab;
+@property (assign) IBOutlet NSProgressIndicator *spinProgressIndicator;
 
 @end

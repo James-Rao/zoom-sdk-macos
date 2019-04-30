@@ -24,6 +24,7 @@
                 <outlet property="_sdkSecretTextField" destination="gV3-XQ-ncs" id="UFY-xi-u9B"/>
                 <outlet property="_textFieldEmail" destination="Ccx-xg-Amn" id="ISb-2j-seZ"/>
                 <outlet property="_textFieldPassword" destination="j7N-bf-zZ6" id="Yrw-YQ-Oyf"/>
+                <outlet property="spinProgressIndicator" destination="233-Rt-nT0" id="Sgm-JZ-GKA"/>
                 <outlet property="textMeetingNumber" destination="x7m-h7-v3l" id="V84-k5-gnr"/>
                 <outlet property="textUserName" destination="Ayw-ga-Y4x" id="8Yl-sg-BoN"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -322,16 +323,20 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Iyy-5E-Jmd">
-                                            <rect key="frame" x="268" y="137" width="65" height="17"/>
+                                            <rect key="frame" x="268" y="137" width="4" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="加载中……" id="Kf8-BR-rSb">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="Kf8-BR-rSb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" style="bar" id="ubo-5B-pCC">
-                                            <rect key="frame" x="193" y="175" width="215" height="20"/>
+                                        <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" style="bar" id="ubo-5B-pCC">
+                                            <rect key="frame" x="68" y="52" width="215" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </progressIndicator>
+                                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="233-Rt-nT0">
+                                            <rect key="frame" x="292" y="177" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         </progressIndicator>
                                     </subviews>

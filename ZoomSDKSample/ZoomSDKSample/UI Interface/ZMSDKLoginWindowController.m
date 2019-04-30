@@ -139,6 +139,7 @@
 - (void)initUI
 {
     [_loadingProgressIndicator stopAnimation:self];
+    [_spinProgressIndicator stopAnimation:self];
 }
 - (void)showSelf
 {
@@ -235,11 +236,15 @@
     [_loadingTextField setStringValue:@"Loading"];
     [_loadingProgressIndicator stopAnimation:self];
     [_loadingProgressIndicator startAnimation:self];
+    
+    [_spinProgressIndicator stopAnimation:self];
+    [_spinProgressIndicator startAnimation:self];
 }
 - (void)switchToLoginTab
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"login"];
     [_loadingProgressIndicator stopAnimation:self];
+    [_spinProgressIndicator stopAnimation:self];
 }
 
 - (void)switchToJoinTab
@@ -251,16 +256,19 @@
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"error"];
     [_loadingProgressIndicator stopAnimation:self];
+        [_spinProgressIndicator stopAnimation:self];
 }
 - (void)switchToAuthTab
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"auth"];
     [_loadingProgressIndicator stopAnimation:self];
+        [_spinProgressIndicator stopAnimation:self];
 }
 - (void)switchToDomainTab
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"domain"];
     [_loadingProgressIndicator stopAnimation:self];
+        [_spinProgressIndicator stopAnimation:self];
 }
 - (void)showErrorMessage:(NSString*)error
 {
@@ -346,6 +354,7 @@
 {
     [_baseTabView selectTabViewItemWithIdentifier:@"launch"];
     [_loadingProgressIndicator stopAnimation:self];
+    [_spinProgressIndicator stopAnimation:self];
 }
 
 - (IBAction)onButtonClicked_ToLaunchView:(NSButton *)sender {
