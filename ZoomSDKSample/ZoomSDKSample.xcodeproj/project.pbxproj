@@ -349,7 +349,7 @@
 		5DFC0F4A21CA5D930027F596 /* ZMSDKShareSelectWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZMSDKShareSelectWindow.m; path = "UI Interface/ZMSDKShareSelectWindow.m"; sourceTree = "<group>"; };
 		5DFC0F4B21CA5D930027F596 /* ZMSDKShareSelectWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZMSDKShareSelectWindow.xib; path = "UI Interface/ZMSDKShareSelectWindow.xib"; sourceTree = "<group>"; };
 		970CBE301E36F24200B1D255 /* airhost.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = airhost.app; path = ZoomSDK/airhost.app; sourceTree = "<group>"; };
-		971725F21D3F618A00D5C72D /* ZoomSDKSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomSDKSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		971725F21D3F618A00D5C72D /* 惠博云会议.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "惠博云会议.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		971725F91D3F618A00D5C72D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		971725FB1D3F618A00D5C72D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971725FE1D3F618A00D5C72D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -780,7 +780,7 @@
 		971725F31D3F618A00D5C72D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				971725F21D3F618A00D5C72D /* ZoomSDKSample.app */,
+				971725F21D3F618A00D5C72D /* 惠博云会议.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -877,7 +877,7 @@
 			);
 			name = ZoomSDKSample;
 			productName = ZoomSDKSample;
-			productReference = 971725F21D3F618A00D5C72D /* ZoomSDKSample.app */;
+			productReference = 971725F21D3F618A00D5C72D /* 惠博云会议.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1238,7 +1238,7 @@
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "惠博云会议";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_VERSION = 4.0;
@@ -1273,7 +1273,7 @@
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = zoom.us.ZoomSDKSample.my;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "惠博云会议";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_VERSION = 4.0;

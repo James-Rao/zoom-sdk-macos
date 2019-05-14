@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.0.0514</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -34,7 +34,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>In order for participants to see you, requires access to your camera.</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright ©2012-2019 Zoom Video Communications, Inc. All rights reserved</string>
+	<string>Copyright ©2019-2026 VLINKA TECHNOLOGY CO.,LTD. All rights reserved</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSMicrophoneUsageDescription</key>
