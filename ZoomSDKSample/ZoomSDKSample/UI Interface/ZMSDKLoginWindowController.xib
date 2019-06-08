@@ -88,7 +88,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="HoG-9h-6uT">
                                             <rect key="frame" x="246" y="17" width="108" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="版本： 1.0.0.0501" id="us7-tT-4WT">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="版本： 1.0.1.0604" id="us7-tT-4WT">
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

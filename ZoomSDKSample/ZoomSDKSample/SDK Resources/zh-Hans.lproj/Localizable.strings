@@ -1,4 +1,4 @@
-"%s is calling you from Zoom, click link to join.\r\n%s" = "%s 正在通过Zoom呼叫您，点击链接即可参加会议。\r\n%s";
+"%s is calling you from Zoom, click link to join.\r\n%s" = "%s 正在通过惠博云呼叫您，点击链接即可参加会议。\r\n%s";
 "%@ has been invited" = "已邀请%@";
 "%@ and %@ have been invited." = "%@ 和 %@已被邀请。";
 "%@, %@ and %@ have been invited." = "已邀请%@， %@ 和 %@ 。";
@@ -38,7 +38,7 @@
 "Google IM" = "Google IM";
 "IM" = "IM";
 "Chats" = "聊天";
-"Tell Others About Zoom" = "向他人推荐Zoom";
+"Tell Others About Zoom" = "向他人推荐惠博云";
 "Home" = "主页";
 "Meetings" = "会议";
 
@@ -79,13 +79,13 @@
 "Failed to send your feedback. Please try again later." = "发送反馈失败，请稍后重试。";
 "Thanks for your feedback!\r\n\r\nYour feedback is very important to us, and we're working hard to improve our service." = "感谢您的反馈！\r\n\r\n您的反馈对我们至关重要，我们将努力提升我们的服务质量。";
 
-"Please join Zoom meeting in progress" = "请加入正在进行的Zoom会议";
+"Please join Zoom meeting in progress" = "请加入正在进行的惠博云会议";
 "Please join my meeting.\r\n%@" = "请加入我的会议。\r\n%@";
 
 "Participant ID: %d   Meeting ID: %@" = "参会者ID： %d   会议号：%@";
 "Participant ID: %d   %d-Minutes Meeting ID: %@" = "参会者ID：%d   %d分钟 会议号：%@";
 "-Minutes" = "分钟";
-"Zoom Meeting ID: %@" = "Zoom 会议号：%@";
+"Zoom Meeting ID: %@" = "惠博云 会议号：%@";
 "Panelist(%d)  Attendee(%d)" = "嘉宾(%d)  观众(%d)";
 "Waiting for %s to join..." = "等待 %s 加入...";
 "Please use the Invite button to invite more people" = "请点击邀请按钮，邀请更多人参会";
@@ -450,8 +450,8 @@
 
 
 "My Meeting" = "我的会议";
-"'s Zoom Meeting" = "的 Zoom 会议";
-"' Zoom Meeting" = "' Zoom 会议";
+"'s Zoom Meeting" = "的 惠博云 会议";
+"' Zoom Meeting" = "' 惠博云 会议";
 
 "%@ wants to be able to chat with you. Okay?" = "%@ 要与您聊天。可以吗？";
 "Your invitation has been sent successfully." = "您的邀请已发送成功。";
@@ -469,7 +469,7 @@
 "Meeting Alert" = "会议提醒";
 "This free meeting will end in 10 minutes. The meeting host needs to upgrade to a paid account at $14.99 per month for unlimited minutes." = "本次免费会议时间仅剩10分钟，会议主持人需要升级为付费账户，便可享受无时长限制的会议服务。";
 "This meeting will end in %d minutes because the host has not joined" = "因为主持人没有加会，此会议将在%d分钟结束。";
-"This free HD meeting has ended. Thank you for choosing Zoom!" = "本场免费的高清会议已结束，感谢您选择Zoom！";
+"This free HD meeting has ended. Thank you for choosing Zoom!" = "本场免费的高清会议已结束，感谢您选择惠博云！";
 "The meeting has ended because the host doesn't show up." = "由于主持人未出席，会议已结束。";
 "You are removed from this meeting." = "您已被移出本场会议。";
 "This meeting has been ended by host" = "会议已被主持人结束";
@@ -502,9 +502,9 @@
 "Recording" = "录制";
 
 //transcode
-"Zoom - Converting the meeting recording" = "Zoom - 转换录制文件";
+"Zoom - Converting the meeting recording" = "惠博云 - 转换录制文件";
 "You have a recording that needs to be converted before viewing" = "在观看前，您需要先将录制内容进行格式转换";
-"You may convert your recording later by double clicking .zoom file located in the recording folder." = "双击可稍后进行录制格式转换。Zoom录制文件将被保存在录制文件夹中。";
+"You may convert your recording later by double clicking .zoom file located in the recording folder." = "双击可稍后进行录制格式转换。惠博云录制文件将被保存在录制文件夹中。";
 "Save my recordings at:" = "将我的录制文件保存在：";
 "Choose a new location..." = "选择一个新位置...";
 "Save" = "保存";
@@ -540,7 +540,7 @@
 "Finish registration to join the webinar." = "完成网络研讨会注册。";
 "Join Webinar" = "加入网络研讨会";
 "You can't add more panelists because this meeting has reached its maximum capacity of %d panelists." = "您不能再增加嘉宾了，因为此会议人数已达 %d 人上限";
-"You need to be signed in with the specified Zoom account to join this meeting. Please contact the host for more information." = "您需要使用指定的Zoom账号登录后加会，请联系会议主持人了解详情。";
+"You need to be signed in with the specified Zoom account to join this meeting. Please contact the host for more information." = "您需要使用指定的惠博云账号登录后加会，请联系会议主持人了解详情。";
 
 
 "Mouse" = "鼠标";
@@ -575,7 +575,7 @@
 
 "Switching to gallery view will degrade the recording quality. Do you want to continue?" = "切换至画廊视图将降低录制质量。是否要继续？";
 "Switching to speaker view will improve the recording quality. Do you want to continue?" = "切换演讲者视图将改进录制质量。您是否要继续？";
-"You cannot minimize Zoom when you are recording this meeting." = "当会议录制时，您无法最小化Zoom.";
+"You cannot minimize Zoom when you are recording this meeting." = "当会议录制时，您无法最小化惠博云.";
 "This feature requires 2.0 GHz Dual-Core CPU or higher." = "此功能需要至少双核2.0 Ghz CPU支持。";
 
 "Do you want to delete this meeting?" = "确认删除此次会议？";
@@ -601,18 +601,18 @@
 "Start a Group Meeting" = "开始一场组会议";
 "Cannot delete this meeting. Error code: %d." = "无法删除会议。错误代码: %d.";
 
-"Zoom Cloud Meetings" = "Zoom 云会议";
+"Zoom Cloud Meetings" = "惠博云 云会议";
 "Schedule a new meeting" = "安排一场新的会议";
 "Edit a Meeting" = "编辑会议";
 
 //PT MENUS STARTS
-"About Zoom" = "关于Zoom";
+"About Zoom" = "关于惠博云";
 "Preferences..." = "参数选择...";
-"Provide Zoom Feedback..." = "向Zoom反馈...";
-"Hide Zoom" = "隐藏Zoom";
+"Provide Zoom Feedback..." = "向惠博云反馈...";
+"Hide Zoom" = "隐藏惠博云";
 "Hide Others" = "隐藏其他";
 "Show All" = "显示全部";
-"Quit Zoom" = "退出Zoom";
+"Quit Zoom" = "退出惠博云";
 
 "Cut" = "剪切";
 "Paste" = "粘贴";
@@ -630,15 +630,15 @@
 "Minimize" = "最小化";
 "Bring All to Front" = "移到最上层";
 
-"Recommend Zoom to Friends" = "向朋友推荐Zoom";
+"Recommend Zoom to Friends" = "向朋友推荐惠博云";
 //PT MENUS ENDS
 
-"Zoom Group Chat" = "Zoom群组聊天";
-"Zoom Update" = "Zoom更新";
-"A new version of Zoom is available!" = "Zoom有新版本可供更新。";
-"A new version of Zoom is available! Please update now." = "Zoom有新版本可供更新。";
-"We also welcome your ideas, requests or comments about Zoom.\nPlease enter your feedback here:" = "我们欢迎任何关于Zoom的意见、想法和建议.\n请在这里填写您的反馈:";
-"Zoom is up to date." = "Zoom已是最新版本.";
+"Zoom Group Chat" = "惠博云群组聊天";
+"Zoom Update" = "惠博云更新";
+"A new version of Zoom is available!" = "惠博云有新版本可供更新。";
+"A new version of Zoom is available! Please update now." = "惠博云有新版本可供更新。";
+"We also welcome your ideas, requests or comments about Zoom.\nPlease enter your feedback here:" = "我们欢迎任何关于惠博云的意见、想法和建议.\n请在这里填写您的反馈:";
+"Zoom is up to date." = "惠博云已是最新版本.";
 
 //PT About Window starts
 " All rights reserved." = " 版权所有.";
@@ -777,9 +777,9 @@
 "Retry" = "重试";
 "Downloading file" = "下载文件";
 "Updating" = "更新";
-"Thanks for joining a Zoom video call!\n\nYou can login to start your own Zoom video call." = "感谢您加入Zoom视频通话。\n\n请登录并开始您自己的视频通话。";
+"Thanks for joining a Zoom video call!\n\nYou can login to start your own Zoom video call." = "感谢您加入惠博云视频通话。\n\n请登录并开始您自己的视频通话。";
 "Don't remind me again" = "不再提示";
-"Your invitees do not need to have Zoom pre-installed to accept your meeting invitation" = "您邀请的人无需预先安装Zoom即可加会";
+"Your invitees do not need to have Zoom pre-installed to accept your meeting invitation" = "您邀请的人无需预先安装惠博云即可加会";
 "Did you know?" = "你知道吗?";
 "Later" = "稍后";
 "Update now" = "立即更新";
@@ -813,7 +813,7 @@
 "Play sound when I receive a chat message" = "收到聊天消息时播放提示音";
 "Enter full screen automatically when starting or joining a meeting" = "开始或加入会议时自动进入全屏模式";
 "Use dual monitors" = "启用双显示器模式";
-"Scale to fit my Zoom window when viewing screen shared by others" = "观看他人屏幕共享时自动缩放尺寸以适应zoom窗口";
+"Scale to fit my Zoom window when viewing screen shared by others" = "观看他人屏幕共享时自动缩放尺寸以适应惠博云窗口";
 "Automatically copy Invitation URL to Clipboard after meeting starts" = "会议开始后，自动复制邀请链接至剪贴板";
 "Meeting Option" = "会议选项";
 "Instant Message" = "实时消息";
@@ -1022,7 +1022,7 @@
 "%@ no longer controls your camera" = "%@ 不再控制您的摄像头";
 
 // for accessibility feature
-"Zoom Logo" = "Zoom商标";
+"Zoom Logo" = "惠博云商标";
 "Status Menu" = "状态菜单";
 "Refresh Meeting List" = "刷新会议列表";
 "Add Contact" = "新增联系人";
@@ -1066,9 +1066,9 @@
 "The poll was closed before you submitted your answer" = "投票已在您提交前关闭";
 
 //Main Window Title
-"Zoom - %@" = "Zoom - %@";
+"Zoom - %@" = "惠博云 - %@";
 "Use Personal Meeting ID" = "使用个人会议号";
-"Zoom" = "Zoom";
+"Zoom" = "惠博云";
 "Always mute microphone when joining meeting" = "加入会议时不开启麦克风";
 "Always turn off video when joining meeting" = "在加入会议时关闭视频";
 "(Public to all participants)" = "(对所有人可见)";
@@ -1091,7 +1091,7 @@
 "Audio Options..." = "音频选项……";
 "Video Settings..." = "视频设置...";
 "Camera (Shift+Command+N to switch)" = "摄像头(使用Shift+Command+N切换)";
-"Zoom is using an end to end encrypted connection" = "Zoom正在使用端对端加密连接。";
+"Zoom is using an end to end encrypted connection" = "惠博云正在使用端对端加密连接。";
 "Select a Camera" = "选择摄像头";
 "New Share" = "新的共享";
 "Stop Remote Control" = "停止远程控制";
@@ -1163,12 +1163,12 @@
 "Promote to Panelist" = "设为嘉宾";
 
 //add contact by email
-"Failed to connect to Zoom video conferencing server. If you are behind a firewall, please ask your IT administrator to allow \"*.zoom.us\".  For more information, please visit: https://support.zoom.us/hc/en-us/articles/201362683." = "连接Zoom服务器失败，如果您机器上装有防火墙，请联系IT管理员允许Zoom连接。更多信息，请访问:https://support.zoom.us/hc/en-us/articles/201362683";
+"Failed to connect to Zoom video conferencing server. If you are behind a firewall, please ask your IT administrator to allow \"*.zoom.us\".  For more information, please visit: https://support.zoom.us/hc/en-us/articles/201362683." = "连接惠博云服务器失败，如果您机器上装有防火墙，请联系IT管理员允许Zoom连接。更多信息，请访问:https://support.zoom.us/hc/en-us/articles/201362683";
 "Email invitation copied to clipboard" = "邮件邀请函已经复制到剪贴板";
 "Add a Contact" = "添加联系人";
 "An email invitation has been sent." = "邀请邮件已经发出。";
 "Your request has been sent for approval to:" = "批准请求已经发送给:";
-"Email address not signed up with Zoom." = "这个邮件地址尚未在Zoom注册。";
+"Email address not signed up with Zoom." = "这个邮件地址尚未在惠博云注册。";
 "⟨ Back" = "⟨ 返回";
 "One email address a time" = "一次只能添加一个邮件地址";
 "Network error, please try again" = "网络错误,请重试";
@@ -1198,7 +1198,7 @@
 
 "Allow Attendee Chat" = "允许观众聊天";
 "The host has disabled attendee chat." = "主持人已禁止观众聊天。";
-"Zoom Webinar Chat" = "Zoom网络研讨会聊天";
+"Zoom Webinar Chat" = "惠博云网络研讨会聊天";
 "Your text can only be seen by panelists" = "消息仅主持人和嘉宾可见";
 "Everyone" = "所有人";
 "All Panelists" = "全体嘉宾";
@@ -1368,8 +1368,8 @@
 "Start a meeting with video" = "开始一场视频会议";
 "View More..." = "查看更多";
 "You are about to invite all members of this group to join. Are you sure?" = "您将要邀请所有群组成员加入当前会议，是否确定?";
-"You cannot chat with a Zoom Room." = "你不能发消息给Zoom会议室。";
-"Zoom Chat" = "Zoom Chat";
+"You cannot chat with a Zoom Room." = "你不能发消息给惠博云会议室。";
+"Zoom Chat" = "惠博云 Chat";
 "Group Chat" = "群组聊天";
 "is already a contact." = "已经在您的联系人列表中。";
 "Room" = "会议室";
@@ -1451,7 +1451,7 @@
 "A solid color video background is required. Green color is preferred." = "您需要一个纯色背景,最好是绿色。";
 "Manually pick the color of the background if the detected color is not accurate." = "如果您觉得自动检测的颜色不准确，您可以手动在视频背景中选择一个颜色。";
 "Pick the color" = "选择颜色";
-"Zoom technology automatically detects the color your video background and replace it with the virtual background image. If the detected color is not accurate, you can manually pick the color from your video background." = " Zoom 会自动检测当前视频背景中的主要颜色并替换为您选择的虚拟背景图片，如果您觉得自动检测的颜色不准确，您可以手动在视频背景中选择一个颜色。";
+"Zoom technology automatically detects the color your video background and replace it with the virtual background image. If the detected color is not accurate, you can manually pick the color from your video background." = " 惠博云 会自动检测当前视频背景中的主要颜色并替换为您选择的虚拟背景图片，如果您觉得自动检测的颜色不准确，您可以手动在视频背景中选择一个颜色。";
 "Your processor (%@) does not meet our recommended specification for virtual background. Learn more." = " 您的处理器(%@)不满足虚拟背景所需的推荐配置。了解更多。";
 "Learn more." = "了解更多。";
 "Enable this feature anyway" = "继续使用此功能";
@@ -1481,7 +1481,7 @@
 "Verifying Host Key..." = "核验主持人秘钥...";
 "The Host Key you entered is invalid." = "您输入的主持人验证码不正确。";
 "Please check your network and try again." = "请检查网络连接后重试。";
-"Because annotation is disabled, your participants need to upgrade to the latest version of Zoom to share their screen." = "屏幕标注功能已被禁用，其他参会者需要升级到最新版的Zoom才能使用屏幕共享功能。";
+"Because annotation is disabled, your participants need to upgrade to the latest version of Zoom to share their screen." = "屏幕标注功能已被禁用，其他参会者需要升级到最新版的惠博云才能使用屏幕共享功能。";
 "Enable Advanced Features" = "查看高级设置";
 "Advanced Features" = "账号";
 "Hide Myself" = "隐藏我的视频";
@@ -1503,7 +1503,7 @@
 "Keep me logged in" = "自动登录";
 "Recording Alert" = "录制警告";
 "Finish registration to join the meeting." = "完成注册以参加会议。";
-"Share screen in Zoom Room" = "在Zoom Room中共享屏幕";
+"Share screen in Zoom Room" = "在惠博云 Room中共享屏幕";
 
 "Close Manage Participants" = "关闭管理参会者面板";
 "Show Manage Participants" = "显示管理参会者";
@@ -1559,14 +1559,14 @@
 "has been sent out." = "已经发出";
 "failed to send" = "发送失败";
 "is not a supported file format." = "的文件格式不支持";
-"%@ is on an older version of Zoom client and may not be able to see your message." = "%@ 正在使用一个旧版本的Zoom客户端,对方可能无法读取您发送的消息";
+"%@ is on an older version of Zoom client and may not be able to see your message." = "%@ 正在使用一个旧版本的惠博云客户端,对方可能无法读取您发送的消息";
 "Chat encryption has been enabled for your account, so you need to invite %@ online to start chat." = "您的帐户已加密，所以您需要邀请%@上线才能开始聊天。";
 "Chat encryption has been enabled for your account , so you need to invite %@ online to start chat." = "您的帐户已加密，所以您需要邀请%@上线才能开始聊天。";
 "Message content has been encrypted." = "消息内容已加密。";
 "Current group chat has enabled E2E encryption and you can't send messages without E2E. Please contact your IT admin for details." = "当前群组聊天已启用端对端的加密，你无法发送非加密消息，请联系IT管理员以获取详情。";
 "Find a member" = "查找成员";
 "Screenshot" = "屏幕截图";
-"Zoom is using an end-to-end encrypted connection" = "Zoom正在使用端到端加密连接";
+"Zoom is using an end-to-end encrypted connection" = "惠博云正在使用端到端加密连接";
 "Save as..." = "另存为";
 "@everyone" = "@全体组员";
 "You can start end to end chat with %@ now" = "你正在和%@进行端到端加密聊天";
@@ -1616,11 +1616,11 @@
 "Upload Files(%d file selected)" = "上传文件(%d文件已选择)";
 "Upload and Share" = "上传并共享";
 "Type the name here" = "输入联系人姓名";
-"Zoom Rooms" = "Zoom Rooms";
+"Zoom Rooms" = "惠博云 Rooms";
 "You've changed password on web, please login with your new password." = "您已经在网页上更改了登录密码,请重新使用新密码登录。";
 "requests to add you as a contact - Declined" = "请求添加您为联系人-已拒绝";
 
-"Share Zoom windows in desktop sharing" = "在桌面共享时不过滤Zoom窗口";
+"Share Zoom windows in desktop sharing" = "在桌面共享时不过滤惠博云窗口";
 "The host has another meeting in progress" = "主持人正在开另外一个会。";
 
 "Closed Caption history saved" = "字幕历史已保存";
@@ -1662,8 +1662,8 @@
 "Host has used the maximum storage space available. To record to the cloud, ask the meeting organizer to delete some older recordings or upgrade the cloud recording plan." = "主持人购买的云空间已满，要记录到云端，请会议组织者删除一些早期录制文件或购买更多空间。";
 "Coud storage does not have enough space. Please contact host to upgrade plan or remove some old recording files." = "会议云空间不足，请联系主持人进行升级或者删除一些旧的录制文件。";
 
-"Please enter the Meeting ID or enter the Sharing Code displayed on the Zoom meeting room TV screen." = "请输入会议号或者Zoom会议室电视屏幕上的共享码";
-"Cannot connect to Zoom Rooms. Please enter the meeting ID or select Presentation on iPad controller." = "无法连接到Zoom Rooms，请输入会议号或在iPad控制器上选择共享。";
+"Please enter the Meeting ID or enter the Sharing Code displayed on the Zoom meeting room TV screen." = "请输入会议号或者惠博云会议室电视屏幕上的共享码";
+"Cannot connect to Zoom Rooms. Please enter the meeting ID or select Presentation on iPad controller." = "无法连接到惠博云 Rooms，请输入会议号或在iPad控制器上选择共享。";
 "Network error, please try later." = "网络错误,请稍后重试。";
 
 "Sharing screen to \"%@\"" = "正在共享屏幕到 \"%@\"";
@@ -1687,8 +1687,8 @@
 "Please wait. The webinar will begin soon." = "请稍候。 网络研讨会即将开始。";
 "Allow attendees to ask questions anonymously" = "允许观众匿名提问";
 
-"Invite by Contacts" = "邀请Zoom联系人";
-"Invite Zoom Rooms" = "邀请Zoom会议室";
+"Invite by Contacts" = "邀请惠博云联系人";
+"Invite Zoom Rooms" = "邀请惠博云会议室";
 
 "Move focus to next window" = "将焦点切到下一个窗口";
 
@@ -1696,7 +1696,7 @@
 "Always show meeting controls" = "总是显示会议控制栏";
 
 "Your account has been locked due to multiple failed login attempts" = "您的账号在多次尝试登陆失败后已经被锁定";
-"You cannot minimize Zoom when you are sharing Zoom windows" = "您在共享Zoom窗口时不能最小化Zoom";
+"You cannot minimize Zoom when you are sharing Zoom windows" = "您在共享惠博云窗口时不能最小化惠博云";
 "%@ has started screen share, choose Options to view" = "%@开始共享屏幕,选择选项观看";
 "[New notification]" = "[新通知]";
 "Advanced Sharing Options..." = "高级共享选项...";
@@ -1722,7 +1722,7 @@
 "Saved emojis" = "我的表情";
 "Common emojis" = "基本表情";
 
-"Navigate among Zoom popup windows" = "在Zoom的弹出窗口中选取";
+"Navigate among Zoom popup windows" = "在惠博云的弹出窗口中选取";
 "View the previous 25 video participants in gallery view" = "在画廊模式中查看上一组参会者的视频";
 "View the next 25 video participants in gallery view" = "在画廊模式中查看下一组参会者的视频";
 "Switch to minimal window" = "切换到小窗口模式";
@@ -1743,7 +1743,7 @@
 "Open the invite window" = "打开邀请窗口";
 "Keyboard Shortcuts:" = "键盘快捷键：";
 "Description" = "描述";
-"Enable shortcuts even when the Zoom app is not in focus" = "当Zoom程序后台运行时，快捷键依然可用";
+"Enable shortcuts even when the Zoom app is not in focus" = "当惠博云程序后台运行时，快捷键依然可用";
 
 "Group \"%@\" has been deleted by admin." = "管理员删除了群组 \"%@\" ";
 "Transfer Admin" = "移交群管理员";
@@ -1838,7 +1838,7 @@
 "Waiting for approval" = "等待对方同意";
 "Once" = "一次";
 "Continuously" = "持续";
-"Zoom Room" = "Zoom会议室";
+"Zoom Room" = "惠博云会议室";
 "View Options" = "选项";
 
 "Change my status to Offline when I am inactive for %@ minutes" = "当闲置%@分钟后，将我的状态改为离线";
@@ -1867,10 +1867,10 @@
 "count" = "计数";
 "Choose from the list or type to filter" = "从列表中选取或输入关键字来过滤";
 
-"Try an unlimited Zoom meeting\n" = "体验无时长限制的Zoom会议\n";
-"As a Basic user, your free meeting has a time limit of 40 minutes. Zoom is giving you a one-time offer to extend this meeting, Click \"Continue\" to enjoy your unlimited meeting for free. Thanks for choosing Zoom." = "免费用户的会议有40分钟时长限制，Zoom提供您一次把会议升级为无时长限制的机会。点击\"继续\" 享受这次免费升级，感谢选择Zoom。";
+"Try an unlimited Zoom meeting\n" = "体验无时长限制的惠博云会议\n";
+"As a Basic user, your free meeting has a time limit of 40 minutes. Zoom is giving you a one-time offer to extend this meeting, Click \"Continue\" to enjoy your unlimited meeting for free. Thanks for choosing Zoom." = "免费用户的会议有40分钟时长限制，惠博云提供您一次把会议升级为无时长限制的机会。点击\"继续\" 享受这次免费升级，感谢选择惠博云。";
 "Unable to extend this meeting\n" = "无法延长您的会议时长\n";
-"Zoom cannot extend your free meeting at this time. Your meeting will end when the duration reaches 40 minutes.\n\n(ERROR : %d)" = "Zoom无法延长您的免费会议时长。会议将在满40分钟后结束。\n\n(ERROR : %d)";
+"Zoom cannot extend your free meeting at this time. Your meeting will end when the duration reaches 40 minutes.\n\n(ERROR : %d)" = "惠博云无法延长您的免费会议时长。会议将在满40分钟后结束。\n\n(ERROR : %d)";
 "This meeting no longer has a time limit" = "本场会议不再有时长限制。";
 
 "Touch up my appearance" = "美颜";
@@ -1963,8 +1963,8 @@
 "Start a non-video call" = "开始语音通话";
 "Delete call history" = "删除所有历史记录";
 "Call History" = "呼叫记录";
-"Zoom Audio" = "Zoom语音会议";
-"Zoom Video" = "Zoom视频会议";
+"Zoom Audio" = "惠博云语音会议";
+"Zoom Video" = "惠博云视频会议";
 "unknown" = "未知";
 "Close Keypad" = "关闭拨号盘";
 "Keypad" = "拨号盘";
@@ -1983,8 +1983,8 @@
 "End call" = "结束";
 
 "This meeting is for authorized attendees only" = "此会议只针对被授权的参与人";
-"Click \"Sign In to Join\" to sign into Zoom with an email address authorized for joining this meeting" = "点击 \"登录加入\"用授权的邮箱地址来登录Zoom";
-"Click \"Switch Account to Join\" to sign into Zoom with an email address authorized for joining this meeting" = "点击 \"切换帐号加入\"用授权的邮箱地址来登录Zoom";
+"Click \"Sign In to Join\" to sign into Zoom with an email address authorized for joining this meeting" = "点击 \"登录加入\"用授权的邮箱地址来登录惠博云";
+"Click \"Switch Account to Join\" to sign into Zoom with an email address authorized for joining this meeting" = "点击 \"切换帐号加入\"用授权的邮箱地址来登录惠博云";
 
 "Gain remote control" = "获得远程控制权";
 
@@ -2008,7 +2008,7 @@
 "New attendees can join this webinar once unlocked." = "会议一旦解锁，新的观众可加入会议。";
 "My connected time is %d hour %d minute" = "我在会议里的时间%d小时%d分钟";
 
-"Zoom will decrypt the message when the key becomes available" = "Zoom需要获得可用的密钥才可以解密消息";
+"Zoom will decrypt the message when the key becomes available" = "惠博云需要获得可用的密钥才可以解密消息";
 "You cannot call any international phone numbers from this meeting until the host joins." = "在主持人加入之前，您不能从会议中拨打任何国际长途。（除美国外）";
 "The number you dialed is not supported" = "您拨打的号码不支持";
 "The number you dialed to join the meeting is not responding" = "您拨打的加会电话号码无应答";
@@ -2061,7 +2061,7 @@
 "LN_Alert_Unmute_Now_15291" = "解除自己的静音";
 "LN_Alert_Stay_Muted_15291" = "保持静音";
 "LN_Alert_Temp_Talk_Title_15291" = "主持人想让你开启您的麦克风";
-"LN_Alert_Temp_Talk_Error_15291" = "允许说话不可用，因为%@使用的是旧版本的Zoom，你需要设%@为嘉宾";
+"LN_Alert_Temp_Talk_Error_15291" = "允许说话不可用，因为%@使用的是旧版本的惠博云，你需要设%@为嘉宾";
 
 "LN_Plist_Accessibility_Recording_20044" = "录制";
 "LN_Plist_Accessibility_CloseCaption_20044" = "CC字幕输入者";
@@ -2094,12 +2094,12 @@
 "LN_Unread_Message_22128" = "%d条未读邮件";
 "LN_Schedule_Mute_Participants_On_Entry_15154" = "加入会议时静音";
 
-"Show Zoom menu in menu bar" = "在菜单栏上显示Zoom菜单";
+"Show Zoom menu in menu bar" = "在菜单栏上显示惠博云菜单";
 "Virtual Background" = "虚拟背景";
 "Guest" = "访客";
 
 "LN_Create_Duplicate_Name_Group_22373" = "群名称被占用，请用其它名称命名本群组。";
-"LN_Alert_Diable_GoogleFacebook_Login_19082" = "您无法使用此方法登录Zoom帐户， 请联系IT管理员以获取帮助。";
+"LN_Alert_Diable_GoogleFacebook_Login_19082" = "您无法使用此方法登录惠博云帐户， 请联系IT管理员以获取帮助。";
 
 "LN_Mark_Unread_14489"  = "标记为未读";
 "LN_Mark_As_Read_14489" = "标记为已读";
@@ -2143,7 +2143,7 @@
 "Select a microphone to always use original sound" = "选择一个麦克风始终使用原声";
 
 "LN_In_Meeting_Label_19901" = "正在开会";
-"LN_In_Zoom_Meeting_Label_19901" = "在Zoom会议中";
+"LN_In_Zoom_Meeting_Label_19901" = "在惠博云会议中";
 "LN_Do_Not_Disturb_19901" = "请勿打扰";
 "LN_Offline_19901" = "离线";
 "LN_Turn_Off_19901" = "关掉";
@@ -2192,7 +2192,7 @@
 "LN_Setting_Tool_Item_Instant_Messgae_19895" = "即时消息";
 "LN_Reset_Setting_Group_Label_19895" = "将所有自定义组通知设置重置为默认值。您要继续吗？";
 
-"LN_SIP_PWD_Err_Tip_25328" = "Zoom检测到电话密码不正确或已被更改。请重新输入内部电话的密码。";
+"LN_SIP_PWD_Err_Tip_25328" = "惠博云检测到电话密码不正确或已被更改。请重新输入内部电话的密码。";
 "LN_SIP_PWD_PlaceHolder_Tip_25328" = "请输入内部电话的密码";
 
 "%@ has been invited." = "已邀请%@。";
@@ -2231,14 +2231,14 @@
 "LN_Schedule_EditCountries_Search_For_Country_16058" = "搜索国家/地区";  // ZOOM-16058
 "LN_Schedule_EditCountries_No_Selected_Country_Warning_16058" = "您尚未选择任何国家/地区。保存前至少选择一个国家/地区。"; // ZOOM-16058
 "LN_DockMenu_LanguageItem_24821" = "切换语言";
-"LN_Switch_Language_Alert_24821" = "Zoom客户端需要重启以把默认语言更改为%@。";
+"LN_Switch_Language_Alert_24821" = "惠博云客户端需要重启以把默认语言更改为%@。";
 "LN_Meeting_RemoteControl_Select_Which_Screen_To_Control_47315" = "选择要控制的屏幕";//[ZOOM-47315]
 "LN_Meeting_FitStatus_Select_Screen_To_Control_47315" = "选择要控制的屏幕...";//[ZOOM-47315]
 "LN_Switch_Language_Alert_System_24821" = "系统语言";
 "LN_DockMenu_System_LanguageItem_24821" = "使用系统语言";
 "LN_Switch_Language_Alert_Change_24821" = "切换到 %@";
 "LN_Switch_Language_Alert_Keep_24821" = "继续使用%@";     //ZOOM-24821
-"LN_Unable_Detect_Camera_Title_29896" = "Zoom无法检测到摄像头";
+"LN_Unable_Detect_Camera_Title_29896" = "惠博云无法检测到摄像头";
 "LN_Unable_Detect_Camera_Content_29896" = "请确保您的摄像头已接通电源并正确连接到电脑";
 
 "Switch camera" = "切换摄像头";
@@ -2268,7 +2268,7 @@
 "LN_IM_Notification_Group_Encrypted_Text_31106" = "发送一条加密消息。";
 "LN_ACCESSIBILITY_Window_will_close_21244" = "窗口已关闭"; //ZOOM-21244
 "LN_Setting_Record_Optimize_28546" = "针对第三方视频编辑器进行优化";
-"LN_Setting_Record_Optimize_Info_28546" = "启用此选项可提高Zoom的录像文件与市面上部分视频编辑软件的兼容性。";
+"LN_Setting_Record_Optimize_Info_28546" = "启用此选项可提高惠博云的录像文件与市面上部分视频编辑软件的兼容性。";
 "LN_Setting_Record_Thumbnails_28544" = "录制共享内容时显示视频缩略图";
 "LN_Setting_Record_Timestamp_28548" = "在录制中加入时间戳";
 "LN_Setting_Record_Timestamp_Info_28548" = "启用该选项可以在录制视频的过程中嵌入当前日期和时间。";
@@ -2325,7 +2325,7 @@
 "LN_Waiting_Host_Meeting_35641" = "请等待主持人开启会议";
 "LN_Waiting_Host_Webinar_35641" = "请等待主持人开启研讨会";
 "LN_Join_WebURL_Title_15122" = "使用浏览器加会";
-"LN_Join_WebURL_Content_15122" = "使用Zoom客户端加会碰到一些问题，单击\"%@\"使用简化版加会";
+"LN_Join_WebURL_Content_15122" = "使用惠博云客户端加会碰到一些问题，单击\"%@\"使用简化版加会";
 "LN_Join_WebURL_Button_15122" = "从浏览器加会";
 "LN_Share_Frame_39044" = "屏幕的部分";
 "LN_Acessibilty_ScreenCaptureMenu_Btn_21044" = "屏幕采集菜单";
@@ -2356,8 +2356,8 @@
 "LN_Acessibilty_ScreenCaptureMenu_Btn_21044" = "屏幕采集菜单";
 "LN_Code_Snippet_Download_Msg_31934" = "要创建代码片段，请先下载插件包(只需要下载一次)。";
 "LN_Create_Code_Tip_33477" = "要创建代码片段，";
-"LN_Meeting_List_Item_Add_Calendar_Help_25869" = "连接后，您的会议和网络研讨会日程将在Zoom客户端上显示。您的在会状态也将在 Zoom 上同步显示。";
-"LN_Notification_Keywords_Example_31155" = "例如：Zoom，项目";
+"LN_Meeting_List_Item_Add_Calendar_Help_25869" = "连接后，您的会议和网络研讨会日程将在惠博云客户端上显示。您的在会状态也将在 惠博云 上同步显示。";
+"LN_Notification_Keywords_Example_31155" = "例如：惠博云，项目";
 "LN_Meeting_RemoteControl_UnderControlling" = "被远程控制"; //[ZOOM-28437]
 "LN_Help_String_40539" = "帮助";
 "LN_Participants_Raised_Hand_39858" = "参会者举手";
@@ -2445,9 +2445,9 @@
 "LN_TranferAmdin_From_%@_To_You_42604" = "本群组管理员已从%@更改为您。";
 "LN_Assign_ANewAmdin_42604" = "分配新的管理员";
 "LN_Security_NNot_Verified_Label_42898" = "安全警告：不可信服务器证书";
-"LN_Security_NNot_Verified_Title_42898" = "Zoom";
-"LN_Security_NNot_Verified_Content_42898" = "您无法连接到Zoom，因为所提供的安全证书无法验证。请联系您的IT部门寻求帮助。";
-"LN_Security_Not_Private_Content_42898" = "你的连接不是私密连接。攻击者可能试图从Zoom中窃取您的个人或财务信息。\n\n此服务器无法证明它是Zoom。其安全证书来自%@。";
+"LN_Security_NNot_Verified_Title_42898" = "惠博云";
+"LN_Security_NNot_Verified_Content_42898" = "您无法连接到惠博云，因为所提供的安全证书无法验证。请联系您的IT部门寻求帮助。";
+"LN_Security_Not_Private_Content_42898" = "你的连接不是私密连接。攻击者可能试图从惠博云中窃取您的个人或财务信息。\n\n此服务器无法证明它是惠博云。其安全证书来自%@。";
 "LN_Security_Trust_Anyway" = "总是信任";
 "LN_Security_Do_Not_Trust" = "不信任";
 "LN_Testing_Speaker_38961" = "正在测试扬声器...";
@@ -2473,7 +2473,7 @@
 "LN_Install_RetainaRes_With_AdminPrivileges_43112" = "如需支持 Reitna 显示器,您需要使用管理员权限进行安装。";
 "LN_Copy_link_39867" = "复制链接";
 "LN_Join_meeting_39867" = "加入会议";
-"LN_Decrypt_message_39867" = "Zoom需要获得可用的密钥才可以解密消息。";
+"LN_Decrypt_message_39867" = "惠博云需要获得可用的密钥才可以解密消息。";
 "LN_You_joined_group_39867" = "您已加入此群组聊天";
 "LN_Hide_Self_View_40266" = "隐藏本人视图";
 "LN_Show_Self_View_40266" = "显示本人视图";
@@ -2484,7 +2484,7 @@
 "LN_Remove_Confirm_44293" = "你想删除%@吗？删除后此成员将不能重新加入此会议。";
 "LN_Expel_By_Host_44293" = "主持人已将您从此会议中移除。";
 "LN_Join_Error_For_Expel_44293" = "您无法重新加入此会议，因为您之前已被主持人移除。";
-"LN_Audio_Plugin_Restart_Audio_App" = "要共享您的计算机音频，请安装 Zoom 音频设备。\n\n请在安装后重新启动音频共享应用程序（如媒体播放器）以继续共享计算机声音。\n\n";
+"LN_Audio_Plugin_Restart_Audio_App" = "要共享您的计算机音频，请安装 惠博云 音频设备。\n\n请在安装后重新启动音频共享应用程序（如媒体播放器）以继续共享计算机声音。\n\n";
 "LN_FREE_TRIAL_EXTEND_TITLE_47442" = "有件礼物\n\n";
 "LN_FREE_TRIAL_EXTEND_DETAIL_47442" = "我们已取消首次群组会议的 40 分钟时间限制。";
 "LN_FREE_TRIAL_EXTEND_OK_47442" = "太棒了！";
@@ -2534,7 +2534,7 @@
 "LN_Setting_Phone_Account_Online_31438" = "我的在线账户";
 "LN_Setting_Phone_No_DirectNumber_31438" = "尚未设置";
 "LN_Phone_Network_Unavailible_27110" = "无法访问服务器";
-"LN_Phone_Register_Account_Error_27110" = "您的账户不再支持 Zoom Cloud Phone，请联系管理员";
+"LN_Phone_Register_Account_Error_27110" = "您的账户不再支持 惠博云 Cloud Phone，请联系管理员";
 "LN_Phone_Fail_Service_Unvailable_27110" = "服务不可用";
 "LN_Phone_Call_Fail_486_Error_27110" = "对方正忙";
 "LN_Phone_Decline_603_Error_27110" = "对方已拒绝您的通话";
@@ -2564,7 +2564,7 @@
 "LN_Phone_Call_History_Unknown_27110" = "未知";
 "LN_Vcard_Extension_35371" = "分机";
 "LN_Vcard_DirectNum_35371" = "直线号码";
-"LN_Phone_SDK_Unavailable_27710" = "Zoom Cloud Phone 服务当前不可用";
+"LN_Phone_SDK_Unavailable_27710" = "惠博云 Cloud Phone 服务当前不可用";
 "LN_Phone_Audio_Device_Unavailble_27710" = "无可用音频设备";
 "LN_Phone_Voicemail_DeleteAll_Record_31454" = "是否要从您的账户中删除所有语音邮件？";
 "LN_Phone_Voicemail_DeleteSingle_Record_31454" = "是否要从您的账户中删除此语音邮件？";
@@ -2585,7 +2585,7 @@
 "LN_GDPR_40930_Privacy Policy" = "隐私政策";
 "LN_GDPR_40930_Continue" = "继续";
 "LN_GDPR_40930_Terms of Service" = "服务条款";
-"LN_GDPR_40930_To use Zoom, you need to agree to the %1$@ and %2$@." = "使用Zoom前，您需要同意%1$@ 和 %2$@。";
+"LN_GDPR_40930_To use Zoom, you need to agree to the %1$@ and %2$@." = "使用惠博云前，您需要同意%1$@ 和 %2$@。";
 "LN_GDPR_40930_You cannot join the meeting until you agree to the %1$@ and %2$@." = "加入会议前，您需要同意%1$@ 和 %2$@。";
 
 "LN_In_%d_Mins_41652" = "在%d分钟内";
@@ -2599,7 +2599,7 @@
 "LN_To_32455" = "对";
 
 "LN_GDPR_40930_SIGNIN_TITLE" = "条款和政策已更新";
-"LN_GDPR_40930_SIGNIN_DETAIL_%1$@_%2$@" = "Zoom更新了服务条款和隐私政策，以提高数据收集透明度、说明数据使用方式及增强您对个人数据的控制。如果您选择继续使用Zoom，需要接受已更新的%1$@ 和 %2$@。";
+"LN_GDPR_40930_SIGNIN_DETAIL_%1$@_%2$@" = "惠博云更新了服务条款和隐私政策，以提高数据收集透明度、说明数据使用方式及增强您对个人数据的控制。如果您选择继续使用惠博云，需要接受已更新的%1$@ 和 %2$@。";
 
 
 "LN_Audiooption_CountryName_Country_49437" = "国家/地区";
@@ -2621,7 +2621,7 @@
 "LN_Phone_First_Name_48757" = "名";
 "LN_Phone_Last_Name_48757" = "姓";
 "LN_Phone_Number_title_48757" = "电话号码";
-"LN_Sip_Contact_Group_Name_48757" = "Zoom 电话联系人";
+"LN_Sip_Contact_Group_Name_48757" = "惠博云 电话联系人";
 "LN_Phone_History_Menu_Create_Contact_48757" = "新建联系人";
 "LN_Vcard_Phone_Num_52057" = "个人号码";
 "LN_Schedule_Limitation_BasicUser_Des_45329" = "与三个或更多与会者召开会议时，您的基本计划时间限制为 40 分钟。";
@@ -2633,7 +2633,7 @@
 "LN_Back_To_Revious_41410" = "返回上一窗口";
 "LN_Incorrect_Email_Password_41410" = "电子邮件或密码不正确";
 "LN_Signed_Out_Security_Policy_41410" = "根据账户安全政策，由于 %d 分钟未操作，您已退出账户。";
-"LN_Signed_Out_SSO_41410" = "您已退出 Zoom 账户。请再次登录以继续使用 Zoom。";
+"LN_Signed_Out_SSO_41410" = "您已退出 惠博云 账户。请再次登录以继续使用 惠博云。";
 "LN_Account_Locked_41410" = "登录失败次数过多，您的账户已锁定。";
 "LN_43393_Enter new sharing key" = "输入新的共享密钥";
 "LN_43393_This step is required for users on a different network for additional security measures." = "对于使用其他网络的用户，必须采用这一步骤，以实施其他安全措施。";
@@ -2641,10 +2641,10 @@
 "LN_Plist_LinkedIn_35020" = "LinkedIn";
 "LN_Alert_Auth_Title_57569" = "重要";
 "LN_Alert_Auth_Go_Settings_57569" = "请转到设置";
-"LN_Alert_Auth_Detail_Camera&Mic_57569" = "请在系统偏好设置下的安全性与隐私中为 Zoom 启用摄像头和麦克风访问。";
-"LN_Alert_Auth_Detail_Camera_57569" = "请在系统偏好设置下的安全性与隐私中为 Zoom 启用摄像头访问";
-"LN_Alert_Auth_Detail_Mic_57569" = "请在系统偏好设置下的安全性与隐私中为 Zoom 启用麦克风访问";
-"LN_Toolbar_Video_Warning_Tooltip_57569" = "请在系统偏好设置下的安全性与隐私中为 Zoom 启用摄像头访问";
-"LN_Toolbar_Audio_Warning_Tooltip_57569" = "请在系统偏好设置下的安全性与隐私中为 Zoom 启用麦克风访问";
+"LN_Alert_Auth_Detail_Camera&Mic_57569" = "请在系统偏好设置下的安全性与隐私中为 惠博云 启用摄像头和麦克风访问。";
+"LN_Alert_Auth_Detail_Camera_57569" = "请在系统偏好设置下的安全性与隐私中为 惠博云 启用摄像头访问";
+"LN_Alert_Auth_Detail_Mic_57569" = "请在系统偏好设置下的安全性与隐私中为 惠博云 启用麦克风访问";
+"LN_Toolbar_Video_Warning_Tooltip_57569" = "请在系统偏好设置下的安全性与隐私中为 惠博云 启用摄像头访问";
+"LN_Toolbar_Audio_Warning_Tooltip_57569" = "请在系统偏好设置下的安全性与隐私中为 惠博云 启用麦克风访问";
 "Options are not available when multiple people can share at the same time" = "当多人可以同时共享时，选项不可用";
 
